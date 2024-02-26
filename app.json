@@ -7,7 +7,9 @@
       "**/*"
     ],
     "android": {
-      "package": "com.shibli.MyReactNative"
+      "package": "com.shibli.MyReactNative",
+     
+
     },
     "ios": {
       "bundleIdentifier": "com.shibli.MyReactNative"
