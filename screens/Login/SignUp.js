@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
 import { TextInput } from "react-native-paper";
+import CheckBox from "@react-native-community/checkbox";
+
 import {
   StyleSheet,
   Text,
@@ -18,6 +20,8 @@ import facebook from "../../assets/facebook.png";
 import Loading from "../../assets/Loading_icon.gif";
 import Toast from "react-native-toast-message";
 import ApiCall from "../../Services/ApiCall";
+const arrow_back=require('../../assets/arrow_back.png')
+
 
 const SignUp = ({ navigation }) => {
   const [state, setState] = useState({
@@ -86,37 +90,31 @@ const SignUp = ({ navigation }) => {
   }, []);
 
   return (
-    <ScrollView keyboardDismissMode={"on-drag"} style={appStyle.body}>
+    <View style={appStyle.body}>
       <View>
+      <TouchableOpacity onPress={() =>navigation.navigate('StartLogin')}>
+        <Image style={appStyle.arrowbacklogin}  source={arrow_back}   />
+        </TouchableOpacity>
         <Toast />
-        <Text style={signUpStyle.welcome}>Create your Account</Text>
+        <Text style={signUpStyle.welcome}>Create your{"\n"}Account</Text>
+    
         <View style={appStyle.cardContainer}>
-          <TextInput
-            mode="outlined"
-            theme={{
-              colors: { primary: "black", underlineColor: "transparent" },
-            }}
-            style={appStyle.inputSearch}
-            onChange={(e) => handleState(e, "name")}
-            placeholder="Name"
-          />
-        </View>
-        <View style={appStyle.cardContainer}>
-          <TextInput
-            mode="outlined"
-            theme={{
-              colors: { primary: "black", underlineColor: "transparent" },
-            }}
-            style={appStyle.inputSearch}
+           <TextInput
+             mode="outlined"
+             theme={{
+             colors: { primary: "#FFC44D", underlineColor: "transparent" },
+             }}
+            style={[appStyle.inputSearch]}
             onChange={(e) => handleState(e, "email")}
             placeholder="Email"
-          />
+          /> 
+         
         </View>
         <View style={appStyle.cardContainer}>
           <TextInput
             mode="outlined"
             theme={{
-              colors: { primary: "black", underlineColor: "transparent" },
+              colors: { primary: "#FFC44D", underlineColor: "transparent" },
             }}
             style={appStyle.inputSearch}
             secureTextEntry={true}
@@ -124,29 +122,10 @@ const SignUp = ({ navigation }) => {
             placeholder="Password"
           />
         </View>
-        <View style={appStyle.cardContainer}>
-          <TextInput
-            mode="outlined"
-            theme={{
-              colors: { primary: state.color, underlineColor: "transparent" },
-            }}
-            style={appStyle.inputSearch}
-            secureTextEntry={true}
-            onChange={(e) => handleState(e, "confirm_password")}
-            placeholder="Confirm Password"
-          />
-        </View>
-        <View style={appStyle.cardContainer}>
-          <TextInput
-            mode="outlined"
-            theme={{
-              colors: { primary: "black", underlineColor: "transparent" },
-            }}
-            style={appStyle.inputSearch}
-            onChange={(e) => handleState(e, "number")}
-            placeholder="Number"
-          />
-        </View>
+        <View style={appStyle.leftContainer}>
+            <CheckBox  />
+            <Text style={appStyle.rowLabelText}>Remember Me</Text>
+          </View>
         {!state.flag ? (
           <TouchableOpacity
             onPress={handleSubmit}
@@ -168,42 +147,51 @@ const SignUp = ({ navigation }) => {
           />
         )}
         <View style={appStyle.cardContainer}>
-          <View style={appStyle.line} />
+       
           <View>
             <Text style={signUpStyle.lineText}>or continue with</Text>
           </View>
-          <View style={appStyle.line} />
+        
         </View>
-        <View style={appStyle.cardContainer}>
+        <View style={appStyle.iContainer}>
           <TouchableOpacity style={signUpStyle.appButtonSoical}>
-            <View style={appStyle.leftContainer}>
               <Image style={appStyle.google} source={apple} />
-            </View>
+            
           </TouchableOpacity>
           <TouchableOpacity style={signUpStyle.appButtonSoical}>
-            <View style={signUpStyle.centerContainer}>
               <Image style={appStyle.google} source={google} />
-            </View>
+            
           </TouchableOpacity>
           <TouchableOpacity style={signUpStyle.appButtonSoical}>
-            <View style={signUpStyle.centerContainer}>
+            
               <Image style={appStyle.google} source={facebook} />
-            </View>
+            
           </TouchableOpacity>
         </View>
         <View style={appStyle.cardContainer}>
-          <Text style={appStyle.signUp}>Have account? </Text>
+          <Text style={appStyle.signUp}>Already have an Account? </Text>
           <Text
             onPress={() => navigation.navigate("Login")}
-            style={appStyle.signUpText}
+            style={Style.TextContainer}
           >
-            {" "}
-            Sign In
+            Login
           </Text>
         </View>
       </View>
-    </ScrollView>
+    </View>
   );
 };
 
 export default SignUp;
+const Style=StyleSheet.create({
+TextContainer:{
+  color:'#FFC44D',
+      fontWeight:'bold',
+      fontSize:15,
+       fontFamily: 'Inter',
+      left:70,
+      
+}
+
+
+ })

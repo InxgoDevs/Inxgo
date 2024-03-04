@@ -4,6 +4,8 @@ import { About,Notification,TermsConditions,CommunityGuidelines,Country,Menu,Hom
 import {component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+
+import Index from '../screens/Login/Index';
 const Tab = createBottomTabNavigator();
 const Tabs=(props)=>{
 	const [users,setUsers] = useState([]);
@@ -44,6 +46,13 @@ return(
 	  <Tab.Screen name="TermsConditions" component={TermsConditions} options={options} />
 	  <Tab.Screen name="Notification" component={Notification} options={options} />
 	  <Tab.Screen name="About" component={About} options={options} />
+	  <Tab.Screen name="Index" component={Index} options={options} />
+	 
+
+
+
+
+	  
     </Tab.Navigator>
     )
 }

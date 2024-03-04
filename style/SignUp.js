@@ -1,5 +1,12 @@
 
 import { StyleSheet } from "react-native";
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
+import { scale, verticalScale, moderateScale } from 'react-native-size-matters';
+
 
 const appStyle =StyleSheet.create({
    leftContainerPromotion:
@@ -9,13 +16,23 @@ const appStyle =StyleSheet.create({
       }, 
       welcome:
       {
-        marginTop:150,
+        marginTop:verticalScale(90),
         fontSize:40,
-        alignSelf: "center",
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontWeight: "bold",
+        //alignSelf: "center",
+       // justifyContent: 'center',
+       // alignItems: 'flex-start',
+        fontWeight: "600",
         marginBottom:20,  
+        marginLeft:25,
+      },
+      welcomeF:{
+        fontSize:20,
+        fontWeight:'500',
+        //left:10,
+        //marginBottom:20,
+
+
+
       },
       appButtonSoical: {
         width:"90%",
@@ -30,28 +47,32 @@ const appStyle =StyleSheet.create({
          justifyContent: 'center',
       },
     lineText:{
-      width: 130,
-      textAlign: 'center'
-    },
+     alignSelf:'center', 
+     top:15,
+
+  },
     centerContainer:{
         flex: 1,
-        justifyContent: 'center',
-        alignItems:'center',
+        justifyContent:'space-between',
+        //backgroundColor:'green',
+       // alignItems:'center',
         flexDirection: 'row',
         width:'100%',
       },
       appButtonSoical: {
         width:"30%",
+        
         alignSelf: 'center',
-        borderWidth: 1,
+        borderWidth:1,
         borderColor: "#E8ECF1",
         borderRadius: 4,
         paddingVertical: 10,
         paddingHorizontal: 12,
         // marginTop:5,
-        marginLeft:10,
+        marginLeft:5,
          height:57,
          justifyContent: 'center',
+         alignItems:'center'
       },
 
 })

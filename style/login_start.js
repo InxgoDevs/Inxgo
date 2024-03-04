@@ -1,10 +1,18 @@
 
 import { StyleSheet } from "react-native";
+import {
+  responsiveHeight,
+  responsiveWidth,
+  responsiveFontSize
+} from "react-native-responsive-dimensions";
 
 const appStyle =StyleSheet.create({
   body:
   {
-    backgroundColor:'white',
+    backgroundColor:'#FAFAFA',
+  //  height:responsiveHeight(100),
+    width:responsiveWidth(100),
+    flex:1,
   },
     bgRoundedWhite: {
         width: "90%",
@@ -34,24 +42,52 @@ const appStyle =StyleSheet.create({
         alignItems: 'center'  
       },
       cardContainer: {
-        width: "90%",
-        height:70,
-        // backgroundColor: "#FFFF",
-        flexDirection: 'row',
-        marginTop: 5,
+        width:responsiveWidth(90),
+        height:responsiveHeight(10),
+     // backgroundColor:'orange',
+       // flexDirection: 'row',
+        marginTop: 10,
         alignSelf: "center",
         justifyContent: 'center',
         alignItems: 'center',
+        
      
       },
+      iContainer:{
+        width:responsiveWidth(100),
+        height:responsiveHeight(10),
+       //backgroundColor:'green',
+       flexDirection: 'row',
+        marginTop: 10,
+        alignSelf: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
+
+
+      },
+      cardContainerLs:{
+      width:responsiveWidth(100),
+        height:responsiveHeight(20),
+        
+       // backgroundColor:'blue',
+       // flexDirection: 'row',
+     
+        alignSelf: "center",
+        justifyContent: 'center',
+        
+        alignItems: 'center',
+        
+      
+      },
+      
        smallRounderContainer:{
         width: "90%",
-        // backgroundColor: "#FFC44D",
+        //backgroundColor: "#FFC44D",
         borderColor:'#FFC44D',
         padding: 10,
-        height:129,
+        height:responsiveHeight(13),
         // elevation: 2,
-        borderWidth:2,
+        borderWidth:1,
         borderRadius: 10,
         flexDirection: 'row',
         marginTop: 10,
@@ -89,10 +125,11 @@ const appStyle =StyleSheet.create({
       rightContainerForget:{
           width:'50%',
           position: 'absolute',
-          height:80,
+          height:responsiveHeight(8),
           alignSelf: "center",
         justifyContent: 'center',
         alignItems: 'center',
+       // backgroundColor:'red',
         bottom:0,
           // top:10,
           // right:30,
@@ -146,112 +183,171 @@ const appStyle =StyleSheet.create({
         alignSelf: 'center',
       },
       inputSearch: {
-        width: "100%",
-        backgroundColor:'white',
-        zIndex: 0, // Ensure border has z-index of 0
+        width: responsiveWidth(90),
+    
+        
+        
+      //borderWidth:.5,
+      
+        
+       zIndex: 0, // Ensure border has z-index of 0
+        margin:10,
       },
       welcome:
       {
-        fontSize:40,
+        fontSize:32,
         alignSelf: "center",
         justifyContent: 'center',
         alignItems: 'center',
-         fontWeight: "bold",
+         fontWeight:'600',
          marginBottom:20,  
       },
       logo:
       {
-        marginTop:20,
+        marginTop:50,
         alignSelf: 'center',
-        width: 300, 
-        height: 250,
-        resizeMode: 'stretch' 
+        width:responsiveWidth(100),  
+        height:responsiveHeight(30),
+        resizeMode: 'contain', 
+       
+        
+      },
+      arrow_backF:
+      {
+        top:6,
+        marginRight:20,
+      } ,
+      arrowbacklogin:{
+        top:70,
+        left:25,
+       // marginRight:20,
+      },
+      logoF:{
+        alignSelf: 'center',
+        width:responsiveWidth(100),  
+        justifyContent:'center',
+        bottom:15,
+        
+    
+        height:responsiveHeight(25),
+        resizeMode: 'contain', 
       },
       google:
       {
-        width: 23, 
-        height: 23 
+        width: 34, 
+        height:32, 
+        
+        
+        
       },
+      
       signIn:
       {
         width: "90%",
         padding:10,
       },
       appButtonContainer: {
-        width:"90%",
+        width:responsiveWidth(80),
         alignSelf: 'center',
         backgroundColor: "#FFC44D",
-        borderRadius: 5,
+        borderRadius:20,
         paddingVertical: 10,
         paddingHorizontal: 12,
-        marginTop:10,
+        marginTop:20,
       },
       appButtonText: {
-        fontSize: 18,
+        fontSize: 14,
         color: "black",
-        fontWeight: "bold",
         alignSelf: "center",
-        textTransform: "uppercase",
+        //textTransform: "uppercase",
         fontFamily: 'Inter'
        
       },
       appButtonTextSoical: {
         fontSize: 14,
+        paddingHorizontal:5,
         color: "#101828",
-        fontWeight: "bold",
-        alignSelf: "center",
-        textTransform: "uppercase"
+        fontWeight: "600",
+        textAlign:'center',
+        //textTransform: "uppercase"
       },
       appButtonSoical: {
-        width:"90%",
+        width:responsiveWidth(80),
+        flexDirection:"row",
         alignSelf: 'center',
-        borderWidth: 1,
-        borderColor: "black",
-        // borderRadius: 20,
-        paddingVertical: 10,
+        borderWidth:.5,
+        borderColor: "#CCCCCC",
+         borderRadius:30,
         paddingHorizontal: 12,
-        marginTop:10,
-         height:57,
+        marginTop:13,
+         height:responsiveHeight(6.5),
          justifyContent: 'center',
+         top:5
       },
       leftContainer:{
-        flex: 1,
+        
         justifyContent: 'center',
+       // backgroundColor:'purple',
         alignItems:'center',
         flexDirection: 'row',
-        width:'100%',
-        marginRight:"5%",
+        
+        width:responsiveWidth(100),
+        height:responsiveHeight(5),
+       // marginRight:"5%",
       },
     rightContainer:{
-      flex: 1,
+      
       justifyContent: 'center',
       alignItems: 'flex-end',
       width:'100%',
       marginRight:"3%",
     },
     rowLabelText: {
-      fontSize: 16.0,
+    fontSize:14,
+   // marginRight:20,
+    
+   
+
+    },
+    ForgetTxt:{
+      fontSize:16,
+      paddingHorizontal:10,
+      left:15,
     },
     line:{
-      flex: 1,
-      height: 1,
-      backgroundColor: 'black'
+      height:1,
+     backgroundColor: 'gray'
+
     },
+    remember:{
+      //height:80,
+      width:100,
+      
+    },
+     
+    
     lineText:{
       width: 50,
-      textAlign: 'center'
+      textAlign: 'center',
+      fontWeight:'bold'
     },
     signUp:{
-       fontWeight:'bold',
-      fontSize:15,
-       fontFamily: 'Inter'
+       fontWeight:'600',
+       color:'#FFC44D',
+      fontSize:13,
+       fontFamily: 'Inter',
+top:20, 
+right:30,
+
     },
     signUpText:
     {
       color:'#FFC44D',
       fontWeight:'bold',
-      fontSize:15,
-       fontFamily: 'Inter'
+      fontSize:16,
+       fontFamily: 'Inter',
+      left:60,
+    
     }
 
 

@@ -18,11 +18,14 @@ import ApiCall from "../../Services/ApiCall";
 import { SvgUri, SvgXml } from "react-native-svg";
 import { NavigationContainer } from "@react-navigation/native";
 import Toast from "react-native-toast-message";
+import { responsiveHeight } from "react-native-responsive-dimensions";
 const logo = require("../../assets/logo.png");
-const apple = require("../../assets/apple.png");
+const apple = require("../../assets/svg/Linkedin.png");
 const google = require("../../assets/google.png");
 const facebook = require("../../assets/facebook.png");
 const Loading = require("../../assets/Loading_icon.gif");
+const arrow_back = require("../../assets/arrow_back.png");
+const blind = require("../../assets/Blind.png");
 
 const Index = ({ navigation }) => {
   const [email, setEmail] = useState("");
@@ -30,6 +33,7 @@ const Index = ({ navigation }) => {
   const [flag, setFlag] = useState(false);
   const [isLogin, setIsLogin] = useState(false);
   const [errorEmail, setErrorEmail] = useState("");
+  const [passwordHidden, setPasswordHidden] = useState(false);
 
   const handleEmail = (text) => {
     setEmail(text);
@@ -74,39 +78,62 @@ const Index = ({ navigation }) => {
   };
 
   return (
-    <ScrollView keyboardDismissMode={"on-drag"} style={appStyle.body}>
-      <View>
-        <Toast />
-        <Text style={signUpStyle.welcome}>Login to Your Account</Text>
-        <View style={appStyle.cardContainer}>
-          <TextInput
-            mode="outlined"
-            theme={{
-              colors: { primary: "black", underlineColor: "transparent" },
-            }}
-            style={appStyle.inputSearch}
-            onChangeText={handleEmail}
-            placeholder="Email"
-          ></TextInput>
-        </View>
-        <View style={appStyle.cardContainer}>
-          <TextInput
-            secureTextEntry={true}
-            mode="outlined"
-            theme={{
-              colors: { primary: "black", underlineColor: "transparent" },
-            }}
-            style={appStyle.inputSearch}
-            onChangeText={handlePassword}
-            placeholder="Password"
-          ></TextInput>
-        </View>
-        <View style={appStyle.cardContainer}>
-          <View style={appStyle.leftContainer}>
-            <CheckBox style={appStyle.remember} />
-            <Text style={appStyle.rowLabelText}>Remember Me</Text>
-          </View>
-        </View>
+    <View style={appStyle.body}>
+      <TouchableOpacity onPress={() => navigation.navigate("StartLogin")}>
+        <Image style={appStyle.arrowbacklogin} source={arrow_back} />
+      </TouchableOpacity>
+      <Toast />
+      <View
+        style={{ height: responsiveHeight(30), width: responsiveHeight(100) }}
+      >
+        <Text style={signUpStyle.welcome}>Login to Your{"\n"}Account</Text>
+      </View>
+      <View style={appStyle.cardContainerLs}>
+        <TextInput
+          mode="outlined"
+          theme={{
+            colors: { primary: "black", underlineColor: "transparent" },
+          }}
+          style={appStyle.inputSearch}
+          onChangeText={handleEmail}
+          placeholder="Email"
+        ></TextInput>
+
+        <TextInput
+          secureTextEntry={true} // Toggle this state to show/hide password           
+           mode="outlined"
+          theme={{
+            colors: { primary: "black", underlineColor: "transparent" },
+          }}
+          style={appStyle.inputSearch}
+          onChangeText={handlePassword}
+          placeholder="Password"
+        >
+
+        </TextInput>
+        
+        <TouchableOpacity
+            style={{ position: "absolute", right: 10, top: 12 }} // Adjust position as needed
+            onPress={() => setPasswordHidden(!passwordHidden)} // Toggle the state to show/hide password
+          >
+            <Image source={blind} style={{ width: 20, height: 20,top:110,right:25,    position: 'absolute',
+}} />
+          </TouchableOpacity>
+      </View>
+      <View style={{ height: responsiveHeight(5) }}>
+        <Text
+          onPress={() => navigation.navigate("Forget")}
+          style={[{ color: "#FFC44D", marginLeft: 25, fontSize: 14 }]}
+        >
+          Forget the password?
+        </Text>
+      </View>
+
+      <View style={appStyle.leftContainer}>
+        <CheckBox />
+        <Text style={appStyle.rowLabelText}>Remember Me</Text>
+      </View>
+      <View style={{ height: responsiveHeight(10) }}>
         {!flag ? (
           <TouchableOpacity
             onPress={handleSubmit}
@@ -127,52 +154,34 @@ const Index = ({ navigation }) => {
             source={Loading}
           />
         )}
-        <View style={appStyle.cardContainer}>
-          <View style={appStyle.leftContainer}>
-            <Text
-              onPress={() => navigation.navigate("Forget")}
-              style={[appStyle.rowLabelText, { color: "#FFC44D", left: 10 }]}
-            >
-              Forget the password?
-            </Text>
-          </View>
-        </View>
-        <View style={appStyle.cardContainer}>
-          <View style={appStyle.line} />
-          <View>
-            <Text style={signUpStyle.lineText}>or continue with</Text>
-          </View>
-          <View style={appStyle.line} />
-        </View>
-        <View style={appStyle.cardContainer}>
-          <TouchableOpacity style={signUpStyle.appButtonSoical}>
-            <View style={appStyle.leftContainer}>
-              <Image style={appStyle.google} source={apple} />
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={signUpStyle.appButtonSoical}>
-            <View style={signUpStyle.centerContainer}>
-              <Image style={appStyle.google} source={google} />
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={signUpStyle.appButtonSoical}>
-            <View style={signUpStyle.centerContainer}>
-              <Image style={appStyle.google} source={facebook} />
-            </View>
-          </TouchableOpacity>
-        </View>
-        <View style={appStyle.cardContainer}>
-          <Text style={appStyle.signUp}>Don’t have account? </Text>
-          <Text
-            onPress={() => navigation.navigate("SignUp")}
-            style={appStyle.signUpText}
-          >
-            {" "}
-            Sign Up
-          </Text>
-        </View>
       </View>
-    </ScrollView>
+
+      <View style={{ height: responsiveHeight(5) }}>
+        <Text style={signUpStyle.lineText}>or continue with</Text>
+      </View>
+
+      <View style={appStyle.iContainer}>
+        <TouchableOpacity style={signUpStyle.appButtonSoical}>
+          <Image style={appStyle.google} source={apple} />
+        </TouchableOpacity>
+        <TouchableOpacity style={signUpStyle.appButtonSoical}>
+          <Image style={appStyle.google} source={google} />
+        </TouchableOpacity>
+        <TouchableOpacity style={signUpStyle.appButtonSoical}>
+          <Image style={appStyle.google} source={facebook} />
+        </TouchableOpacity>
+      </View>
+      <View style={{ height: responsiveHeight(15), alignItems: "center" }}>
+        <Text style={appStyle.signUp}>Don’t have account? </Text>
+        <Text
+          onPress={() => navigation.navigate("SignUp")}
+          style={appStyle.signUpText}
+        >
+          {" "}
+          Sign Up
+        </Text>
+      </View>
+    </View>
   );
 };
 
