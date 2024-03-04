@@ -27,7 +27,7 @@ const Loading = require("../../assets/Loading_icon.gif");
 const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");
 
-const Index = ({ navigation }) => {
+const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [flag, setFlag] = useState(false);

@@ -7,6 +7,7 @@ import rightarrow from "../../assets/rightarrow.png";
 import circle from "../../assets/icons/circle.png";
 import location from "../../assets/icons/location.png";
 import hrs from "../../assets/icons/hrs.png";
+import { NavigationContainer } from "@react-navigation/native";
 
 const Complete = ({ navigation }) => {
   const detailJob = async (path) => {
