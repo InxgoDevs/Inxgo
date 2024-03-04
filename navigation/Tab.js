@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 import React,{useState,useEffect } from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { About,Notification,TermsConditions,CommunityGuidelines,Country,Menu,Home,Messages,Login,Start,StartLogin,SignUp,Forget,Profile,Wallet,Payment,PaymentAdd,Booking,Detail } from '../screens';
