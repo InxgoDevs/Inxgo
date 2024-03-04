@@ -1,60 +1,3 @@
-
-import React,{useState,useEffect } from 'react';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { About,Notification,TermsConditions,CommunityGuidelines,Country,Menu,Home,Messages,Login,Start,StartLogin,SignUp,Forget,Profile,Wallet,Payment,PaymentAdd,Booking,Detail } from '../screens';
-import {component, Alert, View, StyleSheet, Button } from "react-native";
-import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-
-import Index from '../screens/Login/Index';
-const Tab = createBottomTabNavigator();
-const Tabs=(props)=>{
-	const [users,setUsers] = useState([]);
-	useEffect(() => {
-		const asyncFetchDailyData = async () => {
-	    	var isLogin=await AsyncStorage.getItem('isLogin');
-  			if(isLogin)
-  			{
-  				await setUsers(true);
-  			}
-  			else
-  			{
-  				await setUsers(false);
-  			}
-	  	}
-		asyncFetchDailyData();
-	}, [users]);
-	const options={ headerShown: false,tabBarStyle: { display: "none" } };
-	console.log(users);
-return(
-    <Tab.Navigator {...{initialRouteName: !users ?'Home':'Start' }}>
-	  <Tab.Screen name="Profile" component={Profile} options={options} />
-	  <Tab.Screen name="SignUp" component={SignUp} options={options} />
-	  <Tab.Screen name="Home" component={Home} options={options} />
-	  <Tab.Screen name="Start" component={Start} options={options} />
-	  <Tab.Screen name="StartLogin" component={StartLogin} options={options} />
-	  <Tab.Screen name="Login" component={Login} options={options} />
-	  <Tab.Screen name="Messages" component={Messages} options={options} />
-	  <Tab.Screen name="Forget" component={Forget} options={options} />
-	  <Tab.Screen name="Wallet" component={Wallet} options={options} />
-	  <Tab.Screen name="Payment" component={Payment} options={options} />
-	  <Tab.Screen name="PaymentAdd" component={PaymentAdd} options={options} />
-	  <Tab.Screen name="Booking" component={Booking} options={options} />
-	  <Tab.Screen name="Detail" component={Detail} options={options} />
-	  <Tab.Screen name="Menu" component={Menu} options={options} />
-	  <Tab.Screen name="Country" component={Country} options={options} />
-	  <Tab.Screen name="CommunityGuidelines" component={CommunityGuidelines} options={options} />
-	  <Tab.Screen name="TermsConditions" component={TermsConditions} options={options} />
-	  <Tab.Screen name="Notification" component={Notification} options={options} />
-	  <Tab.Screen name="About" component={About} options={options} />
-	  <Tab.Screen name="Index" component={Index} options={options} />
-	 
-
-
-
-
-	  
-=======
 import React, { useState, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import {
@@ -81,9 +24,12 @@ import {
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
 const Tab = createBottomTabNavigator();
+
 const Tabs = (props) => {
   const [users, setUsers] = useState([]);
+
   useEffect(() => {
     const asyncFetchDailyData = async () => {
       var isLogin = await AsyncStorage.getItem("isLogin");
@@ -95,43 +41,34 @@ const Tabs = (props) => {
     };
     asyncFetchDailyData();
   }, [users]);
+
   const options = { headerShown: false, tabBarStyle: { display: "none" } };
-  console.log(users);
+
   return (
-    <Tab.Navigator {...{ initialRouteName: !users ? "SignUp" : "SignUp" }}>
-      <Tab.Screen name="Profile" component={Profile} options={options} />
-      <Tab.Screen name="SignUp" component={SignUp} options={options} />
-      <Tab.Screen name="Home" component={Home} options={options} />
-      <Tab.Screen name="Start" component={Start} options={options} />
-      <Tab.Screen name="StartLogin" component={StartLogin} options={options} />
-      {/* <Tab.Screen name="Login" component={Login} options={options} /> */}
-      <Tab.Screen name="Messages" component={Messages} options={options} />
-      <Tab.Screen name="Forget" component={Forget} options={options} />
-      <Tab.Screen name="Wallet" component={Wallet} options={options} />
-      <Tab.Screen name="Payment" component={Payment} options={options} />
-      <Tab.Screen name="PaymentAdd" component={PaymentAdd} options={options} />
-      <Tab.Screen name="Booking" component={Booking} options={options} />
-      <Tab.Screen name="Detail" component={Detail} options={options} />
-      <Tab.Screen name="Menu" component={Menu} options={options} />
-      <Tab.Screen name="Country" component={Country} options={options} />
-      <Tab.Screen
-        name="CommunityGuidelines"
-        component={CommunityGuidelines}
-        options={options}
-      />
-      <Tab.Screen
-        name="TermsConditions"
-        component={TermsConditions}
-        options={options}
-      />
-      <Tab.Screen
-        name="Notification"
-        component={Notification}
-        options={options}
-      />
-      <Tab.Screen name="About" component={About} options={options} />
->>>>>>> 136c46707a28843dc4ac2c6774239ace10755384
+    <Tab.Navigator
+      initialRouteName={!users ? "Home" : "Start"}
+      screenOptions={options}
+    >
+      <Tab.Screen name="Profile" component={Profile} />
+      <Tab.Screen name="SignUp" component={SignUp} />
+      <Tab.Screen name="Home" component={Home} />
+      <Tab.Screen name="Start" component={Start} />
+      <Tab.Screen name="StartLogin" component={StartLogin} />
+      <Tab.Screen name="Messages" component={Messages} />
+      <Tab.Screen name="Forget" component={Forget} />
+      <Tab.Screen name="Wallet" component={Wallet} />
+      <Tab.Screen name="Payment" component={Payment} />
+      <Tab.Screen name="PaymentAdd" component={PaymentAdd} />
+      <Tab.Screen name="Booking" component={Booking} />
+      <Tab.Screen name="Detail" component={Detail} />
+      <Tab.Screen name="Menu" component={Menu} />
+      <Tab.Screen name="Country" component={Country} />
+      <Tab.Screen name="CommunityGuidelines" component={CommunityGuidelines} />
+      <Tab.Screen name="TermsConditions" component={TermsConditions} />
+      <Tab.Screen name="Notification" component={Notification} />
+      <Tab.Screen name="About" component={About} />
     </Tab.Navigator>
   );
 };
+
 export default Tabs;
