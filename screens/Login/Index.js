@@ -24,7 +24,7 @@ const google = require("../../assets/google.png");
 const facebook = require("../../assets/facebook.png");
 const Loading = require("../../assets/Loading_icon.gif");
 
-const Index = ({ navigation }) => {
+const Index = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [flag, setFlag] = useState(false);
