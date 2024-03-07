@@ -6,7 +6,7 @@ import { useNavigation } from "@react-navigation/native"; // Import the necessar
 
 const AnimatedLottieView = Animated.createAnimatedComponent(LottieView);
 
-const Animation = ({
+const AnimatedSplashScreen = ({
   onAnimationFinish = (isCancelled: boolean) => {},
 }: {
   onAnimationFinish?: (isCancelled: boolean) => void;
@@ -47,4 +47,4 @@ const Animation = ({
   );
 };
 
-export default Animation;
+export default AnimatedSplashScreen;
