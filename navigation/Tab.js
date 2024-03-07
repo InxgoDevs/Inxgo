@@ -20,6 +20,8 @@ import {
   PaymentAdd,
   Booking,
   Detail,
+  SplashScreen,
+  Onboarding,
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -46,13 +48,15 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Start"}
+      initialRouteName={!users ? "StartLogin" : "SplashScreen"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="SignUp" component={SignUp} />
       <Tab.Screen name="Home" component={Home} />
       <Tab.Screen name="Start" component={Start} />
+      <Tab.Screen name="Onboarding" component={Start} />
+
       <Tab.Screen name="StartLogin" component={StartLogin} />
       <Tab.Screen name="Messages" component={Messages} />
       <Tab.Screen name="Forget" component={Forget} />
@@ -67,6 +71,7 @@ const Tabs = (props) => {
       <Tab.Screen name="TermsConditions" component={TermsConditions} />
       <Tab.Screen name="Notification" component={Notification} />
       <Tab.Screen name="About" component={About} />
+      <Tab.Screen name="SplashScreen" component={SplashScreen} />
     </Tab.Navigator>
   );
 };
