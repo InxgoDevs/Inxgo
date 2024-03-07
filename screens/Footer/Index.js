@@ -21,11 +21,11 @@ const Index = ({ navigation, flag }) => {
         onPress={() => footerMenu("Home")}
       >
         <View>
-          <SvgUri
+          {/* <SvgUri
             fill={flag == "Home" ? "#FFC44D" : "black"}
             style={appStyle.image}
             source={{ uri: MyGlobleSetting.state.svgUrl + "home.svg" }}
-          />
+          /> */}
           <Text
             style={[
               appStyle.text,
@@ -41,11 +41,11 @@ const Index = ({ navigation, flag }) => {
         onPress={() => footerMenu("Booking")}
       >
         <View>
-          <SvgUri
+          {/* <SvgUri
             style={appStyle.image}
             fill={flag == "Work" ? "#FFC44D" : "black"}
             source={{ uri: MyGlobleSetting.state.svgUrl + "workSvg.svg" }}
-          />
+          /> */}
           <Text
             style={[
               appStyle.text,
@@ -77,11 +77,11 @@ const Index = ({ navigation, flag }) => {
         onPress={() => footerMenu("Wallet")}
       >
         <View>
-          <SvgUri
+          {/* <SvgUri
             style={appStyle.image}
             fill={flag == "Wallet" ? "#FFC44D" : "black"}
             source={{ uri: MyGlobleSetting.state.svgUrl + "wallet.svg" }}
-          />
+          /> */}
           <Text
             style={[
               appStyle.text,
@@ -97,11 +97,11 @@ const Index = ({ navigation, flag }) => {
         onPress={() => footerMenu("Menu")}
       >
         <View>
-          <SvgUri
+          {/* <SvgUri
             style={appStyle.image}
             fill={flag == "Profile" ? "#FFC44D" : "black"}
             source={{ uri: MyGlobleSetting.state.svgUrl + "accountcircle.svg" }}
-          />
+          /> */}
           <Text
             style={[
               appStyle.text,

@@ -21,3 +21,6 @@ export { default as SplashScreen } from "./SplashScreen/index";
 export { default as IntroScreen01 } from "./Onboarding/IntroScreen01";
 export { default as IntroScreen02 } from "./Onboarding/IntroScreen02";
 export { default as LogInScreen } from "./Onboarding/LogInScreen";
+export { default as Pending } from "./Notification/Pending";
+export { default as Application } from "./Notification/Application";
+export { default as General } from "./Notification/General";

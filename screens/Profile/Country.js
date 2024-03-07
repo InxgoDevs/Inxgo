@@ -132,16 +132,12 @@ const Country = ({ navigation }) => {
                 }}
                 style={[profile.countrySearch, { paddingLeft: "15%" }]}
                 placeholderStyle={{ paddingLeft: 50 }}
-                onChange={handlePassword}
                 placeholder={filteredData[i]["name"]}
               />
             </View>
           ))}
         {flag ? (
-          <TouchableOpacity
-            onPress={handleSubmit}
-            style={profile.appButtonContainer}
-          >
+          <TouchableOpacity style={profile.appButtonContainer}>
             <Text style={appStyle.appButtonText}>Continue</Text>
           </TouchableOpacity>
         ) : (

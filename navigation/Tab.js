@@ -25,6 +25,9 @@ import {
   IntroScreen01,
   IntroScreen02,
   LogInScreen,
+  Pending,
+  Application,
+  General,
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -76,6 +79,9 @@ const Tabs = (props) => {
       <Tab.Screen name="Onboarding1" component={IntroScreen01} />
       <Tab.Screen name="Onboarding2" component={IntroScreen02} />
       <Tab.Screen name="Onboarding3" component={LogInScreen} />
+      <Tab.Screen name="Pending" component={Pending} />
+      <Tab.Screen name="Application" component={Application} />
+      <Tab.Screen name="General" component={General} />
     </Tab.Navigator>
   );
 };

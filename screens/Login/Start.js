@@ -30,105 +30,101 @@ const Start = ({ navigation }) => {
   }, []);
 
   return (
-    <View style={{ flex: 1 }}
-    >
-      
-<View >
-<View style={{ height:responsiveHeight(45)}}>
-<Image style={appStyle.logo} source={login} />
+    <View style={{ flex: 1 }}>
+      <View>
+        <View style={{ height: responsiveHeight(45) }}>
+          <Image style={appStyle.logo} source={login} />
 
-<Text style={appStyle.welcome}>Let's get you in</Text>
-</View>
-       <View style={{height:responsiveHeight(45)}}>
-
-
-        <TouchableOpacity style={appStyle.appButtonSoical}>
-          <View
-            style={{
-              width: responsiveWidth(70),
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Image style={appStyle.google} source={google} />
-            <Text style={appStyle.appButtonTextSoical}>
-              Continue with Google
-            </Text>
-          </View>
-            </TouchableOpacity>
-
-        <TouchableOpacity style={appStyle.appButtonSoical}>
-          <View
-            style={{
-              width: responsiveWidth(70),
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            <Image style={appStyle.google} source={apple} />
-            <Text style={appStyle.appButtonTextSoical}>
-              Continue with Facebook
-            </Text>
-          </View>
-        </TouchableOpacity>
-        <TouchableOpacity style={appStyle.appButtonSoical}>
-          <View  style={{
-              width: responsiveWidth(70),
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-            }}>
-            <Image style={appStyle.google} source={facebook} />
-
-            <Text style={appStyle.appButtonTextSoical}>
-              Continue with LinkedIn
-            </Text>
-          </View>
-        </TouchableOpacity>
-        <View style={appStyle.cardContainer}>
-          <View style={appStyle.line} />
-          <View>
-            <Text style={appStyle.lineText}>Or</Text>
-          </View>
-          <View style={appStyle.line} />
+          <Text style={appStyle.welcome}>Let's get you in</Text>
         </View>
-        <TouchableOpacity
-          onPress={() => navigation.navigate("Login")}
-          style={appStyle.appButtonContainer}
-        >
-          <Text style={appStyle.appButtonText}>Login in with Email</Text>
-        </TouchableOpacity>
+        <View style={{ height: responsiveHeight(45) }}>
+          <TouchableOpacity style={appStyle.appButtonSoical}>
+            <View
+              style={{
+                width: responsiveWidth(70),
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image style={appStyle.google} source={google} />
+              <Text style={appStyle.appButtonTextSoical}>
+                Continue with Google
+              </Text>
+            </View>
+          </TouchableOpacity>
+
+          <TouchableOpacity style={appStyle.appButtonSoical}>
+            <View
+              style={{
+                width: responsiveWidth(70),
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image style={appStyle.google} source={apple} />
+              <Text style={appStyle.appButtonTextSoical}>
+                Continue with Facebook
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={appStyle.appButtonSoical}>
+            <View
+              style={{
+                width: responsiveWidth(70),
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <Image style={appStyle.google} source={facebook} />
+
+              <Text style={appStyle.appButtonTextSoical}>
+                Continue with LinkedIn
+              </Text>
+            </View>
+          </TouchableOpacity>
+          <View style={appStyle.cardContainer}>
+            <View style={appStyle.line} />
+            <View>
+              <Text style={appStyle.lineText}>Or</Text>
+            </View>
+            <View style={appStyle.line} />
+          </View>
+          <TouchableOpacity
+            onPress={() => navigation.navigate("Login")}
+            style={appStyle.appButtonContainer}
+          >
+            <Text style={appStyle.appButtonText}>Login in with Email</Text>
+          </TouchableOpacity>
         </View>
 
         <View style={appStyle.cardContainer}>
-          <Text style={style.text1}>Skip Log in for now</Text>
+          <Text style={style.text1} onPress={() => navigation.navigate("Home")}>
+            Skip Log in for now
+          </Text>
           {/* <Text
             onPress={() => navigation.navigate("SignUp")}
             style={appStyle.signUpText}
           >
-          
             Sign Up
           </Text> */}
-          
         </View>
-        </View>
+      </View>
     </View>
-    
   );
 };
 
 export default Start;
-const style=StyleSheet.create({
-  text1:{
-    fontWeight:'600',
-    color:'#FFC44D',
-   fontSize:13,
- 
-    fontFamily: 'Inter',
-//top:20, 
-//right:30,
+const style = StyleSheet.create({
+  text1: {
+    fontWeight: "600",
+    color: "#FFC44D",
+    fontSize: 13,
 
-  }
-})
+    fontFamily: "Inter",
+    //top:20,
+    //right:30,
+  },
+});

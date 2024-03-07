@@ -21,7 +21,7 @@ const IntroScreen02 = ({ navigation }) => {
           flexDirection: "row",
         }}
       >
-        <TouchableOpacity onPress={() => navigation.replace("IntroScreen01")}>
+        <TouchableOpacity onPress={() => navigation.navigate("Onboarding1")}>
           <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
         </TouchableOpacity>
       </Animated.View>
@@ -61,7 +61,7 @@ const IntroScreen02 = ({ navigation }) => {
         >
           <PrimaryButton
             label="Next"
-            onPress={() => navigation.replace("LogInScreen")}
+            onPress={() => navigation.navigate("Onboarding3")}
           />
         </Animated.View>
       </View>

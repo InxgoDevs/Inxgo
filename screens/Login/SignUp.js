@@ -20,8 +20,7 @@ import facebook from "../../assets/facebook.png";
 import Loading from "../../assets/Loading_icon.gif";
 import Toast from "react-native-toast-message";
 import ApiCall from "../../Services/ApiCall";
-const arrow_back=require('../../assets/arrow_back.png')
-
+const arrow_back = require("../../assets/arrow_back.png");
 
 const SignUp = ({ navigation }) => {
   const [state, setState] = useState({
@@ -92,23 +91,22 @@ const SignUp = ({ navigation }) => {
   return (
     <View style={appStyle.body}>
       <View>
-      <TouchableOpacity onPress={() =>navigation.navigate('StartLogin')}>
-        <Image style={appStyle.arrowbacklogin}  source={arrow_back}   />
+        <TouchableOpacity onPress={() => navigation.navigate("Onboarding3")}>
+          <Image style={appStyle.arrowbacklogin} source={arrow_back} />
         </TouchableOpacity>
         <Toast />
         <Text style={signUpStyle.welcome}>Create your{"\n"}Account</Text>
-    
+
         <View style={appStyle.cardContainer}>
-           <TextInput
-             mode="outlined"
-             theme={{
-             colors: { primary: "#FFC44D", underlineColor: "transparent" },
-             }}
+          <TextInput
+            mode="outlined"
+            theme={{
+              colors: { primary: "#FFC44D", underlineColor: "transparent" },
+            }}
             style={[appStyle.inputSearch]}
             onChange={(e) => handleState(e, "email")}
             placeholder="Email"
-          /> 
-         
+          />
         </View>
         <View style={appStyle.cardContainer}>
           <TextInput
@@ -123,9 +121,9 @@ const SignUp = ({ navigation }) => {
           />
         </View>
         <View style={appStyle.leftContainer}>
-            <CheckBox  />
-            <Text style={appStyle.rowLabelText}>Remember Me</Text>
-          </View>
+          <CheckBox />
+          <Text style={appStyle.rowLabelText}>Remember Me</Text>
+        </View>
         {!state.flag ? (
           <TouchableOpacity
             onPress={handleSubmit}
@@ -147,25 +145,19 @@ const SignUp = ({ navigation }) => {
           />
         )}
         <View style={appStyle.cardContainer}>
-       
           <View>
             <Text style={signUpStyle.lineText}>or continue with</Text>
           </View>
-        
         </View>
         <View style={appStyle.iContainer}>
           <TouchableOpacity style={signUpStyle.appButtonSoical}>
-              <Image style={appStyle.google} source={apple} />
-            
+            <Image style={appStyle.google} source={apple} />
           </TouchableOpacity>
           <TouchableOpacity style={signUpStyle.appButtonSoical}>
-              <Image style={appStyle.google} source={google} />
-            
+            <Image style={appStyle.google} source={google} />
           </TouchableOpacity>
           <TouchableOpacity style={signUpStyle.appButtonSoical}>
-            
-              <Image style={appStyle.google} source={facebook} />
-            
+            <Image style={appStyle.google} source={facebook} />
           </TouchableOpacity>
         </View>
         <View style={appStyle.cardContainer}>
@@ -183,15 +175,12 @@ const SignUp = ({ navigation }) => {
 };
 
 export default SignUp;
-const Style=StyleSheet.create({
-TextContainer:{
-  color:'#FFC44D',
-      fontWeight:'bold',
-      fontSize:15,
-       fontFamily: 'Inter',
-      left:70,
-      
-}
-
-
- })
+const Style = StyleSheet.create({
+  TextContainer: {
+    color: "#FFC44D",
+    fontWeight: "bold",
+    fontSize: 15,
+    fontFamily: "Inter",
+    left: 70,
+  },
+});

@@ -38,7 +38,7 @@ const LogInScreen = ({ navigation }) => {
             flexDirection: "row",
           }}
         >
-          <TouchableOpacity onPress={() => navigation.replace("IntroScreen02")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Onboarding2")}>
             <Icons name="arrow-back-ios" size={24} color={theme.colors.text} />
           </TouchableOpacity>
         </Animated.View>
@@ -79,71 +79,11 @@ const LogInScreen = ({ navigation }) => {
 
           <View style={{ alignItems: "center", gap: 16, marginTop: 32 }}>
             <Animated.View
-              entering={FadeInDown.delay(200).duration(1000).springify()}
-              style={{ position: "relative", width: "100%" }}
-            >
-              <TextInput
-                placeholder="Your Email"
-                style={{
-                  fontSize: 16,
-                  fontWeight: "500",
-                  color: theme.colors.text,
-                  paddingLeft: 48,
-                  paddingRight: 12,
-                  height: 48,
-                  borderRadius: 12,
-                  backgroundColor: theme.colors.background,
-                  width: "100%",
-                }}
-              />
-              <Icons
-                name="email"
-                size={24}
-                color={theme.colors.text}
-                style={{
-                  position: "absolute",
-                  left: 12,
-                  top: 12,
-                  opacity: 0.5,
-                }}
-              />
-            </Animated.View>
-            <Animated.View
-              entering={FadeInDown.delay(400).duration(1000).springify()}
-              style={{ position: "relative", width: "100%" }}
-            >
-              <TextInput
-                placeholder="Your Password"
-                style={{
-                  fontSize: 16,
-                  fontWeight: "500",
-                  color: theme.colors.text,
-                  paddingLeft: 48,
-                  paddingRight: 12,
-                  height: 48,
-                  borderRadius: 12,
-                  backgroundColor: theme.colors.background,
-                  width: "100%",
-                }}
-              />
-              <Icons
-                name="lock"
-                size={24}
-                color={theme.colors.text}
-                style={{
-                  position: "absolute",
-                  left: 12,
-                  top: 12,
-                  opacity: 0.5,
-                }}
-              />
-            </Animated.View>
-            <Animated.View
               entering={FadeInDown.delay(600).duration(1000).springify()}
             >
               <PrimaryButton
                 label="Log In"
-                onPress={() => navigation.navigate("LogInScreen")}
+                onPress={() => navigation.navigate("StartLogin")}
               />
             </Animated.View>
           </View>

@@ -47,7 +47,7 @@ const IntroScreen01 = ({ navigation }) => {
         >
           <PrimaryButton
             label="Next"
-            onPress={() => navigation.replace("IntroScreen02")}
+            onPress={() => navigation.navigate("Onboarding2")}
           />
         </Animated.View>
       </View>
