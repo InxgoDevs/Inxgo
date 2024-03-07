@@ -83,6 +83,7 @@ const Forget = ({ navigation }) => {
             <Image style={appStyle.rightIconForget} source={email} />
           </View>
           <View style={appStyle.rightContainerForget}>
+          <TouchableOpacity  onPress={navigation.navigate('ForgotPswd')}>
             <Text
               style={{
                 width: 200,
@@ -107,6 +108,7 @@ const Forget = ({ navigation }) => {
             >
               ja****oe@yourdomain.com
             </Text>
+            </TouchableOpacity>
           </View>
           </View>
 

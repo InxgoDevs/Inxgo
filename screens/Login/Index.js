@@ -18,7 +18,7 @@ import ApiCall from "../../Services/ApiCall";
 import { SvgUri, SvgXml } from "react-native-svg";
 import { NavigationContainer } from "@react-navigation/native";
 import Toast from "react-native-toast-message";
-import { responsiveHeight } from "react-native-responsive-dimensions";
+import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 const logo = require("../../assets/logo.png");
 const apple = require("../../assets/svg/Linkedin.png");
 const google = require("../../assets/google.png");
@@ -26,104 +26,99 @@ const facebook = require("../../assets/facebook.png");
 const Loading = require("../../assets/Loading_icon.gif");
 const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");
+const openeye = require("../../assets/openeye.png");
+const lock = require("../../assets/Lock.png"); // Add lock icon
+const email=require('../../assets/Email.png')
 
-const Index = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [flag, setFlag] = useState(false);
-  const [isLogin, setIsLogin] = useState(false);
-  const [errorEmail, setErrorEmail] = useState("");
-  const [passwordHidden, setPasswordHidden] = useState(false);
+const Index = ({ navigation }) => {
+  const [state, setState] = useState({
+    color: "black",
+    name: "",
+    email: "",
+    password: "",
+    confirm_password: "",
+    number: "",
+    passwordVisible: false, // State variable to track password visibility
+  });
 
-  const handleEmail = (text) => {
-    setEmail(text);
+  const handleState = (text, key) => {
+    setState({ ...state, [key]: text });
   };
 
-  const handlePassword = (text) => {
-    setPassword(text);
-  };
+  const showToast = () => {
+    Toast.show({
+      type: 'success',
+      text1: 'SignIn Successfully',
+     // text2: 'This is some something 👋'
+    });
+  }
 
-  const handleSubmit = async () => {
-    setFlag(true);
-
-    const data = {
-      email: email,
-      password: password,
-      deviceID: "abcffdfddf",
-    };
-
-    console.log("call laravel");
-    var Bearertoken = "Bearer ";
-    AsyncStorage.setItem("Bearertoken", JSON.stringify(Bearertoken));
-    var response = await ApiCall.postAPICall(1, "login", data);
-    if (response.status) {
-      setIsLogin(true);
-      AsyncStorage.setItem("user", JSON.stringify(response.data));
-      var token = response.custom;
-      AsyncStorage.setItem("token", JSON.stringify(token));
-      AsyncStorage.setItem("permisions", JSON.stringify(response.permisions));
-      AsyncStorage.setItem("isLogin", true);
-      navigation.navigate("Home");
-    } else {
-      const errors = response.error;
-      setErrorEmail(errors);
-      Toast.show({
-        type: "error",
-        position: "top",
-        text2: errors,
-        topOffset: 80,
-      });
-    }
-    setFlag(false);
+  // Function to toggle password visibility
+  const togglePasswordVisibility = () => {
+    setState({ ...state, passwordVisible: !state.passwordVisible });
   };
 
   return (
     <View style={appStyle.body}>
-      <TouchableOpacity onPress={() => navigation.navigate("StartLogin")}>
+       <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
         <Image style={appStyle.arrowbacklogin} source={arrow_back} />
       </TouchableOpacity>
-      <Toast />
+      <Toast /> 
       <View
-        style={{ height: responsiveHeight(30), width: responsiveHeight(100) }}
+        style={{ height: responsiveHeight(30), width: responsiveHeight(100),flexDirection:'row'}}
       >
         <Text style={signUpStyle.welcome}>Login to Your{"\n"}Account</Text>
       </View>
-      <View style={appStyle.cardContainerLs}>
+      
+      <View style={appStyle.cardContainer}>
         <TextInput
           mode="outlined"
           theme={{
-            colors: { primary: "black", underlineColor: "transparent" },
+            colors: { primary: "#FFC44D", underlineColor: "transparent" },
           }}
           style={appStyle.inputSearch}
-          onChangeText={handleEmail}
+          onChangeText={(text) => handleState(text, "email")}
           placeholder="Email"
-        ></TextInput>
+        />
+        
+      </View>
 
+
+      <View style={appStyle.cardContainer}>
         <TextInput
-          secureTextEntry={true} // Toggle this state to show/hide password           
-           mode="outlined"
+          mode="outlined"
           theme={{
-            colors: { primary: "black", underlineColor: "transparent" },
+            colors: { primary: "#FFC44D", underlineColor: "transparent" },
           }}
           style={appStyle.inputSearch}
-          onChangeText={handlePassword}
+          secureTextEntry={!state.passwordVisible} // Toggle secureTextEntry based on password visibility
+          onChangeText={(text) => handleState(text, "password")}
           placeholder="Password"
-        >
-
-        </TextInput>
-        
+        />
         <TouchableOpacity
-            style={{ position: "absolute", right: 10, top: 12 }} // Adjust position as needed
-            onPress={() => setPasswordHidden(!passwordHidden)} // Toggle the state to show/hide password
-          >
-            <Image source={blind} style={{ width: 20, height: 20,top:110,right:25,    position: 'absolute',
-}} />
-          </TouchableOpacity>
+          style={styles.lockIconContainer}
+          onPress={togglePasswordVisibility}
+        >
+          <Image
+            source={lock}
+            style={styles.lockIcon}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity
+          style={styles.eyeIconContainer}
+          onPress={togglePasswordVisibility}
+        >
+          <Image
+            source={state.passwordVisible ? openeye : blind}
+            style={styles.eyeIcon}
+          />
+        </TouchableOpacity>
       </View>
+
       <View style={{ height: responsiveHeight(5) }}>
         <Text
           onPress={() => navigation.navigate("Forget")}
-          style={[{ color: "#FFC44D", marginLeft: 25, fontSize: 14 }]}
+          style={[{ color: "#FFC44D", marginLeft:20, fontSize: 14 }]}
         >
           Forget the password?
         </Text>
@@ -134,32 +129,17 @@ const Index = () => {
         <Text style={appStyle.rowLabelText}>Remember Me</Text>
       </View>
       <View style={{ height: responsiveHeight(10) }}>
-        {!flag ? (
-          <TouchableOpacity
-            onPress={handleSubmit}
-            style={appStyle.appButtonContainer}
-          >
-            <Text style={appStyle.appButtonText}>Sign In</Text>
-          </TouchableOpacity>
-        ) : (
-          <Image
-            style={{
-              width: 200,
-              height: 100,
-              alignSelf: "center",
-              justifyContent: "center",
-              alignItems: "center",
-              resizeMode: "stretch",
-            }}
-            source={Loading}
-          />
-        )}
+        <TouchableOpacity
+          onPress={showToast}
+          style={appStyle.appButtonContainer}
+        >
+          <Text style={appStyle.appButtonText} >Sign In</Text>       
+        </TouchableOpacity>
       </View>
 
       <View style={{ height: responsiveHeight(5) }}>
         <Text style={signUpStyle.lineText}>or continue with</Text>
       </View>
-
       <View style={appStyle.iContainer}>
         <TouchableOpacity style={signUpStyle.appButtonSoical}>
           <Image style={appStyle.google} source={apple} />
@@ -170,14 +150,15 @@ const Index = () => {
         <TouchableOpacity style={signUpStyle.appButtonSoical}>
           <Image style={appStyle.google} source={facebook} />
         </TouchableOpacity>
+        <Toast ref={(ref) => Toast.setRef(ref)} />
       </View>
+
       <View style={{ height: responsiveHeight(15), alignItems: "center" }}>
         <Text style={appStyle.signUp}>Don’t have account? </Text>
         <Text
           onPress={() => navigation.navigate("SignUp")}
           style={appStyle.signUpText}
         >
-          {" "}
           Sign Up
         </Text>
       </View>
@@ -186,3 +167,22 @@ const Index = () => {
 };
 
 export default Index;
+
+const styles=StyleSheet.create({
+  lockIconContainer: {
+    position: 'absolute',
+    left: 10, // Adjust as needed
+  },
+  lockIcon: {
+    width: 20,
+    height: 20,
+  },
+  eyeIconContainer: {
+    position: 'absolute',
+    right: 10, // Adjust as needed
+  },
+  eyeIcon: {
+    width: 20,
+    height: 20,
+  },
+});

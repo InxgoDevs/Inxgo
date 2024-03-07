@@ -95,7 +95,7 @@ const Start = ({ navigation }) => {
           <View style={appStyle.line} />
         </View>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Login")}
+          onPress={() => navigation.navigate("Index")}
           style={appStyle.appButtonContainer}
         >
           <Text style={appStyle.appButtonText}>Login in with Email</Text>

@@ -10,7 +10,7 @@ const appStyle =StyleSheet.create({
   body:
   {
     backgroundColor:'#FAFAFA',
-  //  height:responsiveHeight(100),
+    height:responsiveHeight(100),
     width:responsiveWidth(100),
     flex:1,
   },
@@ -69,7 +69,7 @@ const appStyle =StyleSheet.create({
       width:responsiveWidth(100),
         height:responsiveHeight(20),
         
-       // backgroundColor:'blue',
+       backgroundColor:'gray',
        // flexDirection: 'row',
      
         alignSelf: "center",
@@ -184,9 +184,11 @@ const appStyle =StyleSheet.create({
       },
       inputSearch: {
         width: responsiveWidth(90),
-    
-        
-        
+       // left: 10,
+       // textAlign: "right",
+      // marginLeft: 10, // Add left padding to move text slightly to the right
+
+        paddingHorizontal:20,
       //borderWidth:.5,
       
         

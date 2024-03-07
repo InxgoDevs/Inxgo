@@ -1,16 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { StatusBar } from "expo-status-bar";
+import React, { useState } from "react";
 import { TextInput } from "react-native-paper";
 import CheckBox from "@react-native-community/checkbox";
-
 import {
   StyleSheet,
   Text,
   View,
   Image,
-  Button,
   TouchableOpacity,
-  ScrollView,
 } from "react-native";
 import appStyle from "../../style/login_start";
 import signUpStyle from "../../style/SignUp";
@@ -19,11 +15,15 @@ import google from "../../assets/google.png";
 import facebook from "../../assets/facebook.png";
 import Loading from "../../assets/Loading_icon.gif";
 import Toast from "react-native-toast-message";
-import ApiCall from "../../Services/ApiCall";
-const arrow_back=require('../../assets/arrow_back.png')
-
+const arrow_back = require("../../assets/arrow_back.png");
+const blind = require("../../assets/Blind.png");
+const openEye = require("../../assets/openeye.png");
 
 const SignUp = ({ navigation }) => {
+  const showToast = () => {
+    // Function to show Toast
+  };
+
   const [state, setState] = useState({
     color: "black",
     flag: false,
@@ -32,166 +32,141 @@ const SignUp = ({ navigation }) => {
     password: "",
     confirm_password: "",
     number: "",
+    passwordVisible: false, // State variable to track password visibility
   });
 
-  const handleState = (e, key) => {
-    if (key === "confirm_password") {
-      if (state.password !== state.confirm_password) {
-        setState({ ...state, color: "red" });
-      } else {
-        setState({ ...state, color: "black" });
-      }
-    }
-    setState({ ...state, [key]: e.nativeEvent.text });
+  const handleState = (text, key) => {
+    setState({ ...state, [key]: text });
   };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setState({ ...state, flag: true });
-
-    const data = {
-      email: state.email,
-      password: state.password,
-      name: state.name,
-      number: state.number,
-      is_admin: 0,
-      role_id: 2,
-    };
-
-    const response = await ApiCall.postAPICall(1, "user", data);
-    if (response.code === 200) {
-      Toast.show({
-        type: "success",
-        position: "top",
-        text1: response.message,
-        text2: "Please go to the login page and use these credentials",
-        topOffset: 80,
-      });
-    } else {
-      let errors = response.error;
-      let inside = Object.keys(errors);
-      let obj = {
-        type: "error",
-        position: "top",
-        topOffset: 80,
-      };
-      for (let i = 0; i < inside.length; i++) {
-        let temp = errors[inside[i]][0];
-        obj["text" + (i + 1)] = temp;
-      }
-      Toast.show(obj);
-    }
-
-    setState({ ...state, flag: false });
+  const handleSubmit = async () => {
+    // Function to handle form submission
   };
 
-  useEffect(() => {
-    console.log(navigation);
-  }, []);
+  const togglePasswordVisibility = () => {
+    setState((prevState) => ({
+      ...prevState,
+      passwordVisible: !prevState.passwordVisible, // Toggle password visibility state
+    }));
+  };
 
   return (
     <View style={appStyle.body}>
-      <View>
-      <TouchableOpacity onPress={() =>navigation.navigate('StartLogin')}>
-        <Image style={appStyle.arrowbacklogin}  source={arrow_back}   />
-        </TouchableOpacity>
-        <Toast />
-        <Text style={signUpStyle.welcome}>Create your{"\n"}Account</Text>
-    
-        <View style={appStyle.cardContainer}>
-           <TextInput
-             mode="outlined"
-             theme={{
-             colors: { primary: "#FFC44D", underlineColor: "transparent" },
-             }}
-            style={[appStyle.inputSearch]}
-            onChange={(e) => handleState(e, "email")}
-            placeholder="Email"
-          /> 
-         
-        </View>
-        <View style={appStyle.cardContainer}>
-          <TextInput
-            mode="outlined"
-            theme={{
-              colors: { primary: "#FFC44D", underlineColor: "transparent" },
-            }}
-            style={appStyle.inputSearch}
-            secureTextEntry={true}
-            onChange={(e) => handleState(e, "password")}
-            placeholder="Password"
-          />
-        </View>
-        <View style={appStyle.leftContainer}>
-            <CheckBox  />
-            <Text style={appStyle.rowLabelText}>Remember Me</Text>
-          </View>
-        {!state.flag ? (
-          <TouchableOpacity
-            onPress={handleSubmit}
-            style={appStyle.appButtonContainer}
-          >
-            <Text style={appStyle.appButtonText}>Sign Up</Text>
-          </TouchableOpacity>
-        ) : (
+      <TouchableOpacity onPress={() => navigation.navigate("StartLogin")}>
+        <Image style={appStyle.arrowbacklogin} source={arrow_back} />
+      </TouchableOpacity>
+      <Toast />
+      <Text style={signUpStyle.welcome}>Create your{"\n"}Account</Text>
+
+      <View style={appStyle.cardContainer}>
+        <TextInput
+          mode="outlined"
+          theme={{
+            colors: { primary: "#FFC44D", underlineColor: "transparent" },
+          }}
+          style={appStyle.inputSearch}
+          onChangeText={(text) => handleState(text, "email")}
+          placeholder="Email"
+        />
+      </View>
+      <View style={appStyle.cardContainer}>
+        <TextInput
+          mode="outlined"
+          theme={{
+            colors: { primary: "#FFC44D", underlineColor: "transparent" },
+          }}
+          style={appStyle.inputSearch}
+          secureTextEntry={!state.passwordVisible} // Toggle secureTextEntry based on password visibility
+          onChangeText={(text) => handleState(text, "password")}
+          placeholder="Password"
+        />
+        <TouchableOpacity
+          style={styles.eyeIconContainer}
+          onPress={togglePasswordVisibility}
+        >
           <Image
-            style={{
-              width: 200,
-              height: 100,
-              alignSelf: "center",
-              justifyContent: "center",
-              alignItems: "center",
-              resizeMode: "stretch",
-            }}
-            source={Loading}
+            source={state.passwordVisible ? openEye : blind} // Toggle the eye icon based on password visibility
+            style={styles.eyeIcon}
           />
-        )}
-        <View style={appStyle.cardContainer}>
-       
-          <View>
-            <Text style={signUpStyle.lineText}>or continue with</Text>
-          </View>
-        
-        </View>
-        <View style={appStyle.iContainer}>
-          <TouchableOpacity style={signUpStyle.appButtonSoical}>
-              <Image style={appStyle.google} source={apple} />
-            
-          </TouchableOpacity>
-          <TouchableOpacity style={signUpStyle.appButtonSoical}>
-              <Image style={appStyle.google} source={google} />
-            
-          </TouchableOpacity>
-          <TouchableOpacity style={signUpStyle.appButtonSoical}>
-            
-              <Image style={appStyle.google} source={facebook} />
-            
-          </TouchableOpacity>
-        </View>
-        <View style={appStyle.cardContainer}>
-          <Text style={appStyle.signUp}>Already have an Account? </Text>
-          <Text
-            onPress={() => navigation.navigate("Login")}
-            style={Style.TextContainer}
-          >
-            Login
-          </Text>
-        </View>
+        </TouchableOpacity>
+      </View>
+
+      <View style={appStyle.leftContainer}>
+        <CheckBox />
+        <Text style={appStyle.rowLabelText}>Remember Me</Text>
+      </View>
+
+      {!state.flag ? (
+        <TouchableOpacity
+          onPress={() => navigation.navigate("NewPassword")}
+          style={appStyle.appButtonContainer}
+        >
+          <Text style={appStyle.appButtonText}>Sign Up</Text>
+        </TouchableOpacity>
+      ) : (
+        <Image
+          style={styles.loadingIcon}
+          source={Loading}
+        />
+      )}
+
+      <View style={appStyle.cardContainer}>
+        <Text style={signUpStyle.lineText}>or continue with</Text>
+        <Toast ref={(ref) => Toast.setRef(ref)} />
+      </View>
+
+      <View style={appStyle.iContainer}>
+        <TouchableOpacity style={signUpStyle.appButtonSoical}>
+          <Image style={appStyle.google} source={apple} />
+        </TouchableOpacity>
+        <TouchableOpacity style={signUpStyle.appButtonSoical}>
+          <Image style={appStyle.google} source={google} />
+        </TouchableOpacity>
+        <TouchableOpacity style={signUpStyle.appButtonSoical}>
+          <Image style={appStyle.google} source={facebook} />
+        </TouchableOpacity>
+      </View>
+
+      <View style={appStyle.cardContainer}>
+        <Text style={appStyle.signUp}>Already have an Account? </Text>
+        <Text
+          onPress={() => navigation.navigate("Index")}
+          style={Style.TextContainer}
+        >
+          Login
+        </Text>
       </View>
     </View>
   );
 };
 
 export default SignUp;
-const Style=StyleSheet.create({
-TextContainer:{
-  color:'#FFC44D',
-      fontWeight:'bold',
-      fontSize:15,
-       fontFamily: 'Inter',
-      left:70,
-      
-}
 
+const styles = StyleSheet.create({
+  eyeIconContainer: {
+    position: "absolute",
+    right: 10,
+    top: "50%", // Center the eye icon vertically within the password input field
+    transform: [{ translateY: -10 }], // Adjust to vertically center the icon
+  },
+  eyeIcon: {
+    width: 20,
+    height: 20,
+  },
+  loadingIcon: {
+    width: 200,
+    height: 100,
+    alignSelf: "center",
+    resizeMode: "stretch",
+  },
+});
 
- })
+const Style = StyleSheet.create({
+  TextContainer: {
+    color: "#FFC44D",
+    fontWeight: "bold",
+    fontSize: 15,
+    fontFamily: "Inter",
+    left: 70,
+  },
+});

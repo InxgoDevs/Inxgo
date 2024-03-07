@@ -24,6 +24,9 @@ import {
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Index from '../screens/Login/Index.js';
+import ForgotPswd from '../screens/Login/ForgotPswd';
+import NewPassword from '../screens/Login/NewPassword';
 
 const Tab = createBottomTabNavigator();
 
@@ -46,7 +49,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Start"}
+      initialRouteName={!users ? "StartLogin" : "SignUp"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -67,6 +70,14 @@ const Tabs = (props) => {
       <Tab.Screen name="TermsConditions" component={TermsConditions} />
       <Tab.Screen name="Notification" component={Notification} />
       <Tab.Screen name="About" component={About} />
+      <Tab.Screen name="Index" component={Index} />      
+      <Tab.Screen name="ForgotPswd" component={ForgotPswd} />
+      <Tab.Screen name="NewPassword" component={NewPassword} />
+
+
+
+
+
     </Tab.Navigator>
   );
 };

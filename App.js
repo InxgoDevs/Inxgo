@@ -4,6 +4,8 @@ import { StyleSheet, Text, TextInput, View, Image } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import Tabs from './navigation/Tab';
 import Login from './screens/Login/Index';
+import Toast from 'react-native-toast-message';
+
 // import {createStackNavigator} from '@react-navigation/stack';
 // import {createDrawerNavigator} from '@react-navigation/drawer';
 // import appStyle from './components/style';
@@ -13,8 +15,10 @@ import Login from './screens/Login/Index';
 
 export default function App() {
   return (
+    
     <NavigationContainer>
       <Tabs/>
+      <Toast />
     </NavigationContainer> 
   );
 }
