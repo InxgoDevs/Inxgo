@@ -164,14 +164,14 @@ const Index = ({ navigation }) => {
       <TabView
         navigationState={{ index: state.index, routes: state.routes }}
         onIndexChange={setIndex}
-        renderTabBar={renderTabBar}
+      //  renderTabBar={renderTabBar}
         renderScene={SceneMap({
           first: FirstRoute,
           second: SecondRoute,
           third: ThirdRoute,
         })}
       />
-      <Footer flag={"Work"} navigation={navigation} />
+      <Footer flag={"Booking"} navigation={navigation} />
     </View>
   );
 };

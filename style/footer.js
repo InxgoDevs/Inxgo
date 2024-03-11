@@ -19,14 +19,14 @@ const appStyle =StyleSheet.create({
     height: 150,
     padding:5,
     // marginRight:10,
-    // backgroundColor: "red",
+     //backgroundColor: "red",
   },
   footerDiv: {
-    width: "18%",
+    width: "20%",
     height: 150,
     // padding:5,
     top:5,
-    left:"2%",
+    //left:"2%",
     // marginLeft:5,
     // backgroundColor: "red",
   },
@@ -41,14 +41,14 @@ const appStyle =StyleSheet.create({
     top:5,
     width: 65,
     height: 150,
-    left:15,
+  left:15,
   },
   footerDiv4th:
   {
     top:5,
     width: 65,
     height: 150,
-    left:10,
+   left:10,
   },
   image:
   {
@@ -82,9 +82,9 @@ const appStyle =StyleSheet.create({
     top:5,
     marginLeft:10,
     fontSize:10,
-    alignSelf: "center",
+     alignSelf: "center",
     justifyContent: 'center',
-    alignItems: 'center'
+   alignItems: 'center'
   }
 
 })

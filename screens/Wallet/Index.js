@@ -36,9 +36,10 @@ const Index = ({ navigation }) => {
       <ScrollView keyboardDismissMode={"on-drag"} style={appStyle.body}>
         <View>
           <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-            <View style={profile.welcome}>
-              <Image style={profile.arrow_back} source={arrow_back} />
-              <Text style={profile.welcomeText}>My Wallet</Text>
+            <View> 
+            {/* style={profile.welcome} this is the style of */}
+              {/* <Image style={profile.arrow_back} source={arrow_back} /> */}
+              {/* <Text style={profile.welcomeText}>My Wallet</Text> */}
             </View>
           </TouchableOpacity>
           {/* Your wallet content goes here */}

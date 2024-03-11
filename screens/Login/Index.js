@@ -71,49 +71,52 @@ const Index = ({ navigation }) => {
       </View>
       
       <View style={appStyle.cardContainer}>
-        <TextInput
-          mode="outlined"
-          theme={{
-            colors: { primary: "#FFC44D", underlineColor: "transparent" },
-          }}
-          style={appStyle.inputSearch}
-          onChangeText={(text) => handleState(text, "email")}
-          placeholder="Email"
-        />
-        
-      </View>
+    <TextInput
+      mode="outlined"
+      theme={{
+        colors: { primary: "#FFC44D", underlineColor: "transparent" },
+      }}
+      style={appStyle.inputSearch}
+      onChangeText={(text) => handleState(text, "email")}
+      placeholder="Email"
+      
+    />
+    <Image source={email} style={styles.emailIcon} />
+  
+</View>
 
 
-      <View style={appStyle.cardContainer}>
-        <TextInput
-          mode="outlined"
-          theme={{
-            colors: { primary: "#FFC44D", underlineColor: "transparent" },
-          }}
-          style={appStyle.inputSearch}
-          secureTextEntry={!state.passwordVisible} // Toggle secureTextEntry based on password visibility
-          onChangeText={(text) => handleState(text, "password")}
-          placeholder="Password"
-        />
-        <TouchableOpacity
-          style={styles.lockIconContainer}
-          onPress={togglePasswordVisibility}
-        >
-          <Image
-            source={lock}
-            style={styles.lockIcon}
-          />
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={styles.eyeIconContainer}
-          onPress={togglePasswordVisibility}
-        >
-          <Image
-            source={state.passwordVisible ? openeye : blind}
-            style={styles.eyeIcon}
-          />
-        </TouchableOpacity>
-      </View>
+
+<View style={appStyle.cardContainer}>
+
+    <TextInput
+      mode="outlined"
+      theme={{
+        colors: { primary: "#FFC44D", underlineColor: "transparent" },
+      }}
+      style={appStyle.inputSearch}
+      secureTextEntry={!state.passwordVisible}
+      onChangeText={(text) => handleState(text, "password")}
+      placeholder="Password"
+    />
+    <View style={styles.lockIconContainer}>
+      <Image
+        source={lock}
+        style={styles.lockIcon}
+      />
+    </View>
+    <TouchableOpacity
+      style={styles.eyeIconContainer}
+      onPress={togglePasswordVisibility}
+    >
+      <Image
+        source={state.passwordVisible ? openeye : blind}
+        style={styles.eyeIcon}
+      />
+    </TouchableOpacity>
+  
+</View>
+
 
       <View style={{ height: responsiveHeight(5) }}>
         <Text
@@ -172,10 +175,20 @@ const styles=StyleSheet.create({
   lockIconContainer: {
     position: 'absolute',
     left: 10, // Adjust as needed
+   
   },
   lockIcon: {
-    width: 20,
-    height: 20,
+    width: 18,
+    height: 18,
+    
+  },
+  emailIcon: {
+    width: 18,
+    height: 18,
+  alignSelf:'flex-start',
+  bottom:47,
+  left:10,
+
   },
   eyeIconContainer: {
     position: 'absolute',
