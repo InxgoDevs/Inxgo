@@ -82,6 +82,9 @@ const Tabs = (props) => {
       <Tab.Screen name="Pending" component={Pending} />
       <Tab.Screen name="Application" component={Application} />
       <Tab.Screen name="General" component={General} />
+      <Tab.Screen name="ForgotPswd" component={ForgotPswd} />
+      <Tab.Screen name="NewPassword" component={NewPassword} />
+      <Tab.Screen name="Pending" component={Pending} />
     </Tab.Navigator>
   );
 };
