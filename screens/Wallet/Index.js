@@ -6,7 +6,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import appStyle from "../../style/login_start";
 import wallet from "../../style/wallet";
 import Footer from "../Footer/Index";
-import ApiCall from "../../Services/ApiCall";
+import profile from "../../style/profile";
+import Payment from "./Payment";
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
 const Loading = require("../../assets/Loading_icon.gif");
@@ -32,18 +33,14 @@ const Index = ({ navigation }) => {
   };
 
   return (
-    <View>
-      <ScrollView keyboardDismissMode={"on-drag"} style={appStyle.body}>
-        <View>
-          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
-            <View> 
-            {/* style={profile.welcome} this is the style of */}
-              {/* <Image style={profile.arrow_back} source={arrow_back} /> */}
-              {/* <Text style={profile.welcomeText}>My Wallet</Text> */}
-            </View>
-          </TouchableOpacity>
-          {/* Your wallet content goes here */}
-        </View>
+    <View style={{ flex: 1 }}>
+      <ScrollView keyboardDismissMode="on-drag" style={appStyle.body}>
+        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <View style={profile.welcome}>
+            <Image style={profile.arrow_back} source={arrow_back} />
+            <Text style={profile.welcomeText}>My Wallet</Text>
+          </View>
+        </TouchableOpacity>
       </ScrollView>
       <Footer flag={"Wallet"} navigation={navigation} />
     </View>

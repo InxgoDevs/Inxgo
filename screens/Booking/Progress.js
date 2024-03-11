@@ -13,7 +13,7 @@ const Progress = ({ navigation }) => {
         marginRight: "2%",
         marginLeft: "2%",
         backgroundColor: "#FFFFFF",
-        borderRadius: 10,
+        // borderRadius: 10,
       }}
     >
       <View style={{ flexDirection: "row", width: "100%", marginTop: 20 }}>

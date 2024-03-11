@@ -153,10 +153,7 @@ const Index = ({ navigation }) => {
         </View>
         {/* Add other input fields similarly */}
         {!flag ? (
-          <TouchableOpacity
-            onPress={handleSubmit}
-            style={profile.appButtonContainer}
-          >
+          <TouchableOpacity style={profile.appButtonContainer}>
             <Text style={appStyle.appButtonText}>Continue</Text>
           </TouchableOpacity>
         ) : (

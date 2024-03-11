@@ -20,15 +20,18 @@ import {
   PaymentAdd,
   Booking,
   Detail,
+  SplashScreen,
+  Onboarding,
+  IntroScreen01,
+  IntroScreen02,
+  LogInScreen,
+  Pending,
+  Application,
+  General,
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import Pending from "../screens/Booking/Pending";
-
-import Index from '../screens/Login/Index.js';
-import ForgotPswd from '../screens/Login/ForgotPswd';
-import NewPassword from '../screens/Login/NewPassword';
 
 const Tab = createBottomTabNavigator();
 
@@ -51,13 +54,13 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Home"}
+      initialRouteName={!users ? "StartLogin" : "SplashScreen"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="SignUp" component={SignUp} />
       <Tab.Screen name="Home" component={Home} />
-      <Tab.Screen name="Start" component={Start} />
+
       <Tab.Screen name="StartLogin" component={StartLogin} />
       <Tab.Screen name="Messages" component={Messages} />
       <Tab.Screen name="Forget" component={Forget} />
@@ -72,15 +75,13 @@ const Tabs = (props) => {
       <Tab.Screen name="TermsConditions" component={TermsConditions} />
       <Tab.Screen name="Notification" component={Notification} />
       <Tab.Screen name="About" component={About} />
-      <Tab.Screen name="Index" component={Index} />      
-      <Tab.Screen name="ForgotPswd" component={ForgotPswd} />
-      <Tab.Screen name="NewPassword" component={NewPassword} />
+      <Tab.Screen name="SplashScreen" component={SplashScreen} />
+      <Tab.Screen name="Onboarding1" component={IntroScreen01} />
+      <Tab.Screen name="Onboarding2" component={IntroScreen02} />
+      <Tab.Screen name="Onboarding3" component={LogInScreen} />
       <Tab.Screen name="Pending" component={Pending} />
-
-
-
-
-
+      <Tab.Screen name="Application" component={Application} />
+      <Tab.Screen name="General" component={General} />
     </Tab.Navigator>
   );
 };

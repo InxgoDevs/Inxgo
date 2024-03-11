@@ -113,6 +113,48 @@ const Index = ({ navigation }) => {
               <View style={{ flexDirection: "row" }}>
                 <Text style={{ fontSize: 16, color: "#EB001B" }}>Logout</Text>
               </View>
+              <ScrollView>
+                <Button
+                  title="Go to Payment"
+                  onPress={() => navigation.navigate("Payment")}
+                  style={{ marginTop: 20 }}
+                />
+                <Button
+                  title="Go to Country"
+                  onPress={() => navigation.navigate("Country")}
+                  style={{ marginTop: 20 }}
+                />
+                <Button
+                  title="Go to Notification"
+                  onPress={() => navigation.navigate("Notification")}
+                  style={{ marginTop: 20 }}
+                />
+                <Button
+                  title="Go to Terms"
+                  onPress={() => navigation.navigate("TermsConditions")}
+                  style={{ marginTop: 20 }}
+                />
+                <Button
+                  title="Go to detail"
+                  onPress={() => navigation.navigate("Detail")}
+                  style={{ marginTop: 20 }}
+                />
+                <Button
+                  title="Go to Pending"
+                  onPress={() => navigation.navigate("Pending")}
+                  style={{ marginTop: 20 }}
+                />
+                <Button
+                  title="Go to General"
+                  onPress={() => navigation.navigate("General")}
+                  style={{ marginTop: 20 }}
+                />
+                <Button
+                  title="Go to Application"
+                  onPress={() => navigation.navigate("Application")}
+                  style={{ marginTop: 20 }}
+                />
+              </ScrollView>
             </View>
           </View>
         </TouchableOpacity>
