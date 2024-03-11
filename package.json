@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.20.0",
+    "@gorhom/bottom-sheet": "^4",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.3",
     "@react-native-async-storage/async-storage": "1.21.0",
     "@react-native-community/checkbox": "^0.5.17",
