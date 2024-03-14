@@ -10,10 +10,16 @@ import React from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useTheme } from "@react-navigation/native";
 import Icons from "@expo/vector-icons/MaterialIcons";
+import Artwork04 from "../../components/artworks/Artwork04";
 import Artwork03 from "../../components/artworks/Artwork03";
+
 import { LOG_IN_SCREEN } from "../../utils/constants";
 import PrimaryButton from "../../components/PrimaryButton";
-import Animated, { FadeInDown, FadeInUp } from "react-native-reanimated";
+import Animated, {
+  FadeInDown,
+  FadeInLeft,
+  FadeInUp,
+} from "react-native-reanimated";
 
 const LogInScreen = ({ navigation }) => {
   const theme = useTheme();
@@ -49,13 +55,23 @@ const LogInScreen = ({ navigation }) => {
             alignItems: "center",
             flex: 1,
             justifyContent: "center",
+            height: 150,
           }}
         >
-          <Artwork03 width={240} height={240} />
+          <Artwork03 width={290} height={290} />
         </Animated.View>
-
+        <Animated.View
+          entering={FadeInLeft.delay(200).duration(1000).springify()}
+          style={{
+            alignItems: "center",
+            //flex: 1,
+            justifyContent: "center",
+          }}
+        >
+          <Artwork04 width={230} height={230} />
+        </Animated.View>
         <View style={{ padding: 24 }}>
-          <Animated.Text
+          {/* <Animated.Text
             entering={FadeInDown.duration(1000).springify()}
             style={{
               fontSize: 40,
@@ -64,14 +80,16 @@ const LogInScreen = ({ navigation }) => {
             }}
           >
             {LOG_IN_SCREEN.title}
-          </Animated.Text>
+          </Animated.Text> */}
           <Animated.Text
             entering={FadeInDown.delay(100).duration(1000).springify()}
             style={{
               opacity: 0.5,
-              marginTop: 16,
-              fontSize: 16,
+              marginBottom: 16,
+              fontSize: 18,
+
               color: theme.colors.text,
+              alignItems: "center",
             }}
           >
             {LOG_IN_SCREEN.description}
@@ -82,7 +100,7 @@ const LogInScreen = ({ navigation }) => {
               entering={FadeInDown.delay(600).duration(1000).springify()}
             >
               <PrimaryButton
-                label="Log In"
+                label="Get Started"
                 onPress={() => navigation.navigate("StartLogin")}
               />
             </Animated.View>

@@ -26,3 +26,4 @@ export { default as Application } from "./Notification/Application";
 export { default as General } from "./Notification/General";
 export { default as ForgotPswd } from "./Login/ForgotPswd";
 export { default as NewPassword } from "./Login/NewPassword";
+export { default as LocationBottomSheet } from "../components/LocationBottomSheet/index";

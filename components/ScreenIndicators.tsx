@@ -27,7 +27,7 @@ const ScreenIndicators = ({
             height: 8,
             borderRadius: 8,
             backgroundColor:
-              i === activeIndex ? theme.colors.primary : theme.colors.border,
+              i === activeIndex ? "#FFC44D" : theme.colors.border,
           }}
           key={i}
         />

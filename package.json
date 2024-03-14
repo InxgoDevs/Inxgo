@@ -62,6 +62,7 @@
     "react-native-flags": "^1.0.0",
     "react-native-fontawesome": "^7.0.0",
     "react-native-gesture-handler": "~2.14.0",
+    "react-native-keyboard-aware-scroll-view": "^0.9.5",
     "react-native-pager-view": "6.2.3",
     "react-native-paper": "^5.8.0",
     "react-native-reanimated": "^3.7.1",
