@@ -18,7 +18,10 @@ import ApiCall from "../../Services/ApiCall";
 import { SvgUri, SvgXml } from "react-native-svg";
 import { NavigationContainer } from "@react-navigation/native";
 import Toast from "react-native-toast-message";
-import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
 const logo = require("../../assets/logo.png");
 const apple = require("../../assets/svg/Linkedin.png");
 const google = require("../../assets/google.png");
@@ -28,7 +31,7 @@ const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");
 const openeye = require("../../assets/openeye.png");
 const lock = require("../../assets/Lock.png"); // Add lock icon
-const email=require('../../assets/Email.png')
+const email = require("../../assets/Email.png");
 
 const Index = ({ navigation }) => {
   const [state, setState] = useState({
@@ -47,11 +50,11 @@ const Index = ({ navigation }) => {
 
   const showToast = () => {
     Toast.show({
-      type: 'success',
-      text1: 'SignIn Successfully',
-     // text2: 'This is some something 👋'
+      type: "success",
+      text1: "SignIn Successfully",
+      // text2: 'This is some something 👋'
     });
-  }
+  };
 
   // Function to toggle password visibility
   const togglePasswordVisibility = () => {
@@ -60,68 +63,62 @@ const Index = ({ navigation }) => {
 
   return (
     <View style={appStyle.body}>
-       <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
+      <TouchableOpacity onPress={() => navigation.navigate("SignUp")}>
         <Image style={appStyle.arrowbacklogin} source={arrow_back} />
       </TouchableOpacity>
-      <Toast /> 
+      <Toast />
       <View
-        style={{ height: responsiveHeight(30), width: responsiveHeight(100),flexDirection:'row'}}
+        style={{
+          height: responsiveHeight(30),
+          width: responsiveHeight(100),
+          flexDirection: "row",
+        }}
       >
         <Text style={signUpStyle.welcome}>Login to Your{"\n"}Account</Text>
       </View>
-      
+
       <View style={appStyle.cardContainer}>
-    <TextInput
-      mode="outlined"
-      theme={{
-        colors: { primary: "#FFC44D", underlineColor: "transparent" },
-      }}
-      style={appStyle.inputSearch}
-      onChangeText={(text) => handleState(text, "email")}
-      placeholder="Email"
-      
-    />
-    <Image source={email} style={styles.emailIcon} />
-  
-</View>
+        <TextInput
+          mode="outlined"
+          theme={{
+            colors: { primary: "#FFC44D", underlineColor: "transparent" },
+          }}
+          style={appStyle.inputSearch}
+          onChangeText={(text) => handleState(text, "email")}
+          placeholder="Email"
+        />
+        <Image source={email} style={styles.emailIcon} />
+      </View>
 
-
-
-<View style={appStyle.cardContainer}>
-
-    <TextInput
-      mode="outlined"
-      theme={{
-        colors: { primary: "#FFC44D", underlineColor: "transparent" },
-      }}
-      style={appStyle.inputSearch}
-      secureTextEntry={!state.passwordVisible}
-      onChangeText={(text) => handleState(text, "password")}
-      placeholder="Password"
-    />
-    <View style={styles.lockIconContainer}>
-      <Image
-        source={lock}
-        style={styles.lockIcon}
-      />
-    </View>
-    <TouchableOpacity
-      style={styles.eyeIconContainer}
-      onPress={togglePasswordVisibility}
-    >
-      <Image
-        source={state.passwordVisible ? openeye : blind}
-        style={styles.eyeIcon}
-      />
-    </TouchableOpacity>
-  
-</View>
-
+      <View style={appStyle.cardContainer}>
+        <TextInput
+          mode="outlined"
+          theme={{
+            colors: { primary: "#FFC44D", underlineColor: "transparent" },
+          }}
+          style={appStyle.inputSearch}
+          secureTextEntry={!state.passwordVisible}
+          onChangeText={(text) => handleState(text, "password")}
+          placeholder="Password"
+        />
+        <View style={styles.lockIconContainer}>
+          <Image source={lock} style={styles.lockIcon} />
+        </View>
+        <TouchableOpacity
+          style={styles.eyeIconContainer}
+          onPress={togglePasswordVisibility}
+        >
+          <Image
+            source={state.passwordVisible ? openeye : blind}
+            style={styles.eyeIcon}
+          />
+        </TouchableOpacity>
+      </View>
 
       <View style={{ height: responsiveHeight(5) }}>
         <Text
           onPress={() => navigation.navigate("Forget")}
-          style={[{ color: "#FFC44D", marginLeft:20, fontSize: 14 }]}
+          style={[{ color: "#FFC44D", marginLeft: 20, fontSize: 14 }]}
         >
           Forget the password?
         </Text>
@@ -136,7 +133,7 @@ const Index = ({ navigation }) => {
           onPress={showToast}
           style={appStyle.appButtonContainer}
         >
-          <Text style={appStyle.appButtonText} >Sign In</Text>       
+          <Text style={appStyle.appButtonText}>Sign In</Text>
         </TouchableOpacity>
       </View>
 
@@ -171,27 +168,24 @@ const Index = ({ navigation }) => {
 
 export default Index;
 
-const styles=StyleSheet.create({
+const styles = StyleSheet.create({
   lockIconContainer: {
-    position: 'absolute',
+    position: "absolute",
     left: 10, // Adjust as needed
-   
   },
   lockIcon: {
     width: 18,
     height: 18,
-    
   },
   emailIcon: {
     width: 18,
     height: 18,
-  alignSelf:'flex-start',
-  bottom:47,
-  left:10,
-
+    alignSelf: "flex-start",
+    bottom: 47,
+    left: 10,
   },
   eyeIconContainer: {
-    position: 'absolute',
+    position: "absolute",
     right: 10, // Adjust as needed
   },
   eyeIcon: {

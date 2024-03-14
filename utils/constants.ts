@@ -1,12 +1,12 @@
 export const INTRO_SCREEN_01 = {
-  title: "Connect With Creators Easily",
-  description: "Thank you for choosing us, we can save your lovely time.",
+  title: "Work on Your Terms!",
+  description: "Become a Provider and Monetize Your Skills Today..",
 };
 export const INTRO_SCREEN_02 = {
-  title: "Get Inspiration From Creators",
-  description: "Find your favorite creators and get insperation from them",
+  title: "Discover a World of Convenience!",
+  description: "Find Reliable Service Providers Nearby..",
 };
 export const LOG_IN_SCREEN = {
   title: "Let's\nGet Started",
-  description: "To register for an account, kindly enter your details",
+  description: "Embrace Freedom and Flexibility with Our Innovative App!",
 };

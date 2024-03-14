@@ -25,8 +25,8 @@ const PrimaryButton = ({
     <TouchableOpacity
       style={[
         {
-          backgroundColor: theme.colors.primary,
-          paddingHorizontal: 32,
+          backgroundColor: "#FFC44D",
+          paddingHorizontal: 122,
           height: 52,
           borderRadius: 100,
           alignItems: "center",
@@ -38,7 +38,7 @@ const PrimaryButton = ({
     >
       <Text
         style={[
-          { fontSize: 16, fontWeight: "600", color: theme.colors.background },
+          { fontSize: 16, fontWeight: "600", color: "#000000" },
           labelStyle,
         ]}
       >
