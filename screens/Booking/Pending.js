@@ -13,17 +13,25 @@ const Pending = ({ navigation }) => {
   };
 
   return (
-    <View style={{justifyContent:'center',alignItems:'center',top:50}} >
+    <View
+      style={{
+        // backgroundColor: "red",
+        justifyContent: "center",
+        alignItems: "center",
+        top: 50,
+      }}
+    >
       <View>
-        <Image source={require('../../assets/calendar.png')}></Image>
+        <Image source={require("../../assets/calendar.png")}></Image>
       </View>
-      <View style={{marginTop:50}}>
+      <View style={{ marginTop: 50 }}>
         <Text>You don’t have any scheduled hiring at this time</Text>
       </View>
-      <View style={{marginTop:20}}>
-      <Text style={{fontSize:32,color:"#FFC44D",fontWeight:"600"}}>Hire Now</Text>
+      <View style={{ marginTop: 20 }}>
+        <Text style={{ fontSize: 32, color: "#FFC44D", fontWeight: "600" }}>
+          Hire Now
+        </Text>
       </View>
-      
     </View>
   );
 };

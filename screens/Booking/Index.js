@@ -37,9 +37,16 @@ const Index = ({ navigation }) => {
       renderLabel={({ route, focused }) => (
         <TouchableOpacity
           style={[styles.tabBarButton, focused && styles.tabBarButtonFocused]}
-          onPress={() => setIndex(state.routes.findIndex(r => r.key === route.key))}
+          onPress={() =>
+            setIndex(state.routes.findIndex((r) => r.key === route.key))
+          }
         >
-          <Text style={[styles.tabBarLabelText, focused && styles.tabBarLabelFocused]}>
+          <Text
+            style={[
+              styles.tabBarLabelText,
+              focused && styles.tabBarLabelFocused,
+            ]}
+          >
             {capitalizeFirstLetter(route.title)}
           </Text>
         </TouchableOpacity>
@@ -52,25 +59,25 @@ const Index = ({ navigation }) => {
   };
 
   const FirstRoute = () => (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
       <Pending navigation={navigation} />
     </View>
   );
 
   const SecondRoute = () => (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
       <Progress navigation={navigation} />
     </View>
   );
 
   const ThirdRoute = () => (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
       <Complete navigation={navigation} />
     </View>
   );
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{ flex: 1, backgroundColor: "#FAFAFA" }}>
       <Toast />
       <TouchableOpacity onPress={() => navigation.navigate("Home")}>
         <View style={profile.welcome}>
@@ -86,7 +93,6 @@ const Index = ({ navigation }) => {
           first: FirstRoute,
           second: SecondRoute,
           third: ThirdRoute,
-          
         })}
       />
       <Footer flag={"Booking"} navigation={navigation} />
@@ -96,33 +102,33 @@ const Index = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   tabBar: {
-    backgroundColor: 'white',
+    backgroundColor: "#FAFAFA",
     elevation: 0, // Remove shadow
     borderBottomWidth: 0, // Remove border bottom
   },
   tabBarLabel: {
-    textTransform: 'capitalize',
-    color: 'black',
+    textTransform: "capitalize",
+    color: "black",
     fontSize: 16,
   },
   tabBarIndicator: {
-    backgroundColor: 'transparent', // Remove indicator
+    backgroundColor: "transparent", // Remove indicator
   },
   tabBarButton: {
     flex: 1,
-    width:responsiveWidth(33) , // Adjust width as needed
+    width: responsiveWidth(33), // Adjust width as needed
     height: 40, // Adjust height as needed
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     paddingBottom: 0, // Add padding to separate text from bottom border
   },
   tabBarButtonFocused: {
-   // borderWidth: 0.4,
-   // borderColor: '#FFC44D',
-    backgroundColor:"#FFC44D", // Add border only for the focused tab
+    // borderWidth: 0.4,
+    // borderColor: '#FFC44D',
+    backgroundColor: "#FFC44D", // Add border only for the focused tab
   },
   tabBarLabelText: {
-    color: 'black',
+    color: "black",
   },
   tabBarLabelFocused: {
     // Additional styling for focused label if needed
