@@ -29,6 +29,7 @@ import {
   Application,
   General,
   ForgotPswd,
+  
   NewPassword,
   LocationBottomSheet,
   RateSupplierBSheet,
@@ -36,6 +37,7 @@ import {
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import Accepted from '../screens/Booking/Accepted';
 
 const Tab = createBottomTabNavigator();
 
@@ -82,6 +84,7 @@ const Tabs = (props) => {
       <Tab.Screen name="SplashScreen" component={SplashScreen} />
       <Tab.Screen name="LocationBottomSheet" component={LocationBottomSheet} />
       <Tab.Screen name="RateSupplierBSheet" component={RateSupplierBSheet} />
+      <Tab.Screen name="Accepted" component={Accepted} />
 
       <Tab.Screen name="Onboarding1" component={IntroScreen01} />
       <Tab.Screen name="Onboarding2" component={IntroScreen02} />

@@ -29,15 +29,15 @@ const Progress = ({ navigation }) => {
             <View
               style={{
                 right: 10,
-                width: 80,
-                height: 30,
+                width: 60,
+                height: 20,
                 backgroundColor: "#FFC44D",
                 alignSelf: "center",
                 justifyContent: "center",
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontSize: 18 }}>Active</Text>
+              <Text style={{ fontSize: 14 }}>Active</Text>
             </View>
           </View>
           <TouchableOpacity onPress={() => navigation.navigate("Detail")}>

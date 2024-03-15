@@ -28,3 +28,5 @@ export { default as ForgotPswd } from "./Login/ForgotPswd";
 export { default as NewPassword } from "./Login/NewPassword";
 export { default as LocationBottomSheet } from "../components/LocationBottomSheet/index";
 export { default as RateSupplierBSheet } from "../components/RateSupplierBSheet/Index";
+export { default as Accepted} from '../screens/Booking/Accepted';
+
