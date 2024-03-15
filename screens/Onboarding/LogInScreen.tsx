@@ -101,7 +101,7 @@ const LogInScreen = ({ navigation }) => {
             >
               <PrimaryButton
                 label="Get Started"
-                onPress={() => navigation.navigate("StartLogin")}
+                onPress={() => navigation.navigate("SignUp")}
               />
             </Animated.View>
           </View>
