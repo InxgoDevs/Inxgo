@@ -1,13 +1,9 @@
 import React, { useState } from "react";
 import { TextInput } from "react-native-paper";
 import CheckBox from "@react-native-community/checkbox";
-import {
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  TouchableOpacity,
-} from "react-native";
+import * as Yup from "yup";
+
+import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import appStyle from "../../style/login_start";
 import signUpStyle from "../../style/SignUp";
 import apple from "../../assets/apple.png";
@@ -18,7 +14,9 @@ import Toast from "react-native-toast-message";
 const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");
 const openEye = require("../../assets/openeye.png");
-
+const PasswordSchema = Yup.object().shape({
+  passwordLength: Yup.
+})
 const SignUp = ({ navigation }) => {
   const showToast = () => {
     // Function to show Toast
@@ -104,10 +102,7 @@ const SignUp = ({ navigation }) => {
           <Text style={appStyle.appButtonText}>Sign Up</Text>
         </TouchableOpacity>
       ) : (
-        <Image
-          style={styles.loadingIcon}
-          source={Loading}
-        />
+        <Image style={styles.loadingIcon} source={Loading} />
       )}
 
       <View style={appStyle.cardContainer}>
