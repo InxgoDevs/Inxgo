@@ -16,7 +16,7 @@ const blind = require("../../assets/Blind.png");
 const openEye = require("../../assets/openeye.png");
 const PasswordSchema = Yup.object().shape({
   passwordLength: Yup.
-})
+ })
 const SignUp = ({ navigation }) => {
   const showToast = () => {
     // Function to show Toast
