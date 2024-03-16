@@ -2,6 +2,8 @@ import React, { useState, useRef } from "react";
 import { TextInput, Button } from "react-native-paper";
 import CheckBox from "@react-native-community/checkbox";
 import * as Yup from "yup";
+import axios from "axios";
+
 import { Formik } from "formik";
 import {
   StyleSheet,
@@ -50,8 +52,33 @@ const SignUp = ({ navigation }) => {
     setState({ ...state, [key]: text });
   };
 
-  const handleSubmit = async () => {
-    // Function to handle form submission
+  const handleSubmit = async (values) => {
+    try {
+      const formdata = new FormData();
+      formdata.append("name", values.name);
+      formdata.append("email", values.email);
+      formdata.append("password", values.password);
+      formdata.append("password_confirmation", values.confirmPassword);
+
+      const requestOptions = {
+        method: "POST",
+        body: formdata,
+        redirect: "follow",
+      };
+
+      const response = await fetch(
+        "http://127.0.0.1:8000/api/register",
+        requestOptions
+      );
+      const result = await response.text();
+
+      console.log(result);
+      Alert.alert("Success", "Account created successfully!");
+      navigation.navigate("StartLogin");
+    } catch (error) {
+      console.error("Error:", error);
+      Alert.alert("Error", "An error occurred while processing your request.");
+    }
   };
 
   const togglePasswordVisibility = () => {
@@ -151,7 +178,7 @@ const SignUp = ({ navigation }) => {
                     </Text>
                   ) : null}
                   <Button
-                    onPress={props.handleSubmit}
+                    onPress={handleSubmit}
                     // color="black"
                     mode="contained"
                     loading={props.isSubmitting}
