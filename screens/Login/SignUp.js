@@ -52,35 +52,41 @@ const SignUp = ({ navigation }) => {
     setState({ ...state, [key]: text });
   };
 
-  const handleSubmit = async (values) => {
-    try {
-      const formdata = new FormData();
-      formdata.append("name", values.name);
-      formdata.append("email", values.email);
-      formdata.append("password", values.password);
-      formdata.append("password_confirmation", values.confirmPassword);
+  const handleSubmit = async (values, formikActions) => {
+    console.log("values", values);
+    const formData = new FormData();
+    // Append each value to formData
+    formData.append("name", values.name);
+    formData.append("email", values.email);
+    formData.append("password", values.password);
+    formData.append("password_confirmation", values.confirmPassword);
 
-      const requestOptions = {
-        method: "POST",
-        body: formdata,
-        redirect: "follow",
-      };
+    console.log("FormData:", formData);
 
-      const response = await fetch(
-        "http://127.0.0.1:8000/api/register",
-        requestOptions
-      );
-      const result = await response.text();
+    // Add your axios request here
+    axios
+      .post("http://192.168.100.12:8082/api/register", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
 
-      console.log(result);
-      Alert.alert("Success", "Account created successfully!");
-      navigation.navigate("StartLogin");
-    } catch (error) {
-      console.error("Error:", error);
-      Alert.alert("Error", "An error occurred while processing your request.");
-    }
+      .then((response) => {
+        console.log("Response", response.data);
+        Alert.alert("Success", "Account created successfully!");
+        // Do any navigation here
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+        Alert.alert(
+          "Error",
+          "An error occurred while processing your request."
+        );
+      })
+      .finally(() => {
+        formikActions.setSubmitting(false); // Set submitting to false regardless of success or failure
+      });
   };
-
   const togglePasswordVisibility = () => {
     setState((prevState) => ({
       ...prevState,
@@ -119,12 +125,13 @@ const SignUp = ({ navigation }) => {
                   .oneOf([Yup.ref("password"), null], "Passwords must match")
                   .required("Confirm Password is required"),
               })}
-              onSubmit={(values, formikActions) => {
-                setTimeout(() => {
-                  Alert.alert(JSON.stringify(values));
-                  formikActions.setSubmitting(false);
-                }, 500);
-              }}
+              onSubmit={handleSubmit} // Pass handleSubmit function here
+              // onSubmit={(values, formikActions) => {
+              //   setTimeout(() => {
+              //     Alert.alert(JSON.stringify(values));
+              //     formikActions.setSubmitting(false);
+              //   }, 500);
+              // }}
             >
               {(props) => (
                 <View>
@@ -178,8 +185,7 @@ const SignUp = ({ navigation }) => {
                     </Text>
                   ) : null}
                   <Button
-                    onPress={handleSubmit}
-                    // color="black"
+                    onPress={props.handleSubmit} // Use Formik's handleSubmit
                     mode="contained"
                     loading={props.isSubmitting}
                     disabled={props.isSubmitting}
