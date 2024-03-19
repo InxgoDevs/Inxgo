@@ -1,6 +1,7 @@
 import React, { useState } from "react";
+//import GlobalSettingContext from './GlobalSettingContext'; // Import the context
 
-const MyGlobalSetting = () => {
+const MyGlobalSetting = ({ children }) => {
   const [state, setState] = useState({
     url: "https://laravelserver.azurewebsites.net/api",
     svgUrl: "https://laravelserver.azurewebsites.net/svg/",

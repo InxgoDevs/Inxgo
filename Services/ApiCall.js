@@ -1,7 +1,9 @@
 import MyGlobleSetting from './MyGlobleSetting';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-const base_url=MyGlobleSetting.state.url;
-const base_url_MSQL=MyGlobleSetting.state.serverUrl;
+//const base_url=MyGlobleSetting.state.url;
+//const base_url_MSQL=MyGlobleSetting.state.serverUrl;
+const base_url = MyGlobleSetting.state ? MyGlobleSetting.state.url : 'fallback_url';
+const base_url_MSQL = MyGlobleSetting.state ? MyGlobleSetting.state.serverUrl : 'fallback_server_url';
 var ApiCall={
 	async getAPICall(flag,url)
 	{

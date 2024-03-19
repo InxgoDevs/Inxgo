@@ -13,7 +13,7 @@ import Toast from 'react-native-toast-message';
 // const Stack = createStackNavigator();
 // const Drawer = createDrawerNavigator();
 
-export default function App() {
+export default function main() {
   return (
     
     <NavigationContainer>

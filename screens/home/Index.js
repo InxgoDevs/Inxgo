@@ -15,7 +15,7 @@ import ApiCall from "../../Services/ApiCall";
 import MyGlobleSetting from "../../Services/MyGlobleSetting";
 import { NavigationContainer } from "@react-navigation/native";
 import SvgUri from "react-native-svg-uri";
-const image_url = MyGlobleSetting.state.imageUrl;
+//const image_url = MyGlobleSetting.state.imageUrl;
 const bell = require("../../assets/icons/bell.png");
 const setting = require("../../assets/icons/setting.png");
 const plumber = require("../../assets/icons/plumber.png");
