@@ -5,7 +5,7 @@ You will need react-native expo  installed on your machine. Steps for installati
 
 Run the following command to install the app and link dependencies
 
-(i)    yarn add expo 
+(i)    yarn add i 
 (ii)   yarn android 
 (iii)  yarn ios 
 
