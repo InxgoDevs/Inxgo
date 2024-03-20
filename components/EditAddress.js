@@ -88,7 +88,7 @@ const EditAddress = ({ home, address }) => {
           }}
         >
           <RadioButton
-            selected={selectedOption === "first"}
+            selected={selectedOption === "null"}
             onSelect={() => handleRadioSelect("first")}
           />
         </View>

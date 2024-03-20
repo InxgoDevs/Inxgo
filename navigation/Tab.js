@@ -32,11 +32,15 @@ import {
   NewPassword,
   LocationBottomSheet,
   RateSupplierBSheet,
+  CancelScreen,
+  
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Accepted from "../screens/Booking/Accepted";
+import Tracker from "../screens/Booking/Tracker";
+
 
 const Tab = createBottomTabNavigator();
 
@@ -59,7 +63,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "SplashScreen"}
+      initialRouteName={!users ? "Home" : "CancelScreen"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -84,7 +88,7 @@ const Tabs = (props) => {
       <Tab.Screen name="LocationBottomSheet" component={LocationBottomSheet} />
       <Tab.Screen name="RateSupplierBSheet" component={RateSupplierBSheet} />
       <Tab.Screen name="Accepted" component={Accepted} />
-
+      <Tab.Screen name="Tracker" component={Tracker} />
       <Tab.Screen name="Onboarding1" component={IntroScreen01} />
       <Tab.Screen name="Onboarding2" component={IntroScreen02} />
       <Tab.Screen name="Onboarding3" component={LogInScreen} />
@@ -93,6 +97,7 @@ const Tabs = (props) => {
       <Tab.Screen name="General" component={General} />
       <Tab.Screen name="ForgotPswd" component={ForgotPswd} />
       <Tab.Screen name="NewPassword" component={NewPassword} />
+      <Tab.Screen name="CancelScreen" component={CancelScreen} />
     </Tab.Navigator>
   );
 };

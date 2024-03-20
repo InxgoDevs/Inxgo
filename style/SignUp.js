@@ -23,7 +23,7 @@ const appStyle = StyleSheet.create({
   },
   welcomeF: {
     fontSize: 20,
-    fontWeight: "500",
+    fontWeight: "700",
     //left:10,
     //marginBottom:20,
   },

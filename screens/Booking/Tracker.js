@@ -11,6 +11,8 @@ import circle from '../../assets/icons/circle.png';
 import location from '../../assets/icons/location.png';
 import hrs from '../../assets/icons/hrs.png';
 import { CountdownCircleTimer } from 'react-native-countdown-circle-timer'
+import Cancel
+ from '../CancelScreen/Cancel';
 
 
 
@@ -138,7 +140,7 @@ const Tracker = ({ navigation }) => {
       </View>
       
       <View>
-        <CustomButton title={"Start"} color= '#FFC44D' onPress={handleStartButtonClick}/>
+        <CustomButton title={"Start"} color= '#FFC44D' onPress={()=>navigation.navigate('CancelScreen')}/>
       </View>
       
     </View>
