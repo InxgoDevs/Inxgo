@@ -10,6 +10,7 @@ const appStyle = StyleSheet.create({
     backgroundColor: "#FAFAFA",
     height: responsiveHeight(100),
     width: responsiveWidth(100),
+   
     flex: 1,
   },
   bgRoundedWhite: {

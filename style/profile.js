@@ -1,5 +1,6 @@
 
 import { StyleSheet } from "react-native";
+import { responsiveHeight } from "react-native-responsive-dimensions";
 
 const appStyle =StyleSheet.create({
       appButtonContainer: {
@@ -23,22 +24,25 @@ const appStyle =StyleSheet.create({
       },
       arrow_back:
       {
-        top:3,
+        top:6,
         marginRight:10,
       } ,
       welcome:
       {
-        marginTop:50,
+        //marginTop:50,
         fontSize:20,
         marginLeft:20,
         flexDirection: 'row',
         // alignSelf: "center",
         // justifyContent: 'center',
         // alignItems: 'center',
+        //backgroundColor:"red",
+      height:responsiveHeight(5)
       },
       welcomeText:
       {
-        fontWeight: "bold",
+        fontWeight: "500",
+        fontSize:20,
         marginBottom:20,  
       },
       image:
