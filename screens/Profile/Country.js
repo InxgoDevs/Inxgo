@@ -5,7 +5,7 @@ import { TextInput } from "react-native-paper";
 import appStyle from "../../style/login_start";
 import profile from "../../style/profile";
 import homeStyle from "../../style/home";
-import SvgUri from "react-native-svg-uri";
+//import SvgUri from "react-native-svg-uri";
 import Toast from "react-native-toast-message";
 import CountryPicker from "rn-country-dropdown-picker";
 import Flag from "react-native-flags";
@@ -69,10 +69,10 @@ const Country = ({ navigation }) => {
         </TouchableOpacity>
         <View style={homeStyle.cardContainer}>
           <View style={homeStyle.searchSection}>
-            <SvgUri
+            {/* <SvgUri
               style={{ left: 30, zIndex: 100000 }}
               source={{ uri: MyGlobleSetting.state.svgUrl + "search.svg" }}
-            />
+            /> */}
             <TextInput
               underlineColor="transparent"
               theme={{
@@ -97,10 +97,10 @@ const Country = ({ navigation }) => {
               }}
               placeholder="Search"
             />
-            <SvgUri
+            {/* <SvgUri
               style={homeStyle.searchIcon}
               source={{ uri: MyGlobleSetting.state.svgUrl + "my_location.svg" }}
-            />
+            /> */}
           </View>
         </View>
         {filteredData &&

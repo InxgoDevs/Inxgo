@@ -36,10 +36,13 @@ import {
   
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
-import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
+//import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Accepted from "../screens/Booking/Accepted";
 import Tracker from "../screens/Booking/Tracker";
+import Security from "../screens/Security/Index";
+import ProfileNotifications from "../screens/ProfileNotifications/index";
+import Languages from "../screens/ProfileNotifications/Languages";
 
 
 const Tab = createBottomTabNavigator();
@@ -63,7 +66,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Wallet"}
+      initialRouteName={!users ? "Home" : "Profile"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -98,6 +101,12 @@ const Tabs = (props) => {
       <Tab.Screen name="ForgotPswd" component={ForgotPswd} />
       <Tab.Screen name="NewPassword" component={NewPassword} />
       <Tab.Screen name="CancelScreen" component={CancelScreen} />
+      <Tab.Screen name="Security" component={Security} />
+      <Tab.Screen name="ProfileNotifications" component={ProfileNotifications} />
+      <Tab.Screen name="Languages" component={Languages} />
+
+
+
     </Tab.Navigator>
   );
 };

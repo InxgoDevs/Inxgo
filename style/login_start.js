@@ -49,6 +49,7 @@ const appStyle = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
+    flexDirection:'row'
   },
   iContainer: {
     width: responsiveWidth(100),

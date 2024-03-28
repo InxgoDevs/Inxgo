@@ -15,6 +15,8 @@ const appStyle =StyleSheet.create({
       inputSearch: {
         width: "100%",
        backgroundColor:'#FAFAFA',
+       //color:'black',
+       
         zIndex: 0, // Ensure border has z-index of 0
       },
       countrySearch: {
@@ -37,7 +39,7 @@ const appStyle =StyleSheet.create({
         // justifyContent: 'center',
         // alignItems: 'center',
         //backgroundColor:"red",
-      height:responsiveHeight(5)
+      height:responsiveHeight(8)
       },
       welcomeText:
       {

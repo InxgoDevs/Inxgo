@@ -86,7 +86,10 @@ const Index = ({ navigation }) => {
               <Text style={appStyle.rowLabelText}>Right Supplier with Us!</Text>
             </View>
             <View style={appStyle.rightContainer}>
-              <Image style={appStyle.image} source={bell} />
+            <TouchableOpacity onPress={()=>navigation.navigate("Notification")}>
+            <Image style={appStyle.image} source={bell} />
+            </TouchableOpacity>
+             
             </View>
           </View>
           <View style={appStyle.cardContainer}>

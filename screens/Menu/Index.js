@@ -19,7 +19,7 @@ import menu from "../../style/menu";
 import Footer from "../Footer/Index";
 import wallet from "../../style/wallet";
 import ApiCall from "../../Services/ApiCall";
-import SvgUri from "react-native-svg-uri";
+//import SvgUri from "react-native-svg-uri";
 import { NavigationContainer } from "@react-navigation/native";
 import SelectDropdown from "react-native-select-dropdown";
 import Toast from "react-native-toast-message";
@@ -105,10 +105,10 @@ const Index = ({ navigation }) => {
               marginBottom: 50,
             }}
           >
-            <SvgUri
+            {/* <SvgUri
               style={{ marginLeft: "5%" }}
               source={{ uri: MyGlobleSetting.state.svgUrl + "logout.svg" }}
-            />
+            /> */}
             <View style={wallet.LeftContainer}>
               <View style={{ flexDirection: "row" }}>
                 <Text style={{ fontSize: 16, color: "#EB001B" }}>Logout</Text>
