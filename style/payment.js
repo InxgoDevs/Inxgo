@@ -6,6 +6,7 @@ const appStyle =StyleSheet.create({
   body:
   {
     backgroundColor:'white',
+    flex:1,
   },
   inputPayment: {
         width: "100%",
@@ -20,9 +21,9 @@ const appStyle =StyleSheet.create({
       },
       logo:
       {
-        marginTop:20,
-        width: 150, 
-        height: 120,
+        //marginTop:20,
+        width:responsiveWidth(50) , 
+        height:responsiveHeight(20),
         alignSelf: "center",
         justifyContent: 'center',
         alignItems: 'center',
@@ -58,8 +59,8 @@ const appStyle =StyleSheet.create({
       },
       paymentAdd:
       {
-        width:'80%',
-        fontSize:14,
+        width:responsiveWidth(70),
+        fontSize:12,
         textAlign: 'center',
         alignSelf: "center",
         justifyContent: 'center',

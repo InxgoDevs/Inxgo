@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import {
  Text,
  View,
@@ -22,6 +22,8 @@ import image_upload from "../../assets/image_upload.png";
 import Loading from "../../assets/Loading_icon.gif";
 import arrowdown from "../../assets/svg/arrowdown.svg";
 import DateTimePicker from '@react-native-community/datetimepicker';
+import PhoneNumberInput from 'react-native-phone-number-input';
+import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 
 const gender = ["Male", "Female", "Other"];
 
@@ -33,8 +35,10 @@ const Index = ({ navigation }) => {
  const [date, setDate] = useState(new Date());
  const [show, setShow] = useState(false);
  const [modalVisible, setModalVisible] = useState(false);
- const [selectedGender, setSelectedGender] = useState("");
+ 
 
+ const [selectedGender, setSelectedGender] = useState("");
+ const [phoneNumber, setPhoneNumber] = useState('');
  const handleEmail = (e) => {
     setEmail(e.nativeEvent.text);
  };
@@ -128,20 +132,26 @@ const Index = ({ navigation }) => {
  };
 
  return (
-    <ScrollView keyboardDismissMode={"on-drag"} style={appStyle.body}>
-      <View>
+    <ScrollView keyboardDismissMode={"on-drag" } >
+      <View style={appStyle.body}>
         <TouchableOpacity onPress={() => navigation.navigate("Menu")}>
           <View style={profile.welcome}>
             <Image style={profile.arrow_back} source={arrow_back} />
             <Text style={profile.welcomeText}>Fill Your Profile</Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={openImagePickerAsync} activeOpacity={0.5}>
+       
           <Image
             style={profile.image}
             source={image ? { uri: image } : image_upload}
           />
-        </TouchableOpacity>
+          <TouchableOpacity onPress={openImagePickerAsync} activeOpacity={0.5}>
+          <Image style={{alignSelf:'center',left:40,bottom:30}} source={require('../../assets/Editbtn.png')}>
+
+</Image>
+          </TouchableOpacity>
+          
+       
         <View style={appStyle.cardContainer}>
           <TextInput
             theme={{
@@ -160,7 +170,7 @@ const Index = ({ navigation }) => {
           />
         </View>
         <View style={appStyle.cardContainer}>
-          <TextInput
+          <TextInput 
             secureTextEntry={true}
             underlineColor="transparent"
             theme={{
@@ -179,27 +189,26 @@ const Index = ({ navigation }) => {
           />
         </View>
         <View style={appStyle.cardContainer}>
-          <TextInput
-            //secureTextEntry={true}
-            underlineColor="transparent"
-            theme={{
-              colors: {
-                placeholder: "white",
-                text: "white",
-                primary: "white",
-                underlineColor: "transparent",
-                background: "#003489",
-              },
-            }}
-            style={profile.inputSearch}
-            underlineColorAndroid="transparent"
-           // onChange={handlePassword}
-            placeholder="Date of Birth"
-            value={date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-          />
-          <TouchableOpacity onPress={showDatePicker}>
-            <Image source={require('../../assets/DOB.png')} />
-          </TouchableOpacity>
+        <TextInput
+        underlineColor="transparent"
+        theme={{
+          colors: {
+            placeholder: "white",
+            text: "white",
+            primary: "white",
+            underlineColor: "transparent",
+            background: "#003489",
+          },
+        }}
+        style={profile.inputSearch}
+        underlineColorAndroid="transparent"
+        placeholder="Date of Birth"
+        value={date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+      />
+      <TouchableOpacity onPress={showDatePicker} style={{ position: 'absolute', right: 10 }}>
+        <Image source={require('../../assets/DOB.png')} />
+      </TouchableOpacity>
+          
           {show && (
             <DateTimePicker
               value={date}
@@ -211,51 +220,102 @@ const Index = ({ navigation }) => {
           )}
         </View>
         <View style={appStyle.cardContainer}>
-          <TextInput
-            secureTextEntry={true}
-            underlineColor="transparent"
-            theme={{
-              colors: {
-                placeholder: "white",
-                text: "white",
-                primary: "white",
-                underlineColor: "transparent",
-                background: "#003489",
-              },
-            }}
-            style={profile.inputSearch}
-            underlineColorAndroid="transparent"
-            onChange={handlePassword}
-            placeholder="Email"
-          />
-           <Image source={require('../../assets/Message.png')}></Image>
-        </View>
-        <View style={appStyle.cardContainer}>
-          <TextInput
-            theme={{
-              colors: {
-                placeholder: "white",
-                text: "white",
-                primary: "white",
-                underlineColor: "transparent",
-                background: "#003489",
-              },
-            }}
-            style={profile.inputSearch}
-            underlineColor="transparent"
-            value={selectedGender} // Display the selected gender
-            editable={false} // Make the input non-editable
-            placeholder="Gender"
-          />
-          <TouchableOpacity onPress={toggleModal}>
-            <Image source={require('../../assets/DownArrow.png')}
-             style={{
-      transform: modalVisible ? [{ rotate: '180deg' }] : [],
+        <TextInput
+    secureTextEntry={true}
+    underlineColor="transparent"
+    theme={{
+      colors: {
+        placeholder: "white",
+        text: "white",
+        primary: "white",
+        underlineColor: "transparent",
+        background: "#003489",
+      },
     }}
-             />
-            
-          </TouchableOpacity>
+    style={[profile.inputSearch, { position: 'relative' }]} // Ensure the TextInput has relative positioning
+    underlineColorAndroid="transparent"
+    onChange={handlePassword}
+    placeholder="Email"
+ />
+ <Image
+    source={require('../../assets/Message.png')}
+    style={{
+      position: 'absolute',
+      right: 10, // Adjust the position as needed
+      top: 28, // Adjust the position as needed
+    }}
+ />
+          
         </View>
+        <View >
+      <PhoneNumberInput 
+ defaultCountry="USA"
+ defaultCode="PK"
+ 
+        value={phoneNumber}
+        onChangeText={(text) => {
+          setPhoneNumber(text);
+        }}
+        onChangeFormattedText={(text) => {
+         
+        }}
+        onChangeCountry={(country) => {
+        }}
+       // withDarkTheme
+        withShadow
+        autoFocus
+        containerStyle={{
+          width:377,
+ // Set the width to 90
+      borderRadius: 15,
+      overflow: 'hidden',
+      left:17,
+      height:56,
+      opacity: 0.4,
+      top:15
+      
+    }}
+        countryPickerButtonStyle  ={{ backgroundColor: '#D9D9D9' }}
+           //textInputStyle={{backgroundColor:"orange"}}
+        textContainerStyle={{backgroundColor:"#D9D9D9ed"}}
+          />
+    </View>
+        <View style={Style.cardText}>
+        <TextInput
+    theme={{
+      colors: {
+        placeholder: "white",
+        text: "white",
+        primary: "white",
+        underlineColor: "transparent",
+        background: "#003489",
+      },
+    }}
+    style={[profile.inputSearch, { position: 'relative' }]} // Ensure the TextInput has relative positioning
+    underlineColor="transparent"
+    value={selectedGender} // Display the selected gender
+    editable={false} // Make the input non-editable
+    placeholder="Gender"
+ />
+ <TouchableOpacity
+    onPress={toggleModal}
+    style={{
+      position: 'absolute',
+      right: 10, // Adjust the position as needed
+      top: 30, // Adjust the position as needed
+    }}
+ >
+    <Image
+      source={require('../../assets/DownArrow.png')}
+      style={{
+        transform: modalVisible ? [{ rotate: '180deg' }] : [],
+      }}
+    />
+ </TouchableOpacity>
+          
+        </View>
+        
+       
         {modalVisible && (
           <Modal
             animationType="slide"
@@ -281,7 +341,7 @@ const Index = ({ navigation }) => {
           </Modal>
         )}
         {!flag ? (
-          <TouchableOpacity style={profile.appButtonContainer}>
+          <TouchableOpacity style={Style.appButton}>
             <Text style={appStyle.appButtonText}>Continue</Text>
           </TouchableOpacity>
         ) : (
@@ -338,4 +398,26 @@ const Style = StyleSheet.create({
     textAlign: "center",
     fontSize:14
  },
+ cardText: {
+  width: responsiveWidth(90),
+  height: responsiveHeight(10),
+  // backgroundColor:'orange',
+  // flexDirection: 'row',
+  // marginTop: 10,
+  alignSelf: "center",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection:'row',
+  top:25
+},
+appButton: {
+  width:"90%",
+  alignSelf: 'center',
+  backgroundColor: "#FFC44D",
+  borderRadius: 30,
+  paddingVertical: 10,
+  paddingHorizontal: 12,
+  marginTop:50,
+  
+},
   })

@@ -7,7 +7,7 @@ import {
 
 const appStyle = StyleSheet.create({
   body: {
-    backgroundColor: "#FAFAFA",
+    backgroundColor: "#fafafa",
     height: responsiveHeight(100),
     width: responsiveWidth(100),
    

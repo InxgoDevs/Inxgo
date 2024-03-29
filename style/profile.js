@@ -1,6 +1,6 @@
 
 import { StyleSheet } from "react-native";
-import { responsiveHeight } from "react-native-responsive-dimensions";
+import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 
 const appStyle =StyleSheet.create({
       appButtonContainer: {
@@ -13,10 +13,15 @@ const appStyle =StyleSheet.create({
         marginTop:10,
       },
       inputSearch: {
-        width: "100%",
-       backgroundColor:'#FAFAFA',
-       //color:'black',
-       
+        width:377,
+       backgroundColor:'#D9D9D9',
+       opacity: 0.4,
+       borderRadius:15,
+       paddingHorizontal:10,
+       height:56,
+       color:'black',
+         //  flex: 1, // Take up the remaining space in the container
+
         zIndex: 0, // Ensure border has z-index of 0
       },
       countrySearch: {
@@ -52,8 +57,8 @@ const appStyle =StyleSheet.create({
         alignSelf: "center",
         justifyContent: 'center',
         alignItems: 'center',
-        height:130,
-        width:130,
+        height:110,
+        width:110,
         borderRadius: 65, 
       },
       aboutimage:

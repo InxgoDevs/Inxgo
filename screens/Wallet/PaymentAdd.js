@@ -15,7 +15,7 @@ import profile from "../../style/profile";
 import login_start from "../../style/login_start";
 import { SvgUri, SvgXml } from "react-native-svg";
 import { NavigationContainer } from "@react-navigation/native";
-const login = require("../../assets/logos_mastercard.png");
+const login = require("../../assets/Visalogo.png");
 const google = require("../../assets/icons/icons_google.png");
 const mastercard = require("../../assets/icons/mastercard.png");
 const paypal = require("../../assets/icons/paypal.png");
@@ -93,6 +93,8 @@ const PaymentAdd = ({ navigation }) => {
             style={appStyle.inputPayment}
             placeholder="****_****_****_**23"
             underlineColor="transparent"
+            keyboardType="numeric" // Ensures the keyboard type is numeric
+            maxLength={14}
           />
         </View>
 
@@ -134,6 +136,8 @@ const PaymentAdd = ({ navigation }) => {
             style={appStyle.inputSearch}
             placeholder="Cvc"
             underlineColor="transparent"
+            keyboardType="numeric" // Ensures the keyboard type is numeric
+            maxLength={3}
           />
         </View>
 
