@@ -43,6 +43,7 @@ import Tracker from "../screens/Booking/Tracker";
 import Security from "../screens/Security/Index";
 import ProfileNotifications from "../screens/ProfileNotifications/index";
 import Languages from "../screens/ProfileNotifications/Languages";
+import Credit from "../screens/Wallet/Credit";
 
 
 const Tab = createBottomTabNavigator();
@@ -66,7 +67,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "PaymentAdd"}
+      initialRouteName={!users ? "Home" : "Credit"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -104,6 +105,8 @@ const Tabs = (props) => {
       <Tab.Screen name="Security" component={Security} />
       <Tab.Screen name="ProfileNotifications" component={ProfileNotifications} />
       <Tab.Screen name="Languages" component={Languages} />
+      <Tab.Screen name="Credit" component={Credit} />
+
 
 
 
