@@ -8,6 +8,12 @@ import {
   responsiveWidth,
 } from "react-native-responsive-dimensions";
 import CustomButton from "../../components/CustomButton";
+import { Regular } from "../../constants/fonts";
+import CustomView from "../../components/CustomView";
+import customImage from '../../assets/Frame.png';
+import customMoneyIcon from '../../assets/Money.png';
+
+
 
 // create a component
 const Credit = () => {
@@ -36,7 +42,9 @@ const Credit = () => {
             paddingHorizontal: 20,
           }}
         >
-          <Text style={{ marginTop: 10, fontSize: 18 }}>Jane Doe</Text>
+          <Text style={{ marginTop: 10, fontSize: 18, fontFamily: Regular }}>
+            Jane Doe
+          </Text>
           <Image
             source={require("../../assets/Symbols.png")}
             style={{ right: 10 }}
@@ -45,14 +53,14 @@ const Credit = () => {
         <View style={{ paddingHorizontal: 20 }}>
           <Text>****_****_****_**23</Text>
         </View>
-        <View style={{ marginTop: 30, paddingHorizontal: 18 }}>
+        <View style={{ marginTop: 20, paddingHorizontal: 18}}>
           <Text style={{ fontSize: 16 }}> Balance:</Text>
         </View>
         <View style={{ paddingHorizontal: 20, flexDirection: "row" }}>
-          <Text style={{ fontSize: 32, fontWeight: "500" }}>$ 243.45</Text>
-          <TouchableOpacity style={styles.btn}>
+          <Text style={{ fontSize: 32, fontWeight: "600",fontFamily: Regular,}}>$ 243.45</Text>
+          {/* <TouchableOpacity style={styles.btn}>
             <Text>Withdraw</Text>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
           <TouchableOpacity style={styles.btn}>
             <Text>Add Credit</Text>
           </TouchableOpacity>
@@ -66,29 +74,21 @@ const Credit = () => {
           justifyContent: "space-between",
         }}
       >
-        <Text style={{ fontSize: 15, fontWeight: "600" }}>
+        <Text style={{ fontSize: 15, fontWeight: "600", fontFamily: Regular }}>
           Transaction History
         </Text>
-        <Text style={{ fontSize: 15, color: "#FFC44D" }}>See All</Text>
-      </View>
-      <View
-        style={{ paddingHorizontal: 20, marginTop: 30, flexDirection: "row" }}
-      >
-        <Image source={require("../../assets/Frame.png")} />
-        <View
-          style={{
-            flexDirection: "row",
-            flexGrow: 1,
-            justifyContent: "space-between",
-            paddingHorizontal: 10,
-            marginTop: 5,
-          }}
-        >
-          <Text style={{ fontSize: 18, fontWeight: "500" }}>Mark Tuan</Text>
-          <Text style={{ fontSize: 18, fontWeight: "500" }}>$40</Text>
-        </View>
+        <TouchableOpacity>
+        <Text style={{ fontSize: 15, color: "#FFC44D", fontFamily: Regular }}>
+          See All
+        </Text>
+        </TouchableOpacity>
         
       </View>
+      <CustomView imageSource={customImage} text="Mark Tuan" cashText="Cash" moneyIconSource={customMoneyIcon} amountText="$ 40" />
+      <CustomView imageSource={customImage} text="Mark Tuan" cashText="Mastercard" moneyIconSource={require('../../assets/Credit card.png')} amountText="$ 20"/>
+      <CustomView imageSource={customImage} text="Mark Tuan" cashText="Mastercard" moneyIconSource={require('../../assets/Credit.png')} amountText="$ 120" />
+      <CustomView imageSource={customImage} text="Mark Tuan" cashText="Cash" moneyIconSource={customMoneyIcon}amountText="$ 40"/>
+      <CustomView imageSource={customImage} text="Mark Tuan" cashText="Mastercard" moneyIconSource={require('../../assets/Credit card.png')} amountText="$ 20"/>
 
     </View>
   );
@@ -100,16 +100,16 @@ const styles = StyleSheet.create({
     flex: 1,
     //justifyContent: 'center',
     // alignItems: 'center',
-    // backgroundColor: '#fafafa',
+    backgroundColor: "#fafafa",
   },
   btn: {
     paddingHorizontal: 15,
     backgroundColor: "white",
     borderRadius: 15,
-    marginLeft: 10,
+    marginLeft: 80,
     paddingVertical: 5,
-    height: 35,
-    marginTop: 5,
+    height: 30,
+    marginTop: 8,
   },
 });
 
