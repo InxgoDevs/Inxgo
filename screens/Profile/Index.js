@@ -134,12 +134,14 @@ const Index = ({ navigation }) => {
  return (
     <ScrollView keyboardDismissMode={"on-drag" } >
       <View style={appStyle.body}>
-        <TouchableOpacity onPress={() => navigation.navigate("Menu")}>
+       
           <View style={profile.welcome}>
+          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
             <Image style={profile.arrow_back} source={arrow_back} />
+            </TouchableOpacity>
             <Text style={profile.welcomeText}>Fill Your Profile</Text>
           </View>
-        </TouchableOpacity>
+       
        
           <Image
             style={profile.image}

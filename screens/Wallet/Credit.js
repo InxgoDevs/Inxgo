@@ -16,7 +16,7 @@ import customMoneyIcon from '../../assets/Money.png';
 
 
 // create a component
-const Credit = () => {
+const Credit = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={profile.welcome}>
@@ -61,7 +61,7 @@ const Credit = () => {
           {/* <TouchableOpacity style={styles.btn}>
             <Text>Withdraw</Text>
           </TouchableOpacity> */}
-          <TouchableOpacity style={styles.btn}>
+          <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("AddCredit")}>
             <Text>Add Credit</Text>
           </TouchableOpacity>
         </View>

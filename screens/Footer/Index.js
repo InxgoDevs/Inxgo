@@ -41,7 +41,7 @@ const Index = ({ navigation, flag }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={appStyle.footerDiv}
-        onPress={() => footerMenu("Wallet")}
+        onPress={() => footerMenu("Credit")}
       >
         <View style={appStyle.iconTextContainer}>
           <Image source={wallets} style={[appStyle.image, { tintColor: flag === "Wallet" ? "#FFC44D" : "black" }]} />
@@ -50,7 +50,7 @@ const Index = ({ navigation, flag }) => {
       </TouchableOpacity>
       <TouchableOpacity
         style={appStyle.footerDiv}
-        onPress={() => footerMenu("Menu")}
+        onPress={() => footerMenu("EditProfile")}
       >
         <View style={appStyle.iconTextContainer}>
           <Image source={profile} style={[appStyle.image, { tintColor: flag === "Profile" ? "#FFC44D" : "black" }]} />

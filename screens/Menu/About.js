@@ -18,105 +18,136 @@ import profile from "../../style/profile";
 import menu from "../../style/menu";
 import Footer from "../Footer/Index";
 import wallet from "../../style/wallet";
-import ApiCall from "../../Services/ApiCall";
-import SvgUri from "react-native-svg-uri";
+
 import { NavigationContainer } from "@react-navigation/native";
-import SelectDropdown from "react-native-select-dropdown";
-import Toast from "react-native-toast-message";
-import MyGlobleSetting from "../../Services/MyGlobleSetting";
+import { Regular } from "../../constants/fonts";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
+
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
-const Loading = require("../../assets/Loading_icon.gif");
-const rightarrow = require("../../assets/rightarrow.png");
-import ProfileSvg from "../../assets/svg/profile.svg";
-import dangercircle from "../../assets/svg/dangercircle.svg";
-import languageSvg from "../../assets/svg/languageSvg.svg";
-import location from "../../assets/svg/location.svg";
-import lock from "../../assets/svg/lock.svg";
-import logout from "../../assets/svg/logout.svg";
-import notification from "../../assets/svg/notification.svg";
-import shielddone from "../../assets/svg/shielddone.svg";
-import walletSvg from "../../assets/svg/wallet.svg";
 
 const Index = ({ navigation }) => {
-  const [state, setState] = useState({
-    flag: false,
-    image: null,
-  });
-
   useEffect(() => {
     console.log(navigation);
   }, []);
 
-  const openImagePickerAsync = async () => {
-    let permissionResult =
-      await ImagePicker.requestMediaLibraryPermissionsAsync();
-    if (permissionResult.granted === false) {
-      alert("Permission to access camera roll is required!");
-      return;
-    }
-    let pickerResult = await ImagePicker.launchImageLibraryAsync({
-      quality: 1,
-      mediaTypes: ImagePicker.MediaTypeOptions.Images,
-    });
-    if (pickerResult.cancelled === true) return;
-    setState({
-      ...state,
-      image: pickerResult.assets[0].uri,
-    });
-    console.log(pickerResult.cancelled);
-  };
-
-  const Logout = () => {
-    // Your logout logic here
-  };
-
   return (
     <View
-      keyboardDismissMode={"on-drag"}
-      style={{ height: "100%", backgroundColor: "white" }}
+     
+      style={{ height: "100%", backgroundColor: "#fafafa",flex:1 }}
     >
-      <View>
-        <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <View>
           <View style={profile.welcome}>
-            <Image style={profile.arrow_back} source={arrow_back} />
-            <Text style={profile.welcomeText}>Profile</Text>
+            <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+              <Image style={profile.arrow_back} source={arrow_back} />
+            </TouchableOpacity>
+
+            <Text style={profile.welcomeText}>About Us</Text>
           </View>
-        </TouchableOpacity>
-        <TouchableOpacity activeOpacity={0.5}>
-          <Image
-            style={profile.image}
-            source={state.image ? { uri: state.image } : image_upload}
-          />
-        </TouchableOpacity>
-        <Text style={[menu.profile, menu.profileFont1]}>Jane Doe</Text>
-        <Text style={[menu.profile, menu.profileFont2]}>+92 334 1234567</Text>
-        <View style={menu.line} />
-
-        {/* Remaining JSX code */}
-
-        <TouchableOpacity onPress={Logout}>
           <View
             style={{
-              flexDirection: "row",
-              width: "100%",
-              marginTop: 20,
-              zIndex: 1111111111111,
-              marginBottom: 50,
+              justifyContent: "center",
+              alignItems: "center",
+              height: responsiveHeight(20),
             }}
           >
-            <SvgUri
-              style={{ marginLeft: "5%" }}
-              source={{ uri: MyGlobleSetting.state.svgUrl + "logout.svg" }}
-            />
-            <View style={wallet.LeftContainer}>
-              <View style={{ flexDirection: "row" }}>
-                <Text style={{ fontSize: 16, color: "#EB001B" }}>Logout</Text>
-              </View>
-            </View>
+            <Image source={require("../../assets/logo.png")} />
           </View>
-        </TouchableOpacity>
-      </View>
+          <View>
+            <Text
+              style={{
+                fontSize: 13,
+                fontFamily: Regular,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              Welcome to INXGO, your ultimate job portal app designed to
+              revolutionize the way you search, apply, and connect with career
+              opportunities. At INXGO, we believe that finding the right job
+              should be seamless, efficient, and tailored to your unique skills
+              and aspirations.{"\n"}
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontSize: 13,
+                fontFamily: Regular,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              Our mission is to empower job seekers like you by providing a
+              comprehensive platform that brings together top employers and
+              talented professionals from various industries. Whether you're a
+              fresh graduate stepping into the professional world or an
+              experienced individual seeking new challenges, INXGO is here to
+              support you on your career journey.{"\n"}
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontSize: 13,
+                fontFamily: Regular,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              With INXGO, you can create a powerful profile that showcases your
+              expertise, education, and experience. Stand out from the crowd by
+              uploading a professional photo and highlighting your key skills.
+              Our advanced algorithm matches your profile with relevant job
+              opportunities, ensuring you discover the best-suited positions for
+              your career advancement.{"\n"}
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontSize: 13,
+                fontFamily: Regular,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              But INXGO is more than just a job search platform. It's a
+              community where you can build valuable connections, network with
+              industry experts, and stay updated on the latest trends and
+              insights. Join industry-specific groups, share your knowledge, and
+              learn from others to enhance your professional growth{"\n"}
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontSize: 13,
+                fontFamily: Regular,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              Join the INXGO community today and embark on a transformative
+              journey towards a rewarding career. Let us help you unlock your
+              full potential and connect you with opportunities that align with
+              your ambitions. Together, we can redefine the future of job search
+              and create a world where talent and opportunity converge
+              seamlessly. Welcome to INXGO!
+            </Text>
+          </View>
+        </View>
+      </ScrollView>
+
       <Footer flag={"Profile"} navigation={navigation} />
     </View>
   );

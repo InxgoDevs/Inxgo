@@ -30,5 +30,6 @@ export { default as LocationBottomSheet } from "../components/LocationBottomShee
 export { default as RateSupplierBSheet } from "../components/RateSupplierBSheet/Index";
 export { default as Accepted} from '../screens/Booking/Accepted';
 export {default as CancelScreen} from "./CancelScreen/Cancel";
+export {default as AddCredit} from '../screens/Wallet/AddCredit';
 
 
