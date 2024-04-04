@@ -23,6 +23,11 @@ import google from "../../assets/google.png";
 import facebook from "../../assets/facebook.png";
 import Loading from "../../assets/Loading_icon.gif";
 import Toast from "react-native-toast-message";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
+import { Regular } from "../../constants/fonts";
 const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");
 const openEye = require("../../assets/openeye.png");
@@ -100,13 +105,22 @@ const SignUp = ({ navigation }) => {
       enabled
       style={{ flex: 1 }}
     >
-      <ScrollView contentContainerStyle={styles.scrollView}>
+      <ScrollView>
         <View style={appStyle.body}>
-          <TouchableOpacity onPress={() => navigation.navigate("StartLogin")}>
-            <Image style={appStyle.arrowbacklogin} source={arrow_back} />
-          </TouchableOpacity>
-          <Toast />
-          <Text style={signUpStyle.welcome}>Create your{"\n"}Account</Text>
+          <View
+            style={{
+              height: responsiveHeight(25),
+              // backgroundColor: "blue",
+              width: responsiveWidth(100),
+            }}
+          >
+            <TouchableOpacity onPress={() => navigation.navigate("StartLogin")}>
+              <Image style={appStyle.arrowbacklogin} source={arrow_back} />
+            </TouchableOpacity>
+            <Toast />
+            <Text style={signUpStyle.welcome}>Create your{"\n"}Account</Text>
+          </View>
+
           <View style={styles.container}>
             <Formik
               initialValues={{
@@ -116,8 +130,10 @@ const SignUp = ({ navigation }) => {
                 confirmPassword: "",
               }}
               validationSchema={Yup.object({
-                name: Yup.string().required("Required"),
-                email: Yup.string().email("Invalid Email").required("Required"),
+                name: Yup.string().required("Name is Required"),
+                email: Yup.string()
+                  .email("Invalid Email")
+                  .required("Email is Required"),
                 password: Yup.string()
                   .required("Password is required")
                   .min(6, "Password must be at least 6 characters"),
@@ -189,29 +205,20 @@ const SignUp = ({ navigation }) => {
                     mode="contained"
                     loading={props.isSubmitting}
                     disabled={props.isSubmitting}
-                    style={{ marginTop: 16, backgroundColor: "#FFC44D" }}
+                    style={{
+                      marginTop: 6,
+                      backgroundColor: "#FFC44D",
+                      fontSize: 14,
+                      fontWeight: "500",
+                      fontFamily: Regular,
+                    }}
                   >
-                    Submit
+                    Sign Up
                   </Button>
                 </View>
               )}
             </Formik>
           </View>
-          <View style={appStyle.leftContainer}>
-            {/* <CheckBox /> */}
-            {/* <Text style={appStyle.rowLabelText}>Remember Me</Text> */}
-          </View>
-
-          {/* {!state.flag ? (
-        <TouchableOpacity
-          onPress={() => navigation.navigate("NewPassword")}
-          style={appStyle.appButtonContainer}
-        >
-          <Text style={appStyle.appButtonText}>Sign Up</Text>
-        </TouchableOpacity>
-      ) : (
-        <Image style={styles.loadingIcon} source={Loading} />
-      )} */}
 
           <View style={appStyle.cardContainer}>
             <Text style={signUpStyle.lineText}>or continue with</Text>
@@ -230,10 +237,10 @@ const SignUp = ({ navigation }) => {
             </TouchableOpacity>
           </View>
 
-          <View style={appStyle.cardContainer}>
+          <View style={appStyle.cardContainer2}>
             <Text style={appStyle.signUp}>Already have an Account? </Text>
             <Text
-              onPress={() => navigation.navigate("Index")}
+              onPress={() => navigation.navigate("StartLogin")}
               style={styles.TextContainer}
             >
               Login
@@ -252,13 +259,15 @@ const styles = StyleSheet.create({
     color: "#FFC44D",
     fontWeight: "bold",
     fontSize: 15,
-    fontFamily: "Inter",
-    left: 70,
+    fontFamily: "Regular",
   },
   container: {
+    height: responsiveHeight(55),
+    width: responsiveWidth(100),
+    // backgroundColor: "black",
     paddingTop: 1,
-    backgroundColor: "#ecf0f1",
-    padding: 8,
+    backgroundColor: "#fafafa",
+    padding: 18,
   },
   title: {
     margin: 24,
@@ -267,7 +276,7 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   error: {
-    margin: 2,
+    margin: 1,
     fontSize: 12,
     color: "red",
     fontWeight: "bold",
@@ -276,10 +285,11 @@ const styles = StyleSheet.create({
     height: 50,
     paddingHorizontal: 8,
     width: "100%",
-    borderColor: "#ddd",
-    borderWidth: 1,
-    backgroundColor: "#fff",
+    borderColor: "#FECD45",
+    borderWidth: 2,
+    backgroundColor: "#fafafa",
     marginBottom: 10,
+    borderRadius: 10,
   },
   eyeIconContainer: {
     position: "absolute",

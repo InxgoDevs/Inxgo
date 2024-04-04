@@ -5,6 +5,7 @@ import {
   responsiveFontSize,
 } from "react-native-responsive-dimensions";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
+import { Regular, Bold } from "../constants/fonts";
 
 const appStyle = StyleSheet.create({
   leftContainerPromotion: {
@@ -14,6 +15,8 @@ const appStyle = StyleSheet.create({
   welcome: {
     marginTop: verticalScale(40),
     fontSize: 40,
+
+    fontFamily: Bold,
     //alignSelf: "center",
     // justifyContent: 'center',
     // alignItems: 'flex-start',
@@ -41,7 +44,10 @@ const appStyle = StyleSheet.create({
   },
   lineText: {
     alignSelf: "center",
-    top: 15,
+    //top: 15,
+    fontSize: 14,
+    fontWeight: "400",
+    fontFamily: Regular,
   },
   centerContainer: {
     flex: 1,

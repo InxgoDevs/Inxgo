@@ -38,26 +38,25 @@ const Start = ({ navigation }) => {
           <Text style={appStyle.welcome}>Let's get you in</Text>
         </View>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Index")}
+          onPress={() => navigation.navigate("Start")}
           style={appStyle.appButtonContainer}
         >
           <Text style={appStyle.appButtonText}>Login in with Email</Text>
         </TouchableOpacity>
-        </View>
+      </View>
 
-        <View style={appStyle.cardContainer}>
-          <Text style={style.text1} onPress={() => navigation.navigate("Home")}>
-            Skip Log in for now
-          </Text>
-          {/* <Text
+      <View style={appStyle.cardContainer}>
+        <Text style={style.text1} onPress={() => navigation.navigate("Home")}>
+          Skip Log in for now
+        </Text>
+        {/* <Text
             onPress={() => navigation.navigate("SignUp")}
             style={appStyle.signUpText}
           >
             Sign Up
           </Text> */}
-        </View>
       </View>
-    
+    </View>
   );
 };
 

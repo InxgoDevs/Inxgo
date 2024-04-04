@@ -85,7 +85,7 @@ const LogInScreen = ({ navigation }) => {
             entering={FadeInDown.delay(100).duration(1000).springify()}
             style={{
               opacity: 0.5,
-              marginBottom: 16,
+              marginBottom: 26,
               fontSize: 18,
 
               color: theme.colors.text,
@@ -95,13 +95,13 @@ const LogInScreen = ({ navigation }) => {
             {LOG_IN_SCREEN.description}
           </Animated.Text>
 
-          <View style={{ alignItems: "center", gap: 16, marginTop: 32 }}>
+          <View style={{ alignItems: "center", gap: 16, marginBottom: 22 }}>
             <Animated.View
               entering={FadeInDown.delay(600).duration(1000).springify()}
             >
               <PrimaryButton
                 label="Get Started"
-                onPress={() => navigation.navigate("Home")}
+                onPress={() => navigation.navigate("SignUp")}
               />
             </Animated.View>
           </View>

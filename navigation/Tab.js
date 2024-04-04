@@ -33,7 +33,6 @@ import {
   LocationBottomSheet,
   RateSupplierBSheet,
   CancelScreen,
-  
 } from "../screens";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 //import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
@@ -46,7 +45,6 @@ import Languages from "../screens/ProfileNotifications/Languages";
 import Credit from "../screens/Wallet/Credit";
 import AddCredit from "../screens/Wallet/AddCredit";
 import EditProfile from "../screens/Profile/EditProfile";
-
 
 const Tab = createBottomTabNavigator();
 
@@ -69,7 +67,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "Home"}
+      initialRouteName={!users ? "Home" : "SplashScreen"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -105,17 +103,14 @@ const Tabs = (props) => {
       <Tab.Screen name="NewPassword" component={NewPassword} />
       <Tab.Screen name="CancelScreen" component={CancelScreen} />
       <Tab.Screen name="Security" component={Security} />
-      <Tab.Screen name="ProfileNotifications" component={ProfileNotifications} />
+      <Tab.Screen
+        name="ProfileNotifications"
+        component={ProfileNotifications}
+      />
       <Tab.Screen name="Languages" component={Languages} />
       <Tab.Screen name="Credit" component={Credit} />
       <Tab.Screen name="AddCredit" component={AddCredit} />
       <Tab.Screen name="EditProfile" component={EditProfile} />
-
-
-
-
-
-
     </Tab.Navigator>
   );
 };
