@@ -5,7 +5,7 @@ import {
   responsiveFontSize,
 } from "react-native-responsive-dimensions";
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
-import { Regular, Bold } from "../constants/fonts";
+import { Regular } from "../constants/fonts";
 
 const appStyle = StyleSheet.create({
   leftContainerPromotion: {
@@ -72,5 +72,6 @@ const appStyle = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
+ 
 });
 export default appStyle;

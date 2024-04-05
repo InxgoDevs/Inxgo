@@ -67,7 +67,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "SplashScreen"}
+      initialRouteName={!users ? "Home" : "Login"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -111,6 +111,8 @@ const Tabs = (props) => {
       <Tab.Screen name="Credit" component={Credit} />
       <Tab.Screen name="AddCredit" component={AddCredit} />
       <Tab.Screen name="EditProfile" component={EditProfile} />
+      <Tab.Screen name="Login" component={Login} />
+
     </Tab.Navigator>
   );
 };
