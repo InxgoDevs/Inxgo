@@ -16,7 +16,7 @@ const AnimatedSplashScreen = ({
   const navigation = useNavigation(); // Get the navigation object
 
   const onAnimationComplete = () => {
-    ;
+    navigation.navigate("Onboarding1");
     setAnimationFinished(true);
     onAnimationFinish(false); // Not cancelled since it played through
   };

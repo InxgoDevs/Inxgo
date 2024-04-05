@@ -31,9 +31,6 @@ import { Regular } from "../../constants/fonts";
 const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");
 const openEye = require("../../assets/openeye.png");
-import { scale, verticalScale, moderateScale } from "react-native-size-matters";
-
-
 // const PasswordSchema = Yup.object().shape({
 //   passwordLength: Yup.
 //  })
@@ -243,7 +240,7 @@ const SignUp = ({ navigation }) => {
           <View style={appStyle.cardContainer2}>
             <Text style={appStyle.signUp}>Already have an Account? </Text>
             <Text
-              onPress={() => navigation.navigate("Login")}
+              onPress={() => navigation.navigate("StartLogin")}
               style={styles.TextContainer}
             >
               Login
@@ -260,7 +257,7 @@ export default SignUp;
 const styles = StyleSheet.create({
   TextContainer: {
     color: "#FFC44D",
-   fontWeight: "bold",
+    fontWeight: "bold",
     fontSize: 15,
     fontFamily: "Regular",
   },
@@ -310,5 +307,4 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     resizeMode: "stretch",
   },
- 
 });

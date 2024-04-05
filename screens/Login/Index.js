@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { TextInput } from "react-native-paper";
-import { scale, verticalScale, moderateScale } from "react-native-size-matters";
-import { Bold } from "../../constants/fonts";
-
 import CheckBox from "@react-native-community/checkbox";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
@@ -77,29 +74,29 @@ const Index = ({ navigation }) => {
           flexDirection: "row",
         }}
       >
-        <Text style={styles.welcomeL}>Login to Your{"\n"}Account</Text>
+        <Text style={signUpStyle.welcome}>Login to Your{"\n"}Account</Text>
       </View>
 
-      <View style={styles.cardContainer}>
+      <View style={appStyle.cardContainer}>
         <TextInput
           mode="outlined"
           theme={{
             colors: { primary: "#FFC44D", underlineColor: "transparent" },
           }}
-          style={styles.inputtext}
+          style={appStyle.inputSearch}
           onChangeText={(text) => handleState(text, "email")}
           placeholder="Email"
         />
         <Image source={email} style={styles.emailIcon} />
       </View>
 
-      <View style={styles.cardContainer}>
+      <View style={appStyle.cardContainer}>
         <TextInput
           mode="outlined"
           theme={{
             colors: { primary: "#FFC44D", underlineColor: "transparent" },
           }}
-          style={styles.inputtext}
+          style={appStyle.inputSearch}
           secureTextEntry={!state.passwordVisible}
           onChangeText={(text) => handleState(text, "password")}
           placeholder="Password"
@@ -194,41 +191,5 @@ const styles = StyleSheet.create({
   eyeIcon: {
     width: 20,
     height: 20,
-  },
-  welcomeL: {
-    marginTop: verticalScale(40),
-    fontSize: 40,
-height:responsiveHeight(23),
-backgroundColor:'red',
-    fontFamily: Bold,
-    //alignSelf: "center",
-    // justifyContent: 'center',
-    // alignItems: 'flex-start',
-    fontWeight: "600",
-    marginBottom: 20,
-    marginLeft: 25,
-  },
-  inputtext: {
-    width: responsiveWidth(90),
-    // left: 10,
-    // textAlign: "right",
-    // marginLeft: 10, // Add left padding to move text slightly to the right
-
-    paddingHorizontal: 20,
-    //borderWidth:.5,
-
-    zIndex: 0, // Ensure border has z-index of 0
-    margin: 10,
-  },
-  cardContainer: {
-    width: responsiveWidth(100),
-    height: responsiveHeight(10),
-     backgroundColor: "orange",
-    // flexDirection: 'row',
-    // marginTop: 10,
-    alignSelf: "center",
-    justifyContent: "center",
-    alignItems: "center",
-    flexDirection: "row",
   },
 });
