@@ -107,7 +107,7 @@ const Index = ({ navigation }) => {
               <Text style={appStyle.rowLabelText}>Categories</Text>
             </View>
             <View style={appStyle.rightContainerSmall}>
-              <TouchableOpacity onPress={()=>navigation.navigate("TrackerMain")}>
+              <TouchableOpacity onPress={()=>navigation.navigate()}>
                 <Text style={appStyle.rowLabelTextRight}>View all</Text>
               </TouchableOpacity>
             </View>

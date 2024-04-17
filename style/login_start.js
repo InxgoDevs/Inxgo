@@ -231,6 +231,7 @@ const appStyle = StyleSheet.create({
   google: {
     width: 34,
     height: 32,
+    resizeMode:'contain'
   },
 
   signIn: {

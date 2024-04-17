@@ -21,8 +21,8 @@ import {
 import appStyle from "../../style/login_start";
 import signUpStyle from "../../style/SignUp";
 import apple from "../../assets/apple.png";
-import google from "../../assets/google.png";
-import facebook from "../../assets/facebook.png";
+import glogo from "../../assets/glogo.png";
+import fblogo from "../../assets/fblogo.png";
 import Loading from "../../assets/Loading_icon.gif";
 import Toast from "react-native-toast-message";
 const openeye = require("../../assets/openeye.png");
@@ -249,10 +249,10 @@ const Index = ({ navigation }) => {
               <Image style={appStyle.google} source={apple} />
             </TouchableOpacity>
             <TouchableOpacity style={signUpStyle.appButtonSoical}>
-              <Image style={appStyle.google} source={google} />
+              <Image style={appStyle.google} source={glogo} />
             </TouchableOpacity>
             <TouchableOpacity style={signUpStyle.appButtonSoical}>
-              <Image style={appStyle.google} source={facebook} />
+              <Image style={appStyle.google} source={fblogo} />
             </TouchableOpacity>
           </View>
 
