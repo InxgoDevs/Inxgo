@@ -184,9 +184,9 @@ const Index = ({ navigation }) => {
         <View style={{justifyContent:'flex-end',alignItems:"flex-end",bottom:25}}>
         <Text
           onPress={() => navigation.navigate("Forget")}
-          style={[{ color: "#FFC44D",  fontSize: 14, }]}
+          style={[{ color: "#FFC44D",  fontSize: 12,fontFamily:Regular }]}
         >
-          Forget the password?
+          Forget Password?
         </Text>
       </View>
       
@@ -238,7 +238,7 @@ const Index = ({ navigation }) => {
 
           <View style={styles.cardContainerl}>
           <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
-          <Text style={signUpStyle.lineText}>or continue with</Text>
+          <Text style={signUpStyle.lineText}>or Continue With</Text>
           </TouchableOpacity>
             
             <Toast ref={(ref) => Toast.setRef(ref)} />
