@@ -26,6 +26,7 @@ const appStyle = StyleSheet.create({
     width: "37%",
     marginLeft: "3%",
     // alignSelf: 'flex-start',
+    
   },
   RightContainer: {
     width: "35%",

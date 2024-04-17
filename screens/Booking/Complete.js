@@ -8,13 +8,15 @@ import circle from "../../assets/icons/circle.png";
 import location from "../../assets/icons/location.png";
 import hrs from "../../assets/icons/hrs.png";
 import { NavigationContainer } from "@react-navigation/native";
+import { Bold } from "../../constants/fonts";
+import Frame from "../../assets/Frame.png"
 
 const Complete = ({ navigation }) => {
-  const detailJob = async (path) => {
-    console.log(path);
-    // navigation.navigate('Detail');
+   const detailJob = async (path) => {
+   console.log(path);
+  //   // navigation.navigate('Detail');
     navigation.navigate(path);
-  };
+   };
 
   return (
     <View
@@ -28,7 +30,7 @@ const Complete = ({ navigation }) => {
       }}
     >
       <View style={{ flexDirection: "row", width: "100%", marginTop: 20 }}>
-        <Image style={wallet.image} source={image_upload} />
+        <Image style={wallet.image} source={Frame} />
         <View style={wallet.LeftContainer}>
           <View style={{ flexDirection: "row" }}>
             <Text style={{ fontSize: 18 }}>Mark Tuan</Text>
@@ -48,10 +50,10 @@ const Complete = ({ navigation }) => {
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontSize: 18 }}>$ 40</Text>
+              <Text style={{ fontSize: 11,fontFamily:Bold }}>Completed</Text>
             </View>
           </View>
-          <TouchableOpacity onPress={() => detailJob("Detail")}>
+          <TouchableOpacity onPress={() =>detailJob("CompleteDetails")}>
             <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
               <Image
                 style={{ marginTop: 10, width: 15, height: 15 }}

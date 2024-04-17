@@ -16,7 +16,7 @@ import CreditCardForm, { Button, FormModel } from 'rn-credit-card';
 import { CommonImages } from '../../constants/Images';
 
 
-const PaymentAdd: React.FC = () => {
+const PaymentAdd: React.FC = ({navigation}) => {
  const formMethods = useForm<FormModel>({
     mode: 'onBlur',
     defaultValues: {
@@ -39,7 +39,7 @@ const PaymentAdd: React.FC = () => {
       <SafeAreaView style={styles.container}>
         
         <View style={profile.welcome}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={()=>navigation.navigate("AddCredit")}>
           <Image style={profile.arrow_back} source={CommonImages.arrow} />
 
           </TouchableOpacity>

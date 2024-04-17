@@ -64,7 +64,7 @@ const AddCredit = ({navigation}) => {
                     title={"Continue"}
                     color="#FFC44D"
                     width={responsiveWidth(90)}
-                    // onPress={handleEndButtonClick}
+                     onPress={()=>navigation.navigate('PaymentAdd')}
                 />
             </View>
         </View>

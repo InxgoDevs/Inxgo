@@ -142,6 +142,8 @@ const Index = ({ navigation }) => {
             <Text style={profile.welcomeText}>Fill Your Profile</Text>
           </View>
        
+       <View style={{height:responsiveHeight(17)}}>
+
        
           <Image
             style={profile.image}
@@ -152,9 +154,11 @@ const Index = ({ navigation }) => {
 
 </Image>
           </TouchableOpacity>
-          
+          </View>
        
-        <View style={appStyle.cardContainer}>
+
+       
+        <View style={Style.InputContainer}>
           <TextInput
             theme={{
               colors: {
@@ -207,7 +211,7 @@ const Index = ({ navigation }) => {
         placeholder="Date of Birth"
         value={date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
       />
-      <TouchableOpacity onPress={showDatePicker} style={{ position: 'absolute', right: 10 }}>
+      <TouchableOpacity onPress={showDatePicker} style={{ position: 'absolute', right: 25 }}>
         <Image source={require('../../assets/DOB.png')} />
       </TouchableOpacity>
           
@@ -243,7 +247,7 @@ const Index = ({ navigation }) => {
     source={require('../../assets/Message.png')}
     style={{
       position: 'absolute',
-      right: 10, // Adjust the position as needed
+      right:25, // Adjust the position as needed
       top: 28, // Adjust the position as needed
     }}
  />
@@ -271,10 +275,10 @@ const Index = ({ navigation }) => {
  // Set the width to 90
       borderRadius: 15,
       overflow: 'hidden',
-      left:17,
+      marginLeft:17,
       height:56,
       opacity: 0.4,
-      top:15
+      top:10
       
     }}
         countryPickerButtonStyle  ={{ backgroundColor: '#D9D9D9' }}
@@ -316,7 +320,7 @@ const Index = ({ navigation }) => {
  </TouchableOpacity>
           
         </View>
-        
+    
        
         {modalVisible && (
           <Modal
@@ -421,5 +425,16 @@ appButton: {
   paddingHorizontal: 12,
   marginTop:50,
   
+},
+InputContainer: {
+  width: responsiveWidth(100),
+  height: responsiveHeight(10),
+  //backgroundColor: "gray",
+  // flexDirection: 'row',
+  // marginTop: 10,
+  alignSelf: "center",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "row",
 },
   })

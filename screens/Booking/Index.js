@@ -18,7 +18,7 @@ const Index = ({ navigation }) => {
   const [state, setState] = useState({
     index: 0,
     routes: [
-      { key: "first", title: "Incoming" },
+      { key: "first", title: "Pending" },
       { key: "second", title: "In-Progress" },
       { key: "third", title: "Completed" },
     ],

@@ -32,25 +32,25 @@ const appStyle =StyleSheet.create({
       arrow_back:
       {
         top:6,
-        marginRight:10,
-      } ,
+marginLeft:15      } ,
       welcome:
       {
         //marginTop:50,
         fontSize:20,
-        marginLeft:20,
+        //marginLeft:20,
         flexDirection: 'row',
         // alignSelf: "center",
         // justifyContent: 'center',
         // alignItems: 'center',
-        //backgroundColor:"red",
+      // backgroundColor:"red",
       height:responsiveHeight(8)
       },
       welcomeText:
       {
         fontWeight: "500",
         fontSize:20,
-        marginBottom:20,  
+       // marginBottom:20,  
+       marginLeft:20
       },
       image:
       {

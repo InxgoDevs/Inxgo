@@ -8,6 +8,7 @@ import wallet from "../../style/wallet";
 import circle from "../../assets/icons/circle.png";
 import location from "../../assets/icons/location.png";
 import hrs from "../../assets/icons/hrs.png";
+import Frame from '../../assets/Frame.png'
 
 const Tracker = ({ navigation }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -64,8 +65,10 @@ const Tracker = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <View style={styles.infoContainer}>
-        <Image style={wallet.image} source={image_upload} />
+        <Image style={wallet.image} source={Frame} />
+        
         <View style={wallet.LeftContainer}>
+        
           <View style={{ flexDirection: "row" }}>
             <Text style={{ fontSize: 18 }}>Mark Tuan</Text>
           </View>
@@ -219,6 +222,7 @@ const styles = StyleSheet.create({
    // justifyContent: "center",
    // alignItems: "center",
     backgroundColor: "#fafafa",
+    
   },
   timerContainer: {
     //marginTop: 0,
@@ -240,6 +244,7 @@ const styles = StyleSheet.create({
     width: "100%",
     //position: "absolute",
    // top: 20,
+   //elevation: 10,
     //backgroundColor:"red",
     height:responsiveHeight(10),
 
@@ -248,7 +253,8 @@ const styles = StyleSheet.create({
     justifyContent: "center", // Center the infoContainer horizontally
   },
   timerButtons: {
-   marginTop: 80,
+   marginTop: 30,
+  // backgroundColor:"red",
     flexDirection: "row",
     justifyContent:'space-evenly', // Add space between the buttons
   //  width: "100%", // Ensure the buttons span the full width of the container

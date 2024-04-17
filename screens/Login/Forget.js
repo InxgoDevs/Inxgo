@@ -16,7 +16,7 @@ const arrow_back=require('../../assets/arrow_back.png')
 import { useFonts } from 'expo-font';
 import { responsiveHeight } from 'react-native-responsive-dimensions';
 
-const Forget = ({ navigation }) => {
+const ResetCode = ({ navigation }) => {
   // You can use useEffect hook for componentDidMount
   // useEffect(() => {
   //   console.log(navigation);
@@ -25,12 +25,13 @@ const Forget = ({ navigation }) => {
   return (
     <View  style={appStyle.body}>
       <View>
-      <View style={{height:responsiveHeight(15), marginTop:50,
+      <View style={{height:responsiveHeight(10), marginTop:10,
         justifyContent:'flex-start',
         marginLeft:20,
-        top:20,
+       // top:20,
+       // backgroundColor:"red",
         flexDirection: 'row',}}>
-        <TouchableOpacity onPress={() =>navigation.navigate('Index')}>
+        <TouchableOpacity onPress={() =>navigation.navigate('Login')}>
         <Image style={appStyle.arrow_backF}  source={arrow_back}   />
         </TouchableOpacity>
       
@@ -83,7 +84,7 @@ const Forget = ({ navigation }) => {
             <Image style={appStyle.rightIconForget} source={email} />
           </View>
           <View style={appStyle.rightContainerForget}>
-          <TouchableOpacity  onPress={navigation.navigate('ForgotPswd')}>
+          <TouchableOpacity  onPress={()=> navigation.navigate("ResetCode")}>
             <Text
               style={{
                 width: 200,
@@ -126,4 +127,4 @@ const Forget = ({ navigation }) => {
   );
 }
 
-export default Forget;
+export default ResetCode;

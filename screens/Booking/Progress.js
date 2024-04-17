@@ -40,7 +40,7 @@ const Progress = ({ navigation }) => {
               <Text style={{ fontSize: 14 }}>Active</Text>
             </View>
           </View>
-          <TouchableOpacity onPress={() => navigation.navigate("Detail")}>
+          <TouchableOpacity onPress={() => navigation.navigate("Accepted")}>
             <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
               <Image
                 style={{

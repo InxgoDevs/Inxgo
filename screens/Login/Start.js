@@ -38,7 +38,7 @@ const Start = ({ navigation }) => {
           <Text style={appStyle.welcome}>Let's get you in</Text>
         </View>
         <TouchableOpacity
-          onPress={() => navigation.navigate("Start")}
+          onPress={() => navigation.navigate("Login")}
           style={appStyle.appButtonContainer}
         >
           <Text style={appStyle.appButtonText}>Login in with Email</Text>

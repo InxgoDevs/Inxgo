@@ -12,7 +12,7 @@ const google = require("../../assets/google.png");
 const arrow_back = require('../../assets/arrow_back.png');
 
 // create a component
-const ForgotPswd = ({ navigation }) => {
+const ResetCode = ({ navigation }) => {
   const [timer, setTimer] = useState(30); // Initial timer value
   const [otpExpired, setOtpExpired] = useState(false);
   const showToast = () => {
@@ -39,11 +39,30 @@ const ForgotPswd = ({ navigation }) => {
     // Clear interval on component unmount
     return () => clearInterval(interval);
   }, []);
+  const handleResend = () => {
+    showToast();
+    startTimer(); // Restart the timer when the "Resend" button is clicked
+ };
+ const startTimer = () => {
+  setOtpExpired(false);
+  setTimer(30);
+  const interval = setInterval(() => {
+    setTimer(prevTimer => {
+      if (prevTimer === 1) {
+        setOtpExpired(true);
+        clearInterval(interval);
+      }
+      return prevTimer - 1;
+    });
+  }, 1000);
+
+  return () => clearInterval(interval);
+};
 
   return (
     <View style={styles.body} >
       <View style={{ height: responsiveHeight(20), flexDirection: 'row', backgroundColor: '#FAFAFA',top:20 }}>
-        <TouchableOpacity onPress={() => navigation.navigate('Index')}>
+        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
           <Image style={styles.arrow_backForget} source={arrow_back} />
         </TouchableOpacity>
         <Text style={signUpStyle.welcomeF}>Forgot Password</Text>
@@ -61,7 +80,7 @@ const ForgotPswd = ({ navigation }) => {
   {otpExpired ? (
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
       <Text style={{ fontSize: 16 }}>OTP Expired</Text>
-      <TouchableOpacity style={{  marginLeft: 10 }}  onPress={showToast}>
+      <TouchableOpacity style={{  marginLeft: 10 }}  onPress={handleResend}>
         <Text style={{fontSize:16,fontWeight:'bold',color:'#FFC44D',borderBottomWidth:1.5,borderBottomColor:'#FFC44D'}}>Resend</Text>
       </TouchableOpacity>
     </View>
@@ -71,7 +90,7 @@ const ForgotPswd = ({ navigation }) => {
 </View>
 
       <View style={{ backgroundColor: "#FAFAFA", height: responsiveHeight(20), justifyContent: 'flex-end' }}>
-        <TouchableOpacity onPress={() => navigation.navigate("Index")} style={styles.Btncontainer}>
+        <TouchableOpacity onPress={() => navigation.navigate("Login")} style={styles.Btncontainer}>
           <Text style={styles.btntxt}>Verify</Text>
         </TouchableOpacity>
         <Toast ref={(ref) => Toast.setRef(ref)} />
@@ -120,4 +139,4 @@ const styles = StyleSheet.create({
 });
 
 //make this component available to the app
-export default ForgotPswd;
+export default ResetCode;

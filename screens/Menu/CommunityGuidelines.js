@@ -29,7 +29,7 @@ import logout from '../../assets/svg/logout.svg';
 import notification from '../../assets/svg/notification.svg';
 import shielddone from '../../assets/svg/shielddone.svg';
 import walletSvg from '../../assets/svg/wallet.svg';
-
+import { Regular, Thin,Bold } from '../../constants/fonts';
 class CommunityGuidelines extends Component {
   constructor(props){
     super(props);
@@ -41,20 +41,21 @@ class CommunityGuidelines extends Component {
   render() {
      return(
           <ScrollView keyboardDismissMode={'on-drag'} style={{height:'100%',backgroundColor:'white'}}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
                   <View style={profile.welcome}>
                     <Image style={profile.arrow_back} source={arrow_back} />
+                    
                     <Text style={profile.welcomeText}>Community Guidelines</Text>
                   </View>
-                </TouchableOpacity>
-                <Text style={[menu.static,{fontSize: 13}]}>
+                  </TouchableOpacity>
+                <Text style={[menu.static,{fontSize: 13,fontFamily:Regular}]}>
                   Welcome to the INXGO community! We strive to foster a positive and inclusive environment where professionals can connect, share insights, and support each other in their career journeys. To ensure a respectful and valuable experience for all users, we have established the following community guidelines:
                 </Text>
                 <Text style={[menu.static,{fontSize: 13,fontWeight:'bold',marginTop:10}]}>
                   1. Respect and Professionalism:
                 </Text>
                 <Text style={[menu.static,{fontSize: 13}]}>
-                  <Text style={{ fontSize: 15 }}>{`\u25CF`}</Text><Text style={{ marginLeft:10, }}>Treat all members with respect, courtesy, and professionalism</Text>
+                  <Text style={{ fontSize: 15 }}>{`\u25CF`}</Text><Text style={{ marginLeft:10, }}>Treat all members with respect, courtesy, and professionalism.</Text>
                   {'\n'}
                   <Text style={{ fontSize: 15 }}>{`\u25CF`}</Text><Text style={{ marginLeft:10, }}>Refrain from engaging in any form of discrimination,harassment, or personal attacks</Text>
                   {'\n'}

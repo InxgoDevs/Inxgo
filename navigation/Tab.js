@@ -28,7 +28,7 @@ import {
   Pending,
   Application,
   General,
-  ForgotPswd,
+  ResetCode,
   NewPassword,
   LocationBottomSheet,
   RateSupplierBSheet,
@@ -45,7 +45,8 @@ import Languages from "../screens/ProfileNotifications/Languages";
 import Credit from "../screens/Wallet/Credit";
 import AddCredit from "../screens/Wallet/AddCredit";
 import EditProfile from "../screens/Profile/EditProfile";
-
+import SeeAll from "../screens/Wallet/SeeAll";
+import CompleteDetails from "../screens/Booking/CompleteDetails"
 const Tab = createBottomTabNavigator();
 
 const Tabs = (props) => {
@@ -67,7 +68,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "SplashScreen"}
+      initialRouteName={!users ? "Home" : "Login"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -99,7 +100,7 @@ const Tabs = (props) => {
       <Tab.Screen name="Pending" component={Pending} />
       <Tab.Screen name="Application" component={Application} />
       <Tab.Screen name="General" component={General} />
-      <Tab.Screen name="ForgotPswd" component={ForgotPswd} />
+      <Tab.Screen name="ResetCode" component={ResetCode} />
       <Tab.Screen name="NewPassword" component={NewPassword} />
       <Tab.Screen name="CancelScreen" component={CancelScreen} />
       <Tab.Screen name="Security" component={Security} />
@@ -111,6 +112,10 @@ const Tabs = (props) => {
       <Tab.Screen name="Credit" component={Credit} />
       <Tab.Screen name="AddCredit" component={AddCredit} />
       <Tab.Screen name="EditProfile" component={EditProfile} />
+      <Tab.Screen name="Login" component={Login} />
+      <Tab.Screen name="SeeAll" component={SeeAll} />
+       <Tab.Screen name="CompleteDetails" component={CompleteDetails} />
+
     </Tab.Navigator>
   );
 };

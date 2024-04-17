@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
-import { responsiveHeight } from 'react-native-responsive-dimensions';
+import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 import { Regular } from "../constants/fonts";
 
 // create a component
@@ -40,19 +40,26 @@ const CustomView = ({ imageSource, text, cashText, moneyIconSource ,amountText})
                 <View
                     style={{
                         flexDirection: "row",
-                        alignItems: "center",
-                        top: 40,
-                        right: 145,
+                        //alignItems: "center",
+                        //top: 40,
+                       // right: 145,
                         position: "absolute",
+                     //   backgroundColor:'red',
+                        width:responsiveWidth(100),
+                        marginTop:30,
+                        marginLeft:90,
+                    
+                    
+                        
                     }}
                 >
                     {/* Profession */}
-                    <Text style={{ fontSize: 12, fontFamily: Regular, left: 50 }}>Plumber</Text>
+                    <Text style={{ fontSize: 12, fontFamily: Regular, }}>Plumber</Text>
 
-                    <Text style={{ fontSize: 12, fontFamily: Regular, left: 55 }}>|</Text>
-                    <Text style={{ fontSize: 12, fontFamily: Regular, left: 60 }}>26 May, 2023</Text>
-                    <Image source={moneyIconSource} style={{ left: 115 }} />
-                    <Text style={{ fontSize: 12, fontFamily: Regular, left: 120 }}>
+                    <Text style={{ fontSize: 12, fontFamily: Regular,marginHorizontal:10 }}>|</Text>
+                    <Text style={{ fontSize: 12, fontFamily: Regular, }}>26 May, 2023</Text>
+                    <Image source={moneyIconSource} style={{ left:50}} />
+                    <Text style={{ fontSize: 12, fontFamily: Regular,marginHorizontal:55, }}>
                         {cashText}
                     </Text>
                 </View>

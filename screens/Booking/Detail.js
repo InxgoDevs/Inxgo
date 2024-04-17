@@ -24,6 +24,7 @@ import CustomModal from "../../components/CustomModal";
 
 import wallet from "../../style/wallet";
 import MyMaps from "../../components/MyMaps";
+import Jobstart from "./Jobstart";
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
 const rightarrow = require("../../assets/rightarrow.png");
@@ -35,8 +36,12 @@ const map = require("../../assets/icons/map.png");
 const Detail = ({ navigation }) => {
   const [counter, setCounter] = useState(0);
   const [showFullText, setShowFullText] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const handleTrackClientButton = () => {
+    setModalVisible(!modalVisible);
+  };
   const handleTrackClient = () => {
-    // Destination coordinates
     const destinationLat = 31.530194602322787;
     const destinationLng = 74.35702854395637;
 
@@ -45,6 +50,7 @@ const Detail = ({ navigation }) => {
 
     // Open the URL in the Google Maps app
     Linking.openURL(url);
+    setModalVisible(!modalVisible);
   };
   useEffect(() => {
     console.log(navigation);
@@ -52,7 +58,16 @@ const Detail = ({ navigation }) => {
 
   return (
     <View style={{ flex: 1, backgroundColor: "#FFFFFF" }}>
-      <CustomModal title="This will navigate to Google Maps App. Please confirm by selecting 'Yes' or 'No' below" />
+      <CustomModal
+        title="This will navigate to Google Maps App. Please confirm by selecting 'Yes' or 'No' below"
+        buttontitle="Yes"
+        buttontitle2="No"
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        onPressNO={() => setModalVisible(false)}
+        onPressYes={handleTrackClient}
+      />
+
       <TouchableOpacity onPress={() => navigation.navigate("Booking")}>
         <View style={profile.welcome}>
           <Image style={profile.arrow_back} source={arrow_back} />
@@ -275,6 +290,8 @@ const Detail = ({ navigation }) => {
                   right: 3,
                   fontWeight: "600",
                   color: "blue",
+                  width: 100,
+                  height: 100,
                 }}
               >
                 <Text
@@ -293,7 +310,13 @@ const Detail = ({ navigation }) => {
             ) : (
               <TouchableOpacity
                 onPress={() => setShowFullText(false)}
-                style={{ position: "absolute", bottom: 0, right: 10 }}
+                style={{
+                  position: "absolute",
+                  bottom: 0,
+                  right: 10,
+                  width: 100,
+                  height: 100,
+                }}
               >
                 <Text
                   style={{
@@ -334,18 +357,19 @@ const Detail = ({ navigation }) => {
             source={map}
           /> */}
           <TouchableOpacity
-            onPress={handleTrackClient}
+           onPress={()=>navigation.navigate("Jobstart")}
+
             style={[
               styles.Btncontainers,
               {
                 position: "absolute",
                 zIndex: 1,
-                bottom: 20,
+                bottom: 60,
                 alignSelf: "center",
               },
             ]}
           >
-            <Text style={styles.btntxts}>Track Client</Text>
+            <Text style={styles.btntxts}>Track Supplier</Text>
           </TouchableOpacity>
         </View>
       </View>
