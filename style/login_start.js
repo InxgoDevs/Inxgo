@@ -8,9 +8,10 @@ import { Regular } from "../constants/fonts";
 
 const appStyle = StyleSheet.create({
   body: {
-    backgroundColor: "#FFFFFF",
+    backgroundColor: "#fafafa",
     height: responsiveHeight(100),
     width: responsiveWidth(100),
+
   },
   bgRoundedWhite: {
     width: "90%",
@@ -42,7 +43,7 @@ const appStyle = StyleSheet.create({
   cardContainer: {
     width: responsiveWidth(100),
     height: responsiveHeight(5),
-    // backgroundColor: "orange",
+     //backgroundColor: "orange",
     // flexDirection: 'row',
     // marginTop: 10,
     alignSelf: "center",

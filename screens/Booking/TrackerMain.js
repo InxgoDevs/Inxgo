@@ -16,9 +16,9 @@ import Progress from "./Progress";
 
 const arrow_back = require("../../assets/arrow_back.png");
 
-const Accepted = ({ navigation }) => {
+const TrackerMain = ({ navigation }) => {
   const [state, setState] = useState({
-    index: 0,
+    index: 1,
     routes: [
       { key: "first", title: "Incoming" },
       { key: "second", title: "In-Progress" },
@@ -68,7 +68,7 @@ const Accepted = ({ navigation }) => {
 
   const SecondRoute = () => (
     <View style={{ flex: 1, backgroundColor: "#fafafa" }}>
-      <Progress navigation={navigation} />
+      <Tracker navigation={navigation} />
     </View>
   );
 
@@ -137,4 +137,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Accepted;
+export default TrackerMain;

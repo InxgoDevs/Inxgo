@@ -132,7 +132,7 @@ const Index = ({ navigation }) => {
  };
 
  return (
-    <ScrollView keyboardDismissMode={"on-drag" } >
+    
       <View style={appStyle.body}>
        
           <View style={profile.welcome}>
@@ -141,7 +141,8 @@ const Index = ({ navigation }) => {
             </TouchableOpacity>
             <Text style={profile.welcomeText}>Fill Your Profile</Text>
           </View>
-       
+
+          
        <View style={{height:responsiveHeight(17)}}>
 
        
@@ -156,8 +157,9 @@ const Index = ({ navigation }) => {
           </TouchableOpacity>
           </View>
        
+          <ScrollView keyboardDismissMode={"on-drag" } contentContainerStyle={{flexGrow:1}} >
 
-       
+       <View style={{height:responsiveHeight(65)}}>
         <View style={Style.InputContainer}>
           <TextInput
             theme={{
@@ -175,7 +177,7 @@ const Index = ({ navigation }) => {
             placeholder="Full Name"
           />
         </View>
-        <View style={appStyle.cardContainer}>
+        <View style={Style.cardContainer22}>
           <TextInput 
             secureTextEntry={true}
             underlineColor="transparent"
@@ -193,8 +195,9 @@ const Index = ({ navigation }) => {
             onChange={handlePassword}
             placeholder="LastName"
           />
+          
         </View>
-        <View style={appStyle.cardContainer}>
+        <View style={Style.cardContainer22}>
         <TextInput
         underlineColor="transparent"
         theme={{
@@ -225,7 +228,7 @@ const Index = ({ navigation }) => {
             />
           )}
         </View>
-        <View style={appStyle.cardContainer}>
+        <View style={Style.cardContainer22}>
         <TextInput
     secureTextEntry={true}
     underlineColor="transparent"
@@ -243,6 +246,7 @@ const Index = ({ navigation }) => {
     onChange={handlePassword}
     placeholder="Email"
  />
+ 
  <Image
     source={require('../../assets/Message.png')}
     style={{
@@ -275,7 +279,7 @@ const Index = ({ navigation }) => {
  // Set the width to 90
       borderRadius: 15,
       overflow: 'hidden',
-      marginLeft:17,
+      marginLeft:10,
       height:56,
       opacity: 0.4,
       top:10
@@ -320,7 +324,7 @@ const Index = ({ navigation }) => {
  </TouchableOpacity>
           
         </View>
-    
+        </View>
        
         {modalVisible && (
           <Modal
@@ -344,27 +348,22 @@ const Index = ({ navigation }) => {
                 ))}
               </View>
             </View>
+            
           </Modal>
+          
         )}
-        {!flag ? (
+        </ScrollView>
+
+  
           <TouchableOpacity style={Style.appButton}>
             <Text style={appStyle.appButtonText}>Continue</Text>
           </TouchableOpacity>
-        ) : (
-          <Image
-            style={{
-              width: 200,
-              height: 100,
-              alignSelf: "center",
-              justifyContent: "center",
-              alignItems: "center",
-              resizeMode: "stretch",
-            }}
-            source={Loading}
-          />
-        )}
-      </View>
-    </ScrollView>
+
+     
+
+        
+      
+   </View>
  );
 };
 
@@ -423,13 +422,24 @@ appButton: {
   borderRadius: 30,
   paddingVertical: 10,
   paddingHorizontal: 12,
-  marginTop:50,
+  
   
 },
 InputContainer: {
   width: responsiveWidth(100),
   height: responsiveHeight(10),
   //backgroundColor: "gray",
+  // flexDirection: 'row',
+  // marginTop: 10,
+  alignSelf: "center",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "row",
+},
+cardContainer22: {
+  width: responsiveWidth(100),
+  height: responsiveHeight(10),
+  // backgroundColor: "orange",
   // flexDirection: 'row',
   // marginTop: 10,
   alignSelf: "center",

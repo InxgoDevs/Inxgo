@@ -48,7 +48,7 @@ const EditProfile = ({ navigation }) => {
       </View>
       <View style={styles.viewstyle}>
         <Image source={require("../../assets/WalletP.png")} />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Credit")}>
           <Text style={styles.txt}>Wallet</Text>
         </TouchableOpacity>
       </View>

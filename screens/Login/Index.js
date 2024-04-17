@@ -237,7 +237,10 @@ const Index = ({ navigation }) => {
           </View>
 
           <View style={styles.cardContainerl}>
-            <Text style={signUpStyle.lineText}>or continue with</Text>
+          <TouchableOpacity onPress={()=> navigation.navigate('Home')}>
+          <Text style={signUpStyle.lineText}>or continue with</Text>
+          </TouchableOpacity>
+            
             <Toast ref={(ref) => Toast.setRef(ref)} />
           </View>
 

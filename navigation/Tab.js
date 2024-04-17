@@ -47,6 +47,7 @@ import AddCredit from "../screens/Wallet/AddCredit";
 import EditProfile from "../screens/Profile/EditProfile";
 import SeeAll from "../screens/Wallet/SeeAll";
 import CompleteDetails from "../screens/Booking/CompleteDetails"
+import TrackerMain from "../screens/Booking/TrackerMain";
 const Tab = createBottomTabNavigator();
 
 const Tabs = (props) => {
@@ -115,7 +116,7 @@ const Tabs = (props) => {
       <Tab.Screen name="Login" component={Login} />
       <Tab.Screen name="SeeAll" component={SeeAll} />
        <Tab.Screen name="CompleteDetails" component={CompleteDetails} />
-
+       <Tab.Screen name="TrackerMain" component={TrackerMain} />
     </Tab.Navigator>
   );
 };

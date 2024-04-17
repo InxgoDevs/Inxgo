@@ -26,7 +26,7 @@ const Credit = ({navigation}) => {
     },
     {
       text: "Mark Tuan",
-      cashText: "Mastercard",
+      cashText: "Visa",
       moneyIconSource: require('../../assets/Credit card.png'),
       amountText: "$ 20",
     },

@@ -42,7 +42,7 @@ marginLeft:15      } ,
         // alignSelf: "center",
         // justifyContent: 'center',
         // alignItems: 'center',
-      // backgroundColor:"red",
+    // backgroundColor:"red",
       height:responsiveHeight(8)
       },
       welcomeText:
