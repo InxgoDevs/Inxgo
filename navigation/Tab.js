@@ -111,6 +111,17 @@ const Tabs = (props) => {
       <Tab.Screen name="Credit" component={Credit} />
       <Tab.Screen name="AddCredit" component={AddCredit} />
       <Tab.Screen name="EditProfile" component={EditProfile} />
+<<<<<<< Updated upstream
+=======
+      <Tab.Screen name="Login" component={Login} />
+
+
+
+
+
+
+
+>>>>>>> Stashed changes
     </Tab.Navigator>
   );
 };

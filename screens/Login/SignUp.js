@@ -239,12 +239,19 @@ const SignUp = ({ navigation }) => {
 
           <View style={appStyle.cardContainer2}>
             <Text style={appStyle.signUp}>Already have an Account? </Text>
+            <TouchableOpacity  onPress={() => navigation.navigate("Login")}>
             <Text
+<<<<<<< Updated upstream
               onPress={() => navigation.navigate("StartLogin")}
+=======
+             
+>>>>>>> Stashed changes
               style={styles.TextContainer}
             >
               Login
             </Text>
+            </TouchableOpacity>
+            
           </View>
         </View>
       </ScrollView>

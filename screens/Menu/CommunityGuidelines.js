@@ -41,7 +41,7 @@ class CommunityGuidelines extends Component {
   render() {
      return(
           <ScrollView keyboardDismissMode={'on-drag'} style={{height:'100%',backgroundColor:'white'}}>
-                <TouchableOpacity onPress={() => this.props.navigation.navigate('Menu')}>
+                <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')}>
                   <View style={profile.welcome}>
                     <Image style={profile.arrow_back} source={arrow_back} />
                     <Text style={profile.welcomeText}>Community Guidelines</Text>
