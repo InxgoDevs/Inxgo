@@ -239,13 +239,9 @@ const SignUp = ({ navigation }) => {
 
           <View style={appStyle.cardContainer2}>
             <Text style={appStyle.signUp}>Already have an Account? </Text>
-            <Text
-
-             
-              style={styles.TextContainer}
-            >
-              Login
-            </Text>
+            <TouchableOpacity onPress={()=>navigation.navigate("Login")}>
+              <Text style={styles.TextContainer}>Login</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </ScrollView>

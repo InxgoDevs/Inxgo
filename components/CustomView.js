@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import {
+  responsiveFontSize,
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
@@ -24,7 +25,7 @@ const CustomView = ({
       </View>
       <View
         style={{
-          backgroundColor: "blue",
+         // backgroundColor: "blue",
           height: responsiveHeight(8),
           width: responsiveWidth(75),
           alignItems:'center'
@@ -35,12 +36,13 @@ const CustomView = ({
             flexDirection: "row",
            // flexGrow: 1,
             justifyContent: "space-between",
-            paddingHorizontal: 10,
+            width:responsiveWidth(70),
+            paddingHorizontal: 2,
             marginTop: 5,
             height: responsiveHeight(3),
             overflow: "hidden",
-            marginRight:moderateScale(128),
-        backgroundColor:'red'
+          //  marginRight:moderateScale(0),
+        //backgroundColor:'red'
           }}
         >
           <Text
@@ -62,7 +64,7 @@ const CustomView = ({
             //top: 40,
             // right: 145,
             position: "absolute",
-            backgroundColor: "green",
+           // backgroundColor: "purple",
             width: responsiveWidth(70),
             marginTop: 30,
             // marginLeft:10,
@@ -71,7 +73,7 @@ const CustomView = ({
           }}
         >
           {/* Profession */}
-          <View style={{backgroundColor:"purple",flexDirection:'row',width:responsiveWidth(30)}}>
+          <View style={{flexDirection:'row',width:responsiveWidth(30)}}>
             <Text style={{ fontSize: 12, fontFamily: Regular }}>Plumber</Text>
 
             <Text
@@ -88,12 +90,12 @@ const CustomView = ({
             </Text>
           </View>
 
-          <View style={{ backgroundColor: "red", flexDirection:'row' }}>
+          <View style={{ flexDirection:'row',width:responsiveWidth(40),justifyContent:'flex-end',alignItems:'center' }}>
             <Image
               source={moneyIconSource}
-              style={{ marginLeft: 80, margin: 1 }}
+              style={{ marginLeft: 0, }}
             />
-            <Text style={{ fontSize: 12, fontFamily: Regular }}>
+            <Text style={{ fontSize:responsiveFontSize(1.5), fontFamily: Regular }}>
               {cashText}
             </Text>
           </View>

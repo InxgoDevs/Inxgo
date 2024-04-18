@@ -105,7 +105,7 @@ const EditProfile = ({ navigation }) => {
           title={"Logout"}
           color="#FFC44D"
           width={responsiveWidth(40)}
-          // onPress={handleEndButtonClick}
+          onPress={()=>navigation.navigate("SignUp")}
         />
      </View>
     </View>

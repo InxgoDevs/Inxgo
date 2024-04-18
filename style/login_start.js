@@ -298,7 +298,7 @@ const appStyle = StyleSheet.create({
   ForgetTxt: {
     fontSize: 16,
     paddingHorizontal: 10,
-    left: 15,
+    marginLeft:15,
   },
   line: {
     height: 1,

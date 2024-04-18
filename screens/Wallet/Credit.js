@@ -110,7 +110,7 @@ const Credit = ({navigation}) => {
     },
     {
       text: "Mark Tuan",
-      cashText: "Visa",
+      cashText: "Visa ",
       moneyIconSource: require('../../assets/Credit card.png'),
       amountText: "$ 20",
     },
@@ -157,7 +157,7 @@ const Credit = ({navigation}) => {
         <View style={{  paddingHorizontal: 18,height:responsiveHeight(5)}}>
           <Text style={{ fontSize: 16,fontFamily:Regular }}> Balance:</Text>
         </View>
-        <View style={{ paddingHorizontal: 20, flexDirection: "row",height:responsiveHeight(8) }}>
+        <View style={{ paddingHorizontal: 20, flexDirection: "row",height:responsiveHeight(8),justifyContent:'space-between' }}>
           <Text style={{ fontSize: 32, fontWeight: "600",fontFamily:Bold,}}>$ 243.45</Text>
           <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("AddCredit")}>
             <Text>Add Credit</Text>
@@ -170,6 +170,7 @@ const Credit = ({navigation}) => {
           marginTop: 20,
           flexDirection: "row",
           justifyContent: "space-between",
+          width:responsiveWidth(100)
         }}
       >
         <Text style={{ fontSize: 15, fontWeight: "600", fontFamily: Regular }}>

@@ -14,7 +14,7 @@ const email = require('../../assets/icons/email.png')
 const arrow_back=require('../../assets/arrow_back.png')
 
 import { useFonts } from 'expo-font';
-import { responsiveHeight } from 'react-native-responsive-dimensions';
+import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 
 const ResetCode = ({ navigation }) => {
   // You can use useEffect hook for componentDidMount
@@ -41,7 +41,7 @@ const ResetCode = ({ navigation }) => {
         <Image style={appStyle.logoF} source={start3} />
 
         </View>
-        <View style={{ height:responsiveHeight(7)}}>
+        <View style={{ height:responsiveHeight(7),width:responsiveWidth(90)}}>
             <Text style={appStyle.ForgetTxt}>
               Select which contact details should we use to reset your password
             </Text>
