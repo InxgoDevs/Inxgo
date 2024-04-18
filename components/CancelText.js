@@ -40,7 +40,7 @@ const Canceltext = ({ Cancel, selected, onSelect }) => {
  const borderColor = selected ? "#FFC44D" : "#E6E6E6";
 
  return (
-    <View style={{ marginTop: 25, flexDirection: "row", borderWidth:1, paddingHorizontal: 35, paddingVertical: 15, width: responsiveWidth(85), left: 20, borderRadius: 10, borderColor: borderColor, height: responsiveHeight(7), alignItems: "center" }}>
+    <View style={{ marginTop: 25, flexDirection: "row", borderWidth:1, paddingHorizontal: 35, paddingVertical:5, width: responsiveWidth(85), left: 20, borderRadius: 10, borderColor: borderColor, height: responsiveHeight(7), alignItems: "center" }}>
       <RadioButton
         selected={selected}
         onSelect={onSelect}

@@ -9,7 +9,7 @@ import circle from "../../assets/icons/circle.png";
 import location from "../../assets/icons/location.png";
 import hrs from "../../assets/icons/hrs.png";
 import Frame from '../../assets/Frame.png'
-
+import CustomModal from "../../components/CustomModal";
 const Tracker = ({ navigation }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [time, setTime] = useState(0);
@@ -51,7 +51,12 @@ const Tracker = ({ navigation }) => {
   const handleEndButtonClick = () => {
     setIsPlaying(false);
     setIsPaused(false); // Ensure the timer is not paused when ending
-    setProgressComplete(true); // Complete the progress bar when ending
+    setProgressComplete(true);
+    setIsModalVisible(true); // Show the modal when the End button is clicked
+    // Complete the progress bar when ending
+  };
+  const handleEndButton = () => {
+    setModalVisible(!modalVisible);
   };
 
   // Convert time to HH:MM:SS format
@@ -61,14 +66,37 @@ const Tracker = ({ navigation }) => {
   // This will fill up in real-time as the timer counts up
   // Invert the progress value to make it appear anticlockwise
   const progress = progressComplete ? 1 : 1 - time / 28800; // 8 hours in seconds
+  const [modalVisible, setModalVisible] = useState(false);
+  const handleTrackClient = () => {
+    console.log("yes pressed");
+    setIsPlaying(false);
+    setProgressComplete(true);
+    setModalVisible(!modalVisible);
 
+  };
   return (
     <View style={styles.container}>
+       <CustomModal
+        title="Do you Really Want to End this Task?"
+        buttontitle="Yes"
+        buttontitle2="No"
+        modalVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        onPressNO={() => setModalVisible(false)}
+        onPressYes={handleTrackClient}
+      />
+
       <View style={styles.infoContainer}>
         <Image style={wallet.image} source={Frame} />
         
         <View style={wallet.LeftContainer}>
+        <View style={{ flexDirection:'row-reverse',width:responsiveWidth(70)}}>
+        <TouchableOpacity onPress={()=>navigation.navigate("CancelScreen")}>
+        <Text style={{ fontSize: 18,color:"red",color:"#FFC44D"}}>Cancel</Text>
+
+        </TouchableOpacity>
         
+        </View>
           <View style={{ flexDirection: "row" }}>
             <Text style={{ fontSize: 18 }}>Mark Tuan</Text>
           </View>
@@ -169,7 +197,7 @@ const Tracker = ({ navigation }) => {
             borderRadius: 10,
             borderColor: "#E8ECF1",
             height:responsiveHeight(15),
-           // backgroundColor:"red"
+         //   backgroundColor:"red"
             
           }}
         >
@@ -209,9 +237,10 @@ const Tracker = ({ navigation }) => {
         <CustomButton
           title={"End"}
           color="#FFC44D"
-          onPress={handleEndButtonClick}
+          onPress={handleEndButton}
         />
       </View>
+     
     </View>
   );
 };
@@ -225,7 +254,9 @@ const styles = StyleSheet.create({
     
   },
   timerContainer: {
-    //marginTop: 0,
+    marginTop: 20,
+    height:responsiveHeight(25),
+   // backgroundColor:'red',
     alignItems: "center", // Center the timer text and circle
     justifyContent: "center", // Center the timer text and circle vertically
    // position: "absolute", // Use relative positioning to overlay the text
@@ -245,7 +276,7 @@ const styles = StyleSheet.create({
     //position: "absolute",
    // top: 20,
    //elevation: 10,
-    //backgroundColor:"red",
+  //  / backgroundColor:"red",
     height:responsiveHeight(10),
 
    // marginTop: 20,
@@ -253,7 +284,7 @@ const styles = StyleSheet.create({
     justifyContent: "center", // Center the infoContainer horizontally
   },
   timerButtons: {
-   marginTop: 30,
+   marginTop: 10,
   // backgroundColor:"red",
     flexDirection: "row",
     justifyContent:'space-evenly', // Add space between the buttons

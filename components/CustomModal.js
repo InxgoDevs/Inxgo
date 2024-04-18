@@ -1,9 +1,28 @@
-import { Alert, Modal, StyleSheet, Text, Pressable, View } from "react-native";
 import React, { useState } from "react";
+import {
+  Modal,
+  StyleSheet,
+  Text,
+  Pressable,
+  View,
+  Dimensions,
+  TouchableOpacity,
+} from "react-native";
 import CustomButton from "./CustomButton";
+import { responsiveFontSize } from "react-native-responsive-dimensions";
+import CustomModelBtn from "./CustomModelBtn";
 
-const CustomModal = ({ title }) => {
-  const [modalVisible, setModalVisible] = useState(false);
+const CustomModal = ({
+  title,
+  buttontitle,
+  buttontitle2,
+  modalVisible,
+  setModalVisible,
+  onPressNO,
+  onPressYes,
+}) => {
+  const windowWidth = Dimensions.get("window").width;
+  const windowHeight = Dimensions.get("window").height;
 
   return (
     <View style={styles.centeredView}>
@@ -12,67 +31,50 @@ const CustomModal = ({ title }) => {
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => {
-          Alert.alert("Modal has been closed.");
           setModalVisible(!modalVisible);
         }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+        <View
+          style={[
+            styles.centeredView,
+            { width: windowWidth, height: windowHeight },
+          ]}
+        >
+          <View style={[styles.modalView, { width: windowWidth * 0.8 }]}>
             <Text style={styles.modalText}>{title}</Text>
-            {/* <Pressable
-              style={[styles.button, styles.buttonClose]}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              <Text style={styles.textStyle}>Hide Modal</Text>
-            </Pressable> */}
             <View style={styles.buttonsContainer}>
-              <CustomButton
-                title="Yes"
+              <CustomModelBtn
+                buttontitle={buttontitle}
                 color="#FFC44D"
-                width={120}
+                width={windowWidth * 0.3}
                 height={40}
+                onPress={onPressYes}
               />
               <View style={{ width: 10 }}></View>
-              <CustomButton
-              
-                title="No"
+              <CustomModelBtn
+                buttontitle={buttontitle2}
+                onPress={onPressNO}
                 color="#FFF5E1"
-                width={120}
+                width={windowWidth * 0.3}
                 height={40}
-                //onPress={{()=>}}
               />
             </View>
           </View>
         </View>
       </Modal>
-      {/* <Pressable
-        style={[styles.button, styles.buttonOpen]}
-        onPress={() => setModalVisible(true)}
-      >
-        <Text style={styles.textStyle}>Show Modal</Text>
-      </Pressable> */}
     </View>
   );
 };
 
-export default CustomModal;
-
 const styles = StyleSheet.create({
   centeredView: {
-    // flex: 1,
-
-    //marginTop: 22,
-    top: 300,
-    left: 35,
-    position: "absolute",
+    justifyContent: "center",
+    alignItems: "center",
   },
   modalView: {
-    // margin: 30,
     backgroundColor: "#FAFAFA",
     borderRadius: 20,
-    width: 320,
-    height: 170,
-    paddingVertical: 40,
+    paddingVertical: 25,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -83,12 +85,10 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-
   buttonsContainer: {
     flexDirection: "row",
-
     alignSelf: "auto",
-    bottom: 45,
+    bottom: 50,
   },
   button: {
     borderRadius: 20,
@@ -98,21 +98,18 @@ const styles = StyleSheet.create({
   buttonOpen: {
     backgroundColor: "#F194FF",
   },
-  buttonClose: {
-    backgroundColor: "#2196F3",
-  },
   textStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
-    // fontSize: 30,
   },
   modalText: {
     paddingHorizontal: 23,
-    bottom: 15,
+    bottom: 10,
+    fontWeight: "400",
     textAlign: "center",
-    fontSize: 16,
-
-    // textAlign: "center",
+    fontSize: responsiveFontSize(1.8),
   },
 });
+
+export default CustomModal;

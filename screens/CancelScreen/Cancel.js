@@ -39,7 +39,7 @@ const CancelScreen = ({ navigation }) => {
           flexDirection: "row",
         }}
       >
-        <TouchableOpacity onPress={() => navigation.navigate("Tracker")}>
+        <TouchableOpacity onPress={() => navigation.navigate("TrackerMain")}>
           <Image style={appStyle.arrow_backF} source={arrow_back} />
         </TouchableOpacity>
         <Text style={signUpStyle.welcomeF}>Cancel Task</Text>
