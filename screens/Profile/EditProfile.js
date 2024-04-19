@@ -88,7 +88,7 @@ const EditProfile = ({ navigation }) => {
       </View>
       <View style={styles.viewstyle}>
         <Image source={require("../../assets/Help.png")} />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Faq")}>
           <Text style={styles.txt}>FAQS</Text>
         </TouchableOpacity>
       </View>

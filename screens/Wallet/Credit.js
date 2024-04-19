@@ -120,7 +120,7 @@ const Credit = ({navigation}) => {
  return (
     <View style={styles.container}>
       <View style={profile.welcome}>
-        <TouchableOpacity onPress={()=>navigation.navigate('Home')}>
+        <TouchableOpacity onPress={()=>navigation.navigate('EditProfile')}>
           <Image style={profile.arrow_back} source={CommonImages.arrow} />
         </TouchableOpacity>
         <Text style={profile.welcomeText}>My Wallet</Text>

@@ -136,7 +136,7 @@ const Index = ({ navigation }) => {
       <View style={appStyle.body}>
        
           <View style={profile.welcome}>
-          <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+          <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
             <Image style={profile.arrow_back} source={arrow_back} />
             </TouchableOpacity>
             <Text style={profile.welcomeText}>Fill Your Profile</Text>

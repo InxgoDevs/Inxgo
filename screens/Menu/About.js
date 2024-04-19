@@ -42,7 +42,7 @@ const Index = ({ navigation }) => {
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View>
           <View style={profile.welcome}>
-            <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+            <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
               <Image style={profile.arrow_back} source={arrow_back} />
             </TouchableOpacity>
 
