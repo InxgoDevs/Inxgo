@@ -157,10 +157,10 @@ const Credit = ({navigation}) => {
         <View style={{  paddingHorizontal: 18,height:responsiveHeight(5)}}>
           <Text style={{ fontSize: 16,fontFamily:Regular }}> Balance:</Text>
         </View>
-        <View style={{ paddingHorizontal: 20, flexDirection: "row",height:responsiveHeight(8),justifyContent:'space-between' }}>
+        <View style={{ paddingHorizontal: 20, flexDirection: "row",height:responsiveHeight(8),justifyContent:'space-between' ,width:responsiveWidth(90)}}>
           <Text style={{ fontSize: 32, fontWeight: "600",fontFamily:Bold,}}>$ 243.45</Text>
           <TouchableOpacity style={styles.btn} onPress={() => navigation.navigate("AddCredit")}>
-            <Text>Add Credit</Text>
+            <Text style={{fontFamily:Regular}}>Add Credit</Text>
           </TouchableOpacity>
         </View>
       </View>
@@ -209,10 +209,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     backgroundColor: "white",
     borderRadius: 10,
-    marginLeft: 80,
-    paddingVertical: 5,
-    height: 30,
-    marginTop: 8,
+   // marginLeft: 80,
+   // paddingVertical: 5,
+    height:responsiveHeight(5),
+   // marginTop: 8,
+    justifyContent:'center'
  },
 });
 

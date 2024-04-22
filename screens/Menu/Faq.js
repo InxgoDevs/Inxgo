@@ -20,15 +20,15 @@ const Faq = ({navigation}) => {
       text: "To create an account on INXGO, simply click on the button on the login screen. Follow the prompts to enter your personal details, such as your name, email address, and password. Once completed, your account will be successfully created, and you can start exploring the app.",
     },
     {
-      title: "What is the minimum age to create an account?",
+      title: " How can I edit my profile information?",
       text: "The minimum age to create an account on INXGO is 18 years old. Please ensure you are at least 18 years old before proceeding with the account creation.",
     },
     {
-      title: "How can I reset my password?",
+      title: "How do I search for suppliers on INXGO?",
       text: "If you've forgotten your password, you can reset it by clicking on the 'Forgot Password?' link on the login screen. Follow the prompts to enter your email address and receive a password reset link.",
     },
     {
-      title: "Do I need a Number to create an account?",
+      title: "Can I save jobs for later?",
       text: "Yes, a mobile number is required to create an account on INXGO. This is for verification purposes and to ensure your account's security.",
     },
  ];
