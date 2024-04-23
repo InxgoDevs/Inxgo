@@ -16,7 +16,6 @@ import {
   GestureHandlerRootView,
   ScrollView,
 } from "react-native-gesture-handler";
-
 import {
   responsiveHeight,
   responsiveWidth,
@@ -32,6 +31,8 @@ import {
   moderateVerticalScale,
 } from "react-native-size-matters";
 import EditAddress from "../EditAddress";
+import { Bold, Regular } from "../../constants/fonts";
+import ExpertiseLevel from "../ExpertiseLevel";
 const App = () => {
   // ref
   const [Bottomtab, setBottomTab] = useState(0);
@@ -47,16 +48,24 @@ const App = () => {
   return (
     <View style={styles.container}>
       <GestureHandlerRootView style={{ flex: 1 }}>
+       
         <BottomSheet ref={bottomSheetRef} index={1} snapPoints={snapPoints}>
-          <View style={styles.ViewPool}>
+          
+        
+         
             <View style={styles.bootomSheet}>
+
+    <View style={{height:responsiveHeight(6)}} >
+          <Text style={{fontSize:16,fontWeight:'500',marginHorizontal:10}}> Reguesting PLUMBER Service</Text>
+
+          </View>
               <View style={styles.upperBotm}>
                 <TouchableOpacity
                   style={{
                     width: responsiveWidth(44),
-                    height: responsiveHeight(5),
+                    height: responsiveHeight(7),
                     borderRadius: moderateScale(30),
-                    backgroundColor: Bottomtab == 0 ? "#FAFAFA" : "#FFC44D",
+                    backgroundColor: Bottomtab == 0 ? "#FFC44D" : "#F5F5F5",
                     justifyContent: "center",
                     flexDirection: "row",
                     alignItems: "center",
@@ -78,9 +87,9 @@ const App = () => {
                 <TouchableOpacity
                   style={{
                     width: responsiveWidth(44),
-                    height: responsiveHeight(5),
+                    height: responsiveHeight(7),
                     borderRadius: moderateScale(30),
-                    backgroundColor: Bottomtab == 1 ? "#FAFAFA" : "#FFC44D",
+                    backgroundColor: Bottomtab == 1 ? "#FFC44D" : "#F5F5F5",
                     justifyContent: "center",
                     flexDirection: "row",
                     alignItems: "center",
@@ -100,19 +109,25 @@ const App = () => {
                   </Text>
                 </TouchableOpacity>
               </View>
+              <View style={{height:responsiveHeight(7),justifyContent:'center'}}>
+              <Text style={{fontSize:14,fontWeight:'600',marginHorizontal:10}}>Expertise Level</Text>
+
+              </View>
+             
+               <ExpertiseLevel/>
               {Bottomtab == 0 ? (
                 <View
                   style={{
                     zIndex: 0,
-                    //  backgroundColor: "red",
+                  // backgroundColor: "red",
                     borderRadius: moderateScale(10),
                     width: responsiveWidth(90),
-                    height: responsiveHeight(77),
+                    height: responsiveHeight(60),
                   }}
                 >
                   <View style={{ marginTop: responsiveHeight(2) }}>
                     {/*  Input Box */}
-                    <Text style={styles.inputText}>Description</Text>
+                    <Text style={styles.inputText}>Job Description:</Text>
                     <View
                       style={{
                         paddingHorizontal: responsiveWidth(4.5),
@@ -130,7 +145,7 @@ const App = () => {
                   </View>
                   {/* {showPopup && <Popup />} */}
                   <View style={{ marginTop: responsiveHeight(1) }}></View>
-                  <ScrollView>
+                  <ScrollView contentContainerStyle={{height:responsiveHeight(200)}}>
                     <EditAddress
                       home="Office"
                       address="Siddique Trade Center"
@@ -138,14 +153,19 @@ const App = () => {
                     <EditAddress home="Home" address="Gulberg Center" />
                     <EditAddress home="Work" address="Tricom Center" />
                     <EditAddress home="Office" address="LAHORE" />
+                   
                     <EditAddress home="Office" address="LAHORE" />
                     <EditAddress home="Office" address="LAHORE" />
                     <EditAddress home="Office" address="LAHORE" />
+                    <EditAddress home="Office" address="LAHORE" />
+                    <EditAddress home="Office" address="LAHORE" />
+
                   </ScrollView>
 
                   <View
                     style={{
-                      //  / backgroundColor: "grey",
+                   //   backgroundColor: "grey",
+                      
                       width: responsiveWidth(70),
                       height: responsiveHeight(3),
                       flexDirection: "row",
@@ -180,11 +200,13 @@ const App = () => {
                 >
                   <View style={{ marginTop: responsiveHeight(4) }}>
                     <Text style={styles.inputText}>K</Text>
+                   
+
                   </View>
                 </View>
               )}
             </View>
-          </View>
+          
         </BottomSheet>
       </GestureHandlerRootView>
     </View>
@@ -197,20 +219,19 @@ const styles = StyleSheet.create({
     padding: 8,
     backgroundColor: "grey",
     // alignContent: "center",
+    //gap:50
   },
-  ViewPool: {
-    position: "absolute",
-    bottom: responsiveHeight(3.3),
-  },
+  
   bootomSheet: {
     width: responsiveWidth(100),
-    height: responsiveHeight(85),
+    height: responsiveHeight(90),
     zIndex: 0,
     // backgroundColor: "green",
     //alignItems: "center",
     borderRadius: moderateScale(35),
-    justifyContent: "center",
+    //justifyContent: "center",
     paddingHorizontal: 15,
+
   },
   contentContainer: {
     flex: 1,
@@ -218,10 +239,10 @@ const styles = StyleSheet.create({
   },
   upperBotm: {
     zIndex: 0,
-    width: responsiveWidth(92),
+    width: responsiveWidth(90),
     alignItems: "center",
-    height: responsiveHeight(6.7),
-    backgroundColor: "#FFC44D",
+    height: responsiveHeight(8),
+    backgroundColor: "#F5F5F5",
     justifyContent: "center",
     borderRadius: moderateScale(30),
     flexDirection: "row",
@@ -257,7 +278,7 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     borderColor: "grey",
-    height: responsiveHeight(18),
+    height: responsiveHeight(7),
     borderRadius: moderateScale(10),
     paddingLeft: responsiveWidth(1.5),
     width: responsiveWidth(83),

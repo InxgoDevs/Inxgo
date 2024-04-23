@@ -8,7 +8,8 @@ import {
 import signUpStyle from "../../style/SignUp";
 import CustomButton from "../../components/CustomButton";
 import Canceltext from "../../components/CancelText";
-
+import CustomImageModal from "../../components/CustomImageModal";
+import { CommonAnimations } from "../../constants/animations";
 import { Platform } from 'react-native';
 
 import {
@@ -17,19 +18,32 @@ import {
   moderateScale,
   moderateVerticalScale,
 } from "react-native-size-matters";
+import { Regular } from "../../constants/fonts";
 
 const arrow_back = require("../../assets/arrow_back.png");
 
 const CancelScreen = ({ navigation }) => {
   const [selectedOption, setSelectedOption] = useState("");
+  const [modalVisible, setModalVisible] = useState(false);
 
   const handleRadioSelect = (option) => {
     setSelectedOption(option);
+  };
+  const handleCancel = () => {
+    setModalVisible(!modalVisible);
   };
 
   return (
   
     <View style={styles.container}>
+     <CustomImageModal
+          title="Your task has been cancelled!!"
+          subtitle="See on your next task..."
+          modalVisible={modalVisible}
+          setModalVisible={setModalVisible}
+          animationlogo={CommonAnimations.realcheck}
+          onPressButton={() => setModalVisible(false)}
+        />
       <View
         style={{
           height: responsiveHeight(7),
@@ -40,7 +54,7 @@ const CancelScreen = ({ navigation }) => {
         }}
       >
         <TouchableOpacity onPress={() => navigation.navigate("TrackerMain")}>
-          <Image style={appStyle.arrow_backF} source={arrow_back} />
+          <Image style={styles.arrow_backF} source={arrow_back} />
         </TouchableOpacity>
         <Text style={signUpStyle.welcomeF}>Cancel Task</Text>
       </View>
@@ -72,7 +86,7 @@ const CancelScreen = ({ navigation }) => {
         />
       </View>
       <View style={{ height: responsiveHeight(5), justifyContent: "center" }}>
-        <Text style={{ fontSize: 16, fontWeight: "500", marginLeft: 20 }}>
+        <Text style={{ fontSize: 16, fontWeight: "500", marginLeft: 20 ,fontFamily:Regular}}>
           Others
         </Text>
       </View>
@@ -89,7 +103,7 @@ const CancelScreen = ({ navigation }) => {
         <CustomButton
           title={"Submit"}
           color="#FFC44D"
-          onPress={() => navigation.navigate("CancelScreen")}
+          onPress={handleCancel}
           width={responsiveWidth(85)}
         />
       </View>
@@ -105,6 +119,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#FAFAFA",
     
   },
+  arrow_backF: {
+    //top: 6,
+    marginHorizontal:20,
+    // marginLeft:10 
+ },
   inputSearchs: {
     width: responsiveWidth(85),
     paddingHorizontal: 5,
