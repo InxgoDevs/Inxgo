@@ -1,48 +1,100 @@
 import React, { useState, useCallback, useMemo, useRef } from "react";
-import {
-  View,
-  Text,
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-  KeyboardAvoidingView,
-  Platform,
-  Keyboard,
-  TouchableWithoutFeedback,
-  Image,
-} from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, KeyboardAvoidingView, Platform, Keyboard, TouchableWithoutFeedback, Image } from "react-native";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
-import {
-  GestureHandlerRootView,
-  ScrollView,
-} from "react-native-gesture-handler";
-import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveFontSize,
-  useResponsiveHeight,
-} from "react-native-responsive-dimensions";
+import { GestureHandlerRootView, ScrollView } from "react-native-gesture-handler";
+import { responsiveHeight, responsiveWidth, responsiveFontSize, useResponsiveHeight } from "react-native-responsive-dimensions";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-
-import {
-  scale,
-  verticalScale,
-  moderateScale,
-  moderateVerticalScale,
-} from "react-native-size-matters";
+import { scale, verticalScale, moderateScale, moderateVerticalScale } from "react-native-size-matters";
 import EditAddress from "../EditAddress";
 import { Bold, Regular } from "../../constants/fonts";
 import ExpertiseLevel from "../ExpertiseLevel";
-const App = () => {
-  // ref
-  const [Bottomtab, setBottomTab] = useState(0);
+import DateTimePickerModal from "react-native-modal-datetime-picker";
 
-  const snapPoints = useMemo(() => ["1%", "100%"], []);
-  const bottomSheetRef = useRef<BottomSheet>(null);
-  const [text, setText] = useState("");
-  const handleSheetChanges = useCallback((index: number) => {
-    // console.log("handleSheetChanges", index);
-  }, []);
+import profile from "../../style/profile";
+
+const App = () => {
+ // ref
+ const currentDate = new Date();
+  const maxDate = new Date();
+  maxDate.setDate(currentDate.getDate() + 10);
+  const [minimumTime, setMinimumTime] = useState(null);
+ const [Bottomtab, setBottomTab] = useState(0);
+ const [selectedOption, setSelectedOption] = useState(null); // Moved state up
+ const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
+ const [isTimePickerVisible, setTimePickerVisibility] = useState(false);
+ const [time, setshowtime] = useState("Select Time");
+ const [date, setshowdate] = useState("Select Date");
+ const snapPoints = useMemo(() => ["1%", "100%"], []);
+ const bottomSheetRef = useRef<BottomSheet>(null);
+ const [text, setText] = useState("");
+ const handleSheetChanges = useCallback((index: number) => {
+ }, []);
+
+ const handleRadioSelect = (option) => {
+    setSelectedOption(option);
+ };
+
+const showDatePicker = () => {
+  setDatePickerVisibility(true);
+};
+
+const hideDatePicker = () => {
+  setDatePickerVisibility(false);
+};
+
+const handleConfirm = date => {
+  const dt = new Date(date);
+
+  // Check if the date is valid
+  if (!isNaN(dt)) {
+    // Format the date
+    const formattedDate = `${dt.getDate()}/${dt.getMonth() + 1}/${dt.getFullYear()}`;
+    setshowdate(formattedDate);
+
+    // If the selected date is in the future (including today), set minimumTime to null
+    setMinimumTime(dt >= currentDate ? null : currentDate);
+  }
+  hideDatePicker();
+
+};
+
+
+
+
+const showTimePicker = () => {
+  setTimePickerVisibility(true);
+};
+
+const hideTimePicker = () => {
+  setTimePickerVisibility(false);
+};
+
+const handleTConfirm = time => {
+  const selectedTime = new Date(time);
+
+  // Get the current date and time
+  const currentDate = new Date();
+  const currentTime = currentDate.getTime();
+
+  // Get the selected date and time
+  const selectedDate = new Date(date);
+  const selectedDateTime = new Date(selectedDate.getFullYear(), selectedDate.getMonth(), selectedDate.getDate(), selectedTime.getHours(), selectedTime.getMinutes()).getTime();
+
+  // Check if the selected time is in the future or not
+  if (selectedDateTime >= currentTime || selectedDate > currentDate) {
+    // If the selected time is in the future or the selected date is not today, format and set the show time
+    const formattedTime = selectedTime.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: true,
+    });
+    setshowtime(formattedTime);
+  }
+
+  // Hide the time picker regardless of whether the time is valid or not
+  hideTimePicker();
+};
+
 
   // renders
   return (
@@ -190,19 +242,44 @@ const App = () => {
                 </View>
               ) : (
                 <View
-                  style={{
-                    zIndex: 0,
-                    borderRadius: moderateScale(10),
-                    width: responsiveWidth(90),
-                    height: responsiveHeight(77),
-                    backgroundColor: "blue",
-                  }}
+                  
                 >
-                  <View style={{ marginTop: responsiveHeight(4) }}>
-                    <Text style={styles.inputText}>K</Text>
-                   
+                  <Text style={{fontSize:14,fontWeight:'600',marginHorizontal:10}}>Date:</Text>
+                  <View style={styles.cardContainer22}>
+      
+      <Text>{date}</Text>
+      <TouchableOpacity onPress={showDatePicker} style={{ position: 'absolute', right: 25 }}>
+        <Image source={require('../../assets/DOB.png')} />
+      </TouchableOpacity>
+      <DateTimePickerModal
+        isVisible={isDatePickerVisible}
+        mode="date"
+        onConfirm={handleConfirm}
+        onCancel={hideDatePicker}
+        minimumDate={currentDate}
+        maximumDate={maxDate}
+      />
+          
+        </View>
+        <Text style={{fontSize:14,fontWeight:'600',marginHorizontal:10}}>Time:</Text>
+        <View style={styles.cardContainer22}>
+         
+            <Text>{time}</Text>
 
-                  </View>
+      <TouchableOpacity onPress={showTimePicker} style={{ position: 'absolute', right: 25 }}>
+        <Image source={require('../../assets/DOB.png')} />
+      </TouchableOpacity>
+          
+         
+            <DateTimePickerModal
+        isVisible={isTimePickerVisible}
+        mode="time"
+        onConfirm={handleTConfirm}
+        onCancel={hideTimePicker}
+        minimumDate={minimumTime}
+        
+      /> 
+        </View>
                 </View>
               )}
             </View>
@@ -292,6 +369,29 @@ const styles = StyleSheet.create({
     height: responsiveHeight(10),
     borderRadius: moderateScale(15),
     alignItems: "center",
+  },
+  cardContainer22: {
+    width: responsiveWidth(90),
+    height: responsiveHeight(10),
+   //  backgroundColor: "orange",
+    // flexDirection: 'row',
+    // marginTop: 10,
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  inputSearch: {
+    width:responsiveWidth(85),
+   backgroundColor:'#F5F5F5',
+   opacity:1,
+   borderRadius:15,
+   paddingHorizontal:10,
+   height:56,
+   color:'black',
+     //  flex: 1, // Take up the remaining space in the container
+
+    zIndex: 0, // Ensure border has z-index of 0
   },
 });
 

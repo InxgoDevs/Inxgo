@@ -91,7 +91,7 @@ const ExpertiseLevel = () => {
         >
           Pro
         </Text>
-        <Text style={{fontSize:12,fontFamily:Regular}}>Avg. $26 / hr</Text>
+        <Text style={{fontSize:12,fontFamily:Regular}}>Avg. $34 / hr</Text>
       </TouchableOpacity>
       <TouchableOpacity
         style={{
@@ -116,7 +116,7 @@ const ExpertiseLevel = () => {
         >
           Expert
         </Text>
-        <Text style={{fontSize:12,fontFamily:Regular}}>Avg. $26 / hr</Text>
+        <Text style={{fontSize:12,fontFamily:Regular}}>Avg. $41 / hr</Text>
       </TouchableOpacity>
     </View>
   );
