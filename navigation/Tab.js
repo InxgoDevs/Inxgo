@@ -46,7 +46,7 @@ import Credit from "../screens/Wallet/Credit";
 import AddCredit from "../screens/Wallet/AddCredit";
 import EditProfile from "../screens/Profile/EditProfile";
 import SeeAll from "../screens/Wallet/SeeAll";
-import CompleteDetails from "../screens/Booking/CompleteDetails"
+import CompleteDetails from "../screens/Booking/CompleteDetails";
 import TrackerMain from "../screens/Booking/TrackerMain";
 import Faq from "../screens/Menu/Faq";
 const Tab = createBottomTabNavigator();
@@ -70,7 +70,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Home" : "LocationBottomSheet"}
+      initialRouteName={!users ? "Home" : "Home"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -116,10 +116,9 @@ const Tabs = (props) => {
       <Tab.Screen name="EditProfile" component={EditProfile} />
       <Tab.Screen name="Login" component={Login} />
       <Tab.Screen name="SeeAll" component={SeeAll} />
-       <Tab.Screen name="CompleteDetails" component={CompleteDetails} />
-       <Tab.Screen name="TrackerMain" component={TrackerMain} />
-       <Tab.Screen name="Faq" component={Faq} />
-
+      <Tab.Screen name="CompleteDetails" component={CompleteDetails} />
+      <Tab.Screen name="TrackerMain" component={TrackerMain} />
+      <Tab.Screen name="Faq" component={Faq} />
     </Tab.Navigator>
   );
 };
