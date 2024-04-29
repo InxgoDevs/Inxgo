@@ -4,6 +4,8 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, FlatList, S
 import { Regular } from "../../constants/fonts";
 import appStyle from "../../style/home";
 const setting = require("../../assets/icons/setting.png");
+const search = require("../../assets/searching.png");
+
 import CustomViewAll from "../../components/CustomViewAll";
 import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 import Footer from '../Footer/Index';
@@ -232,7 +234,7 @@ const ViewAll = ({navigation}) => {
     placeholder="Search here"
     value={searchInput}
 />
-                    <Image style={appStyle.searchIcon} source={setting} />
+                    <Image style={{ right:30,resizeMode:'contain'}} source={search} />
                 </View>
             </View>
             
