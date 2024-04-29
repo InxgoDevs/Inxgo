@@ -49,6 +49,7 @@ import SeeAll from "../screens/Wallet/SeeAll";
 import CompleteDetails from "../screens/Booking/CompleteDetails";
 import TrackerMain from "../screens/Booking/TrackerMain";
 import Faq from "../screens/Menu/Faq";
+import ViewAll from "../screens/home/ViewAll";
 const Tab = createBottomTabNavigator();
 
 const Tabs = (props) => {
@@ -119,6 +120,8 @@ const Tabs = (props) => {
       <Tab.Screen name="CompleteDetails" component={CompleteDetails} />
       <Tab.Screen name="TrackerMain" component={TrackerMain} />
       <Tab.Screen name="Faq" component={Faq} />
+      <Tab.Screen name="ViewAll" component={ViewAll} />
+
     </Tab.Navigator>
   );
 };

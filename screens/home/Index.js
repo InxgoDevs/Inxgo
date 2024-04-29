@@ -110,7 +110,7 @@ const Index = ({ navigation }) => {
             </View>
             <View style={appStyle.rightContainerSmall}>
               <TouchableOpacity
-                onPress={() => navigation.navigate("LocationBottomSheet")}
+                onPress={() => navigation.navigate("ViewAll")}
               >
                 <Text style={appStyle.rowLabelTextRight}>View all</Text>
               </TouchableOpacity>
