@@ -3,6 +3,8 @@ import React, { useState,useEffect } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, FlatList, SafeAreaView } from "react-native";
 import { Regular } from "../../constants/fonts";
 import appStyle from "../../style/home";
+import axios from 'axios';
+
 const setting = require("../../assets/icons/setting.png");
 const search = require("../../assets/searching.png");
 
@@ -175,23 +177,41 @@ const ViewAll = ({navigation}) => {
             textContent:"React Developer"
         },
     ];
+    const [data, setData] = useState([]);
 
     const [searchInput, setSearchInput] = useState(null);
 
     const [filteredData, setFilteredData] = useState(ViewAllHistory);
     const [groupedItems, setGroupedItems] = useState([]);
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('https://inxgo.com/public/api/skills');
+                const processedData = response.data.map(item => ({
+                    imageSource: { uri: item.image },
+                    textContent: item.title
+                }));
+                setData(processedData);
+                setFilteredData(processedData);
+            } catch (error) {
+                console.error(error);
+            }
+        };
 
+        fetchData();
+    }, []);
     useEffect(() => {
         const newGroupedItems = groupItems(filteredData);
         setGroupedItems(newGroupedItems);
     }, [filteredData]);
     const handleChange = (text) => {
         setSearchInput(text);
-        const filtered = ViewAllHistory.filter(item =>
+        const filtered = data.filter(item =>
             item.textContent.toLowerCase().includes(text.toLowerCase())
         );
         setFilteredData(filtered);
     };
+
     
     // Function to group items into chunks of three
     const groupItems = (items) => {
@@ -247,7 +267,7 @@ const ViewAll = ({navigation}) => {
                     width:responsiveWidth(100)
                 }}
             >
-                <Text style={{ fontSize: 15, fontWeight: "600", fontFamily: Regular }}>
+                <Text style={{ fontSize: 15, fontWeight: "700", fontFamily: Regular }}>
                     Categories        
                 </Text>
                 <TouchableOpacity onPress={()=>navigation.navigate('SeeAll')}>
@@ -257,12 +277,12 @@ const ViewAll = ({navigation}) => {
                 </TouchableOpacity>
             </View>
             <FlatList  
-                data={groupedItems} // Now using groupedItems based on filteredData
-                keyExtractor={(item, index) => index.toString()}
-                renderItem={({ item }) => (
-                    <CustomViewAll items={item} />
-                )}
-            />
+                    data={groupedItems}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({ item }) => (
+                        <CustomViewAll items={item} />
+                    )}
+                />
 
                     <Footer flag={"Home"} navigation={navigation} />
 
