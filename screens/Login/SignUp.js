@@ -80,8 +80,8 @@ const SignUp = ({ navigation }) => {
 
       .then((response) => {
         console.log("Response", response.data);
-        Alert.alert("Success", "Account created successfully!");
-        // Do any navigation here
+       // Alert.alert("Success", "Account created successfully!");
+        navigation.navigate("Login")
       })
       .catch((error) => {
         console.error("Error:", error);

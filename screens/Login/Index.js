@@ -155,6 +155,9 @@ const Index = ({ navigation }) => {
                     style={styles.input}
                     ref={passwordInput}
                   />
+                  <View style={styles.lockIconContainer}>
+          <Image source={lock} style={styles.lockIcon} />
+        </View>
                   <TouchableOpacity
                     style={styles.eyeIconContainer}
                     onPress={togglePasswordVisibility}
@@ -235,9 +238,9 @@ const styles = StyleSheet.create({
   container: {
     height: responsiveHeight(40),
     width: responsiveWidth(100),
-    // backgroundColor: "black",
+   // backgroundColor: "black",
     //paddingTop: 1,
-    // backgroundColor: "orange",
+   // backgroundColor: "orange",
     padding: 18,
   },
   title: {
@@ -251,29 +254,32 @@ const styles = StyleSheet.create({
     fontSize: 12,
     color: "red",
     fontWeight: "bold",
-    bottom: 10,
+    bottom:5
   },
   error2: {
     margin: 1,
     fontSize: 12,
     color: "red",
     fontWeight: "bold",
-    bottom: 45,
+    bottom:22
   },
   input: {
-    height: 50,
-    paddingHorizontal: 40,
-    paddingVertical: 2,
+    height:50,
+    paddingHorizontal:40,
+    paddingVertical:2,
     width: "100%",
-    fontFamily: Regular,
+    fontFamily:Regular,
     borderColor: "#FECD45",
     borderWidth: 2,
     backgroundColor: "#fafafa",
     marginBottom: 10,
     borderRadius: 10,
+    
+    
   },
   eyeIconContainer: {
     position: "absolute",
+    
     right: 10,
     top: "50%", // Center the eye icon vertically within the password input field
     transform: [{ translateY: -10 }], // Adjust to vertically center the icon
@@ -281,8 +287,8 @@ const styles = StyleSheet.create({
   eyeIcon: {
     width: 20,
     height: 20,
-    bottom: 10,
-    //position:'absolute'
+   // bottom:10,
+   // position:'absolute'
   },
   loadingIcon: {
     width: 200,
@@ -293,10 +299,10 @@ const styles = StyleSheet.create({
   emailIcon: {
     width: 18,
     height: 18,
-    position: "absolute",
-    marginTop: 20,
-    marginLeft: 10, //bottom: 47,
-    // justifyContent:'flex-start',
+    position:"absolute",
+    marginTop:20,
+marginLeft:10    //bottom: 47,
+   // justifyContent:'flex-start',
     //alignItems:"flex-start",
     //left: 30,
   },
@@ -306,9 +312,9 @@ const styles = StyleSheet.create({
     // position:'absolute'
   },
   lockIconContainer: {
-    bottom: 45,
-    marginLeft: 10,
-    // position:'absolute'
+    bottom:45,
+    marginLeft:10,
+   // position:'absolute'
   },
   welcomel: {
     marginTop: verticalScale(40),
@@ -319,15 +325,15 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'flex-start',
     fontWeight: "600",
-    // marginBottom: 20,
+   // marginBottom: 20,
     marginLeft: 25,
-    height: responsiveHeight(20),
-    // backgroundColor:'red'
+    height:responsiveHeight(20),
+   // backgroundColor:'red'
   },
   cardContainerl: {
     width: responsiveWidth(100),
     height: responsiveHeight(5),
-    //backgroundColor: "green",
+  //backgroundColor: "green",
     // flexDirection: 'row',
     // marginTop: 10,
     alignSelf: "center",
@@ -338,7 +344,7 @@ const styles = StyleSheet.create({
   iContainerl: {
     width: responsiveWidth(100),
     height: responsiveHeight(10),
-    //backgroundColor: "blue",
+  //backgroundColor: "blue",
     flexDirection: "row",
     // marginTop: 10,
     alignSelf: "center",
@@ -348,7 +354,7 @@ const styles = StyleSheet.create({
   cardContainer3: {
     width: responsiveWidth(100),
     height: responsiveHeight(10),
-    //  backgroundColor: "red",
+   //  backgroundColor: "red",
     flexDirection: "row",
     // marginTop: 10,
     justifyContent: "center",

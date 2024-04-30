@@ -34,6 +34,7 @@ import {
   RateSupplierBSheet,
   CancelScreen,
 } from "../screens";
+import SupplierProfile from "../screens/home/SupplierProfile";
 import { component, Alert, View, StyleSheet, Button } from "react-native";
 //import { getFocusedRouteNameFromRoute } from "@react-navigation/native";
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -121,7 +122,9 @@ const Tabs = (props) => {
       <Tab.Screen name="TrackerMain" component={TrackerMain} />
       <Tab.Screen name="Faq" component={Faq} />
       <Tab.Screen name="ViewAll" component={ViewAll} />
+      <Tab.Screen name="SupplierProfile" component={SupplierProfile} />
 
+      
     </Tab.Navigator>
   );
 };
