@@ -70,7 +70,7 @@ const SignUp = ({ navigation }) => {
 
     // Add your axios request here
     axios
-      .post("http://192.168.100.12:8082/api/register", formData, {
+      .post("https://inxgo.com/public/api/register", formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -239,7 +239,7 @@ const SignUp = ({ navigation }) => {
 
           <View style={appStyle.cardContainer2}>
             <Text style={appStyle.signUp}>Already have an Account? </Text>
-            <TouchableOpacity onPress={()=>navigation.navigate("Login")}>
+            <TouchableOpacity onPress={() => navigation.navigate("Login")}>
               <Text style={styles.TextContainer}>Login</Text>
             </TouchableOpacity>
           </View>
