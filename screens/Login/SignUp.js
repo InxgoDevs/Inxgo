@@ -51,6 +51,8 @@ const SignUp = ({ navigation }) => {
     confirm_password: "",
     number: "",
     passwordVisible: false, // State variable to track password visibility
+    confirmPasswordVisible: false, // State variable for confirm password visibility
+
   });
 
   const handleState = (text, key) => {
@@ -92,10 +94,12 @@ const SignUp = ({ navigation }) => {
         formikActions.setSubmitting(false); // Set submitting to false regardless of success or failure
       });
   };
-  const togglePasswordVisibility = () => {
+  const togglePasswordVisibility = (field) => {
     setState((prevState) => ({
       ...prevState,
-      passwordVisible: !prevState.passwordVisible, // Toggle password visibility state
+      // passwordVisible: !prevState.passwordVisible, 
+      [`${field}Visible`]: !prevState[`${field}Visible`], //
+      // Toggle password visibility state
     }));
   };
 
@@ -173,33 +177,72 @@ const SignUp = ({ navigation }) => {
                   {props.touched.email && props.errors.email ? (
                     <Text style={styles.error}>{props.errors.email}</Text>
                   ) : null}
+                  <View>
+
+                 
                   <TextInput
                     onChangeText={props.handleChange("password")}
                     onBlur={props.handleBlur("password")}
                     value={props.values.password}
                     placeholder="Password"
-                    secureTextEntry
+                    secureTextEntry={!state.passwordVisible}
+
                     style={styles.input}
                     ref={passwordInput}
                   />
+                  <TouchableOpacity
+          style={styles.eyeIconContainer}
+          onPress={() => togglePasswordVisibility('password')} // Toggle visibility for the password field
+        >
+          <Image
+            source={state.passwordVisible ? openEye : blind}
+            style={styles.eyeIcon}
+          />
+            {/* <View style={appStyle.leftContainer}>
+        <CheckBox />
+        <Text style={appStyle.rowLabelText}>Remember Me</Text>
+      </View>  */}
+          
+        </TouchableOpacity>
+        </View>
                   {props.touched.password && props.errors.password ? (
                     <Text style={styles.error}>{props.errors.password}</Text>
                   ) : null}
+                  <View>
+                  
+                 
                   <TextInput
                     onChangeText={props.handleChange("confirmPassword")}
                     onBlur={props.handleBlur("confirmPassword")}
                     value={props.values.confirmPassword}
                     placeholder="Confirm Password"
-                    secureTextEntry
+                    secureTextEntry={!state.confirmPasswordVisible}
+
                     style={styles.input}
                     ref={confirmPasswordInput}
                   />
+                 <TouchableOpacity
+          style={styles.eyeIconContainer}
+          onPress={() => togglePasswordVisibility('confirmPassword')}        >
+          <Image
+            source={state.confirmPasswordVisible ? openEye : blind}
+            style={styles.eyeIcon}
+          />
+            {/* <View style={appStyle.leftContainer}>
+        <CheckBox />
+        <Text style={appStyle.rowLabelText}>Remember Me</Text>
+      </View>  */}
+          
+        </TouchableOpacity>
+                 </View>
                   {props.touched.confirmPassword &&
                   props.errors.confirmPassword ? (
                     <Text style={styles.error}>
                       {props.errors.confirmPassword}
                     </Text>
+                    
                   ) : null}
+                  
                   <Button
                     onPress={props.handleSubmit} // Use Formik's handleSubmit
                     mode="contained"

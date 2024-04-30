@@ -422,6 +422,7 @@ appButton: {
   borderRadius: 30,
   paddingVertical: 10,
   paddingHorizontal: 12,
+  bottom:30
   
   
 },
