@@ -1,13 +1,13 @@
 import React, { useState, useRef } from "react";
 import {
- Text,
- View,
- Image,
- TouchableOpacity,
- TextInput,
- ScrollView,
- Modal,
- StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  ScrollView,
+  Modal,
+  StyleSheet,
 } from "react-native";
 import Flag from "react-native-flags";
 import SvgUri from "react-native-svg-uri";
@@ -21,52 +21,54 @@ import arrow_back from "../../assets/arrow_back.png";
 import image_upload from "../../assets/image_upload.png";
 import Loading from "../../assets/Loading_icon.gif";
 import arrowdown from "../../assets/svg/arrowdown.svg";
-import DateTimePicker from '@react-native-community/datetimepicker';
-import PhoneNumberInput from 'react-native-phone-number-input';
-import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
+import DateTimePicker from "@react-native-community/datetimepicker";
+import PhoneNumberInput from "react-native-phone-number-input";
+import {
+  responsiveHeight,
+  responsiveWidth,
+} from "react-native-responsive-dimensions";
 
 const gender = ["Male", "Female", "Other"];
 
 const Index = ({ navigation }) => {
- const [image, setImage] = useState(null);
- const [email, setEmail] = useState("");
- const [password, setPassword] = useState("");
- const [flag, setFlag] = useState(false);
- const [date, setDate] = useState(new Date());
- const [show, setShow] = useState(false);
- const [modalVisible, setModalVisible] = useState(false);
- 
+  const [image, setImage] = useState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [flag, setFlag] = useState(false);
+  const [date, setDate] = useState(new Date());
+  const [show, setShow] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
- const [selectedGender, setSelectedGender] = useState("");
- const [phoneNumber, setPhoneNumber] = useState('');
- const handleEmail = (e) => {
+  const [selectedGender, setSelectedGender] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const handleEmail = (e) => {
     setEmail(e.nativeEvent.text);
- };
+  };
 
- const handlePassword = (e) => {
+  const handlePassword = (e) => {
     setPassword(e.nativeEvent.text);
- };
+  };
 
- const onChange = (event, selectedDate) => {
+  const onChange = (event, selectedDate) => {
     const currentDate = selectedDate || date;
     setShow(false);
     setDate(currentDate);
- };
+  };
 
- const showDatePicker = () => {
+  const showDatePicker = () => {
     setShow(true);
- };
+  };
 
- const handleGenderSelect = (gender) => {
+  const handleGenderSelect = (gender) => {
     setSelectedGender(gender);
     setModalVisible(false);
- };
+  };
 
- const toggleModal = () => {
+  const toggleModal = () => {
     setModalVisible(!modalVisible);
- };
+  };
 
- const handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setFlag(true);
     const data = {
@@ -113,9 +115,9 @@ const Index = ({ navigation }) => {
         setFlag(false);
       }
     }
- };
+  };
 
- const openImagePickerAsync = async () => {
+  const openImagePickerAsync = async () => {
     let permissionResult =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
     if (permissionResult.granted === false) {
@@ -129,203 +131,204 @@ const Index = ({ navigation }) => {
     if (!pickerResult.cancelled) {
       setImage(pickerResult.assets[0].uri);
     }
- };
+  };
 
- return (
-    
-      <View style={appStyle.body}>
-       
-          <View style={profile.welcome}>
-          <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
-            <Image style={profile.arrow_back} source={arrow_back} />
-            </TouchableOpacity>
-            <Text style={profile.welcomeText}>Fill Your Profile</Text>
-          </View>
+  return (
+    <View style={appStyle.body}>
+      <View style={profile.welcome}>
+        <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
+          <Image style={profile.arrow_back} source={arrow_back} />
+        </TouchableOpacity>
+        <Text style={profile.welcomeText}>Fill Your Profile</Text>
+      </View>
 
-          
-       <View style={{height:responsiveHeight(17)}}>
-
-       
+      <View style={{ height: responsiveHeight(17) }}>
+        <Image
+          style={profile.image}
+          source={image ? { uri: image } : image_upload}
+        />
+        <TouchableOpacity onPress={openImagePickerAsync} activeOpacity={0.5}>
           <Image
-            style={profile.image}
-            source={image ? { uri: image } : image_upload}
-          />
-          <TouchableOpacity onPress={openImagePickerAsync} activeOpacity={0.5}>
-          <Image style={{alignSelf:'center',left:40,bottom:30}} source={require('../../assets/Editbtn.png')}>
+            style={{ alignSelf: "center", left: 40, bottom: 30 }}
+            source={require("../../assets/Editbtn.png")}
+          ></Image>
+        </TouchableOpacity>
+      </View>
 
-</Image>
-          </TouchableOpacity>
-          </View>
-       
-          <ScrollView keyboardDismissMode={"on-drag" } contentContainerStyle={{flexGrow:1}} >
-
-       <View style={{height:responsiveHeight(65)}}>
-        <View style={Style.InputContainer}>
-          <TextInput
-            theme={{
-              colors: {
-                placeholder: "white",
-                text: "white",
-                primary: "white",
-                underlineColor: "transparent",
-                background: "#003489",
-              },
-            }}
-            style={profile.inputSearch}
-            underlineColor="transparent"
-            onChange={handleEmail}
-            placeholder="Full Name"
-          />
-        </View>
-        <View style={Style.cardContainer22}>
-          <TextInput 
-            secureTextEntry={true}
-            underlineColor="transparent"
-            theme={{
-              colors: {
-                placeholder: "white",
-                text: "white",
-                primary: "white",
-                underlineColor: "transparent",
-                background: "#003489",
-              },
-            }}
-            style={profile.inputSearch}
-            underlineColorAndroid="transparent"
-            onChange={handlePassword}
-            placeholder="LastName"
-          />
-          
-        </View>
-        <View style={Style.cardContainer22}>
-        <TextInput
-        underlineColor="transparent"
-        theme={{
-          colors: {
-            placeholder: "white",
-            text: "white",
-            primary: "white",
-            underlineColor: "transparent",
-            background: "#003489",
-          },
-        }}
-        style={profile.inputSearch}
-        underlineColorAndroid="transparent"
-        placeholder="Date of Birth"
-        value={date.toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
-      />
-      <TouchableOpacity onPress={showDatePicker} style={{ position: 'absolute', right: 25 }}>
-        <Image source={require('../../assets/DOB.png')} />
-      </TouchableOpacity>
-          
-          {show && (
-            <DateTimePicker
-              value={date}
-              mode="date"
-              display="default"
-              onChange={onChange}
-              
+      <ScrollView
+        keyboardDismissMode={"on-drag"}
+        contentContainerStyle={{ flexGrow: 1 }}
+      >
+        <View style={{ height: responsiveHeight(65) }}>
+          <View style={Style.InputContainer}>
+            <TextInput
+              theme={{
+                colors: {
+                  placeholder: "white",
+                  text: "white",
+                  primary: "white",
+                  underlineColor: "transparent",
+                  background: "#003489",
+                },
+              }}
+              style={profile.inputSearch}
+              underlineColor="transparent"
+              onChange={handleEmail}
+              placeholder="Full Name"
             />
-          )}
+          </View>
+          <View style={Style.cardContainer22}>
+            <TextInput
+              secureTextEntry={true}
+              underlineColor="transparent"
+              theme={{
+                colors: {
+                  placeholder: "white",
+                  text: "white",
+                  primary: "white",
+                  underlineColor: "transparent",
+                  background: "#003489",
+                },
+              }}
+              style={profile.inputSearch}
+              underlineColorAndroid="transparent"
+              onChange={handlePassword}
+              placeholder="LastName"
+            />
+          </View>
+          <View style={Style.cardContainer22}>
+            <TextInput
+              underlineColor="transparent"
+              theme={{
+                colors: {
+                  placeholder: "white",
+                  text: "white",
+                  primary: "white",
+                  underlineColor: "transparent",
+                  background: "#003489",
+                },
+              }}
+              style={profile.inputSearch}
+              underlineColorAndroid="transparent"
+              placeholder="Date of Birth"
+              value={date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
+            />
+            <TouchableOpacity
+              onPress={showDatePicker}
+              style={{ position: "absolute", right: 25 }}
+            >
+              <Image source={require("../../assets/DOB.png")} />
+            </TouchableOpacity>
+
+            {show && (
+              <DateTimePicker
+                value={date}
+                mode="date"
+                display="default"
+                onChange={onChange}
+              />
+            )}
+          </View>
+          <View style={Style.cardContainer22}>
+            <TextInput
+              secureTextEntry={true}
+              underlineColor="transparent"
+              theme={{
+                colors: {
+                  placeholder: "white",
+                  text: "white",
+                  primary: "white",
+                  underlineColor: "transparent",
+                  background: "#003489",
+                },
+              }}
+              style={[profile.inputSearch, { position: "relative" }]} // Ensure the TextInput has relative positioning
+              underlineColorAndroid="transparent"
+              onChange={handlePassword}
+              placeholder="Email"
+            />
+
+            <Image
+              source={require("../../assets/Message.png")}
+              style={{
+                position: "absolute",
+                right: 25, // Adjust the position as needed
+                top: 28, // Adjust the position as needed
+              }}
+            />
+          </View>
+          <View
+            style={{
+              alignItems: "center",
+            }}
+          >
+            <PhoneNumberInput
+              defaultCountry="USA"
+              defaultCode="PK"
+              value={phoneNumber}
+              onChangeText={(text) => {
+                setPhoneNumber(text);
+              }}
+              onChangeFormattedText={(text) => {}}
+              onChangeCountry={(country) => {}}
+              // withDarkTheme
+              withShadow
+              autoFocus
+              containerStyle={{
+                width: responsiveWidth(90),
+                // Set the width to 90
+                borderRadius: 15,
+                overflow: "hidden",
+                // marginLeft: 10,
+                height: responsiveHeight(7.5),
+
+                opacity: 0.4,
+                top: 10,
+              }}
+              countryPickerButtonStyle={{ backgroundColor: "#D9D9D9" }}
+              //textInputStyle={{backgroundColor:"orange"}}
+              textContainerStyle={{ backgroundColor: "#D9D9D9ed" }}
+            />
+          </View>
+          <View style={Style.cardText}>
+            <TextInput
+              theme={{
+                colors: {
+                  placeholder: "white",
+                  text: "white",
+                  primary: "white",
+                  underlineColor: "transparent",
+                  background: "#003489",
+                },
+              }}
+              style={[profile.inputSearch, { position: "relative" }]} // Ensure the TextInput has relative positioning
+              underlineColor="transparent"
+              value={selectedGender} // Display the selected gender
+              editable={false} // Make the input non-editable
+              placeholder="Gender"
+            />
+            <TouchableOpacity
+              onPress={toggleModal}
+              style={{
+                position: "absolute",
+                right: 10, // Adjust the position as needed
+                top: 30, // Adjust the position as needed
+              }}
+            >
+              <Image
+                source={require("../../assets/DownArrow.png")}
+                style={{
+                  transform: modalVisible ? [{ rotate: "180deg" }] : [],
+                }}
+              />
+            </TouchableOpacity>
+          </View>
         </View>
-        <View style={Style.cardContainer22}>
-        <TextInput
-    secureTextEntry={true}
-    underlineColor="transparent"
-    theme={{
-      colors: {
-        placeholder: "white",
-        text: "white",
-        primary: "white",
-        underlineColor: "transparent",
-        background: "#003489",
-      },
-    }}
-    style={[profile.inputSearch, { position: 'relative' }]} // Ensure the TextInput has relative positioning
-    underlineColorAndroid="transparent"
-    onChange={handlePassword}
-    placeholder="Email"
- />
- 
- <Image
-    source={require('../../assets/Message.png')}
-    style={{
-      position: 'absolute',
-      right:25, // Adjust the position as needed
-      top: 28, // Adjust the position as needed
-    }}
- />
-          
-        </View>
-        <View >
-      <PhoneNumberInput 
- defaultCountry="USA"
- defaultCode="PK"
- 
-        value={phoneNumber}
-        onChangeText={(text) => {
-          setPhoneNumber(text);
-        }}
-        onChangeFormattedText={(text) => {
-         
-        }}
-        onChangeCountry={(country) => {
-        }}
-       // withDarkTheme
-        withShadow
-        autoFocus
-        containerStyle={{
-          width:377,
- // Set the width to 90
-      borderRadius: 15,
-      overflow: 'hidden',
-      marginLeft:10,
-      height:56,
-      opacity: 0.4,
-      top:10
-      
-    }}
-        countryPickerButtonStyle  ={{ backgroundColor: '#D9D9D9' }}
-           //textInputStyle={{backgroundColor:"orange"}}
-        textContainerStyle={{backgroundColor:"#D9D9D9ed"}}
-          />
-    </View>
-        <View style={Style.cardText}>
-        <TextInput
-    theme={{
-      colors: {
-        placeholder: "white",
-        text: "white",
-        primary: "white",
-        underlineColor: "transparent",
-        background: "#003489",
-      },
-    }}
-    style={[profile.inputSearch, { position: 'relative' }]} // Ensure the TextInput has relative positioning
-    underlineColor="transparent"
-    value={selectedGender} // Display the selected gender
-    editable={false} // Make the input non-editable
-    placeholder="Gender"
- />
- <TouchableOpacity
-    onPress={toggleModal}
-    style={{
-      position: 'absolute',
-      right: 10, // Adjust the position as needed
-      top: 30, // Adjust the position as needed
-    }}
- >
-    <Image
-      source={require('../../assets/DownArrow.png')}
-      style={{
-        transform: modalVisible ? [{ rotate: '180deg' }] : [],
-      }}
-    />
- </TouchableOpacity>
-          
-        </View>
-        </View>
-       
+
         {modalVisible && (
           <Modal
             animationType="slide"
@@ -338,33 +341,25 @@ const Index = ({ navigation }) => {
             <View style={Style.centeredView}>
               <View style={Style.modalView}>
                 {gender.map((item, index) => (
-                 <TouchableOpacity
+                  <TouchableOpacity
                     key={index}
                     style={Style.modalButton}
                     onPress={() => handleGenderSelect(item)}
-                 >
+                  >
                     <Text style={Style.modalText}>{item}</Text>
-                 </TouchableOpacity>
+                  </TouchableOpacity>
                 ))}
               </View>
             </View>
-            
           </Modal>
-          
         )}
-        </ScrollView>
+      </ScrollView>
 
-  
-          <TouchableOpacity style={Style.appButton}>
-            <Text style={appStyle.appButtonText}>Continue</Text>
-          </TouchableOpacity>
-
-     
-
-        
-      
-   </View>
- );
+      <TouchableOpacity style={Style.appButton}>
+        <Text style={appStyle.appButtonText}>Continue</Text>
+      </TouchableOpacity>
+    </View>
+  );
 };
 
 export default Index;
@@ -374,78 +369,76 @@ const Style = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
- },
- modalView: {
-   // margin:10,
+  },
+  modalView: {
+    // margin:10,
     backgroundColor: "white",
-    marginTop:400,
-    marginLeft:300,
+    marginTop: 400,
+    marginLeft: 300,
     borderRadius: 10,
     alignItems: "center",
-    paddingHorizontal:15,
-   // shadowColor: "#000",
+    paddingHorizontal: 15,
+    // shadowColor: "#000",
     // shadowOffset: {
     //   width: 0,
     //   height: 2,
     // },
-   // shadowOpacity: 0.25,
+    // shadowOpacity: 0.25,
     //shadowRadius: 4,
-    elevation:5,
- },
- modalButton: {
+    elevation: 5,
+  },
+  modalButton: {
     // /backgroundColor: "#2196F3",
-   // borderRadius: 20,
-   // padding: 10,
-   // elevation: 2,
- },
- modalText: {
-    marginBottom:5,
+    // borderRadius: 20,
+    // padding: 10,
+    // elevation: 2,
+  },
+  modalText: {
+    marginBottom: 5,
     textAlign: "center",
-    fontSize:14
- },
- cardText: {
-  width: responsiveWidth(90),
-  height: responsiveHeight(10),
-  // backgroundColor:'orange',
-  // flexDirection: 'row',
-  // marginTop: 10,
-  alignSelf: "center",
-  justifyContent: "center",
-  alignItems: "center",
-  flexDirection:'row',
-  top:25
-},
-appButton: {
-  width:"90%",
-  alignSelf: 'center',
-  backgroundColor: "#FFC44D",
-  borderRadius: 30,
-  paddingVertical: 10,
-  paddingHorizontal: 12,
-  bottom:30
-  
-  
-},
-InputContainer: {
-  width: responsiveWidth(100),
-  height: responsiveHeight(10),
-  //backgroundColor: "gray",
-  // flexDirection: 'row',
-  // marginTop: 10,
-  alignSelf: "center",
-  justifyContent: "center",
-  alignItems: "center",
-  flexDirection: "row",
-},
-cardContainer22: {
-  width: responsiveWidth(100),
-  height: responsiveHeight(10),
-  // backgroundColor: "orange",
-  // flexDirection: 'row',
-  // marginTop: 10,
-  alignSelf: "center",
-  justifyContent: "center",
-  alignItems: "center",
-  flexDirection: "row",
-},
-  })
+    fontSize: 14,
+  },
+  cardText: {
+    width: responsiveWidth(90),
+    height: responsiveHeight(10),
+    // backgroundColor:'orange',
+    // flexDirection: 'row',
+    // marginTop: 10,
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    top: 25,
+  },
+  appButton: {
+    width: "90%",
+    alignSelf: "center",
+    backgroundColor: "#FFC44D",
+    borderRadius: 30,
+    paddingVertical: 10,
+    paddingHorizontal: 12,
+    bottom: 30,
+  },
+  InputContainer: {
+    width: responsiveWidth(100),
+    height: responsiveHeight(10),
+    //backgroundColor: "gray",
+    // flexDirection: 'row',
+    // marginTop: 10,
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+  cardContainer22: {
+    width: responsiveWidth(100),
+    height: responsiveHeight(10),
+    // backgroundColor: "orange",
+    // flexDirection: 'row',
+    // marginTop: 10,
+    alignSelf: "center",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+  },
+});
