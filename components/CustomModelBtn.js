@@ -4,7 +4,7 @@ import { responsiveWidth } from "react-native-responsive-dimensions";
 
 const CustomModelBtn = ({ buttontitle, onPress, color, width, height }) => {
   return (
-    <View style={{ alignSelf: "center" }}>
+    <View style={{ alignSelf: "center", top: 60 }}>
       <TouchableOpacity
         style={[
           styles.button,

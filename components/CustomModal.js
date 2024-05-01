@@ -36,7 +36,7 @@ const CustomModal = ({
       >
         <View
           style={[
-            styles.centeredView,
+            styles.modelBackground,
             { width: windowWidth, height: windowHeight },
           ]}
         >
@@ -102,6 +102,12 @@ const styles = StyleSheet.create({
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
+  },
+  modelBackground: {
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)", // Semi-transparent black background
+    opacity: 0.99,
   },
   modalText: {
     paddingHorizontal: 23,

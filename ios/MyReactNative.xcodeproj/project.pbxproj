@@ -11,16 +11,16 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
+		40EC1C92795D46AB8160EFCA /* Inter Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7BD6842164C2095D136B0 /* Inter Bold.ttf */; };
+		6C0EF8507D7D405C85D396EA /* Inter Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6728CA840BD4C2C811AF2D2 /* Inter Thin.ttf */; };
 		834F5B3A0277409DA44E4FEF /* noop-file.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3FDB5797BD34AA797BF63C9 /* noop-file.swift */; };
 		96905EF65AED1B983A6B3ABC /* libPods-MyReactNative.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 58EEBF8E8E6FB1BC6CAF49B5 /* libPods-MyReactNative.a */; };
-		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
-		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		97B3892C9E284F688932D3DA /* font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BE0DE40976A84FC1856EE709 /* font.ttf */; };
-		40EC1C92795D46AB8160EFCA /* Inter Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E3D7BD6842164C2095D136B0 /* Inter Bold.ttf */; };
+		B18059E884C0ABDD17F3DC3D /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */; };
 		B688B7A68A524E34B7ECB8B3 /* Inter Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF7084A6F7DC4A9DAD5323D9 /* Inter Medium.ttf */; };
-		E3F92CEAF0184CE297BD23BA /* Inter Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEAD44E1A9004129826E4200 /* Inter Regular.ttf */; };
-		6C0EF8507D7D405C85D396EA /* Inter Thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C6728CA840BD4C2C811AF2D2 /* Inter Thin.ttf */; };
+		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		C43FD262FEAB4CEDB870C057 /* Pirata One Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4F355A6389C0404F9116F365 /* Pirata One Regular.ttf */; };
+		E3F92CEAF0184CE297BD23BA /* Inter Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EEAD44E1A9004129826E4200 /* Inter Regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +30,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = MyReactNative/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = MyReactNative/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = MyReactNative/main.m; sourceTree = "<group>"; };
+		4F355A6389C0404F9116F365 /* Pirata One Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Pirata One Regular.ttf"; path = "../assets/fonts/Pirata One Regular.ttf"; sourceTree = "<group>"; };
 		58EEBF8E8E6FB1BC6CAF49B5 /* libPods-MyReactNative.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MyReactNative.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C2E3173556A471DD304B334 /* Pods-MyReactNative.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyReactNative.debug.xcconfig"; path = "Target Support Files/Pods-MyReactNative/Pods-MyReactNative.debug.xcconfig"; sourceTree = "<group>"; };
 		7A4D352CD337FB3A3BF06240 /* Pods-MyReactNative.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MyReactNative.release.xcconfig"; path = "Target Support Files/Pods-MyReactNative/Pods-MyReactNative.release.xcconfig"; sourceTree = "<group>"; };
@@ -37,14 +38,13 @@
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = MyReactNative/SplashScreen.storyboard; sourceTree = "<group>"; };
 		ACF944602D264C3C867E24C3 /* MyReactNative-Bridging-Header.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "MyReactNative-Bridging-Header.h"; path = "MyReactNative/MyReactNative-Bridging-Header.h"; sourceTree = "<group>"; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
+		BE0DE40976A84FC1856EE709 /* font.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = font.ttf; path = ../assets/fonts/font.ttf; sourceTree = "<group>"; };
+		BF7084A6F7DC4A9DAD5323D9 /* Inter Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter Medium.ttf"; path = "../assets/fonts/Inter Medium.ttf"; sourceTree = "<group>"; };
+		C6728CA840BD4C2C811AF2D2 /* Inter Thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter Thin.ttf"; path = "../assets/fonts/Inter Thin.ttf"; sourceTree = "<group>"; };
+		E3D7BD6842164C2095D136B0 /* Inter Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter Bold.ttf"; path = "../assets/fonts/Inter Bold.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		EEAD44E1A9004129826E4200 /* Inter Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "Inter Regular.ttf"; path = "../assets/fonts/Inter Regular.ttf"; sourceTree = "<group>"; };
 		FAC715A2D49A985799AEE119 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-MyReactNative/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		BE0DE40976A84FC1856EE709 /* font.ttf */ = {isa = PBXFileReference; name = "font.ttf"; path = "../assets/fonts/font.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		E3D7BD6842164C2095D136B0 /* Inter Bold.ttf */ = {isa = PBXFileReference; name = "Inter Bold.ttf"; path = "../assets/fonts/Inter Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		BF7084A6F7DC4A9DAD5323D9 /* Inter Medium.ttf */ = {isa = PBXFileReference; name = "Inter Medium.ttf"; path = "../assets/fonts/Inter Medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		EEAD44E1A9004129826E4200 /* Inter Regular.ttf */ = {isa = PBXFileReference; name = "Inter Regular.ttf"; path = "../assets/fonts/Inter Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		C6728CA840BD4C2C811AF2D2 /* Inter Thin.ttf */ = {isa = PBXFileReference; name = "Inter Thin.ttf"; path = "../assets/fonts/Inter Thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4F355A6389C0404F9116F365 /* Pirata One Regular.ttf */ = {isa = PBXFileReference; name = "Pirata One Regular.ttf"; path = "../assets/fonts/Pirata One Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +59,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1085CE0AE812464683C23C0B /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BE0DE40976A84FC1856EE709 /* font.ttf */,
+				E3D7BD6842164C2095D136B0 /* Inter Bold.ttf */,
+				BF7084A6F7DC4A9DAD5323D9 /* Inter Medium.ttf */,
+				EEAD44E1A9004129826E4200 /* Inter Regular.ttf */,
+				C6728CA840BD4C2C811AF2D2 /* Inter Thin.ttf */,
+				4F355A6389C0404F9116F365 /* Pirata One Regular.ttf */,
+			);
+			name = Resources;
+			path = "";
+			sourceTree = "<group>";
+		};
 		13B07FAE1A68108700A75B9A /* MyReactNative */ = {
 			isa = PBXGroup;
 			children = (
@@ -148,20 +162,6 @@
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
-		};
-		1085CE0AE812464683C23C0B /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				BE0DE40976A84FC1856EE709 /* font.ttf */,
-				E3D7BD6842164C2095D136B0 /* Inter Bold.ttf */,
-				BF7084A6F7DC4A9DAD5323D9 /* Inter Medium.ttf */,
-				EEAD44E1A9004129826E4200 /* Inter Regular.ttf */,
-				C6728CA840BD4C2C811AF2D2 /* Inter Thin.ttf */,
-				4F355A6389C0404F9116F365 /* Pirata One Regular.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -303,11 +303,15 @@
 				"${PODS_ROOT}/Target Support Files/Pods-MyReactNative/Pods-MyReactNative-resources.sh",
 				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
 				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/RCTI18nStrings.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/lottie-ios/LottiePrivacyInfo.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/lottie-react-native/Lottie_React_Native_Privacy.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EXConstants.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCTI18nStrings.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/LottiePrivacyInfo.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/Lottie_React_Native_Privacy.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
