@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { Regular } from "../constants/fonts";
 
 const homeStyles = StyleSheet.create({
   cardContainer: {
@@ -123,6 +124,7 @@ const homeStyles = StyleSheet.create({
     alignSelf: "center",
     justifyContent: "center",
     alignItems: "center",
+    fontFamily:Regular
   },
   categoryText2nd: {
     width: 58,
@@ -182,6 +184,7 @@ const homeStyles = StyleSheet.create({
     // fontSize:8,
     borderRadius: 16,
     textAlign: "center",
+    fontFamily:Regular
   },
 });
 export default homeStyles;

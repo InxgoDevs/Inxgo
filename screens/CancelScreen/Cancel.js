@@ -59,7 +59,7 @@ const CancelScreen = ({ navigation }) => {
         <Text style={signUpStyle.welcomeF}>Cancel Task</Text>
       </View>
       <View style={{ height: responsiveHeight(10), justifyContent: "center" }}>
-        <Text style={{ fontSize: 13, fontWeight: "300", marginLeft: 20 }}>
+        <Text style={{ fontSize: 13, fontWeight: "300", marginLeft: 20 ,fontFamily:Regular}}>
           Please select the reason for cancellation.
         </Text>
       </View>

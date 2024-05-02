@@ -18,6 +18,7 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+import { Regular } from "../../constants/fonts";
 
 const login = require("../../assets/login.png");
 const apple = require("../../assets/svg/Facebook.png");
@@ -64,6 +65,7 @@ export default Start;
 const style = StyleSheet.create({
   text1: {
     fontWeight: "600",
+    fontFamily:Regular,
     color: "#FFC44D",
     fontSize: 13,
 

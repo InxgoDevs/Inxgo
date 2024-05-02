@@ -34,7 +34,7 @@ const Home=() =>{
                 <View flexDirection="row" style={{ marginTop: 10 }}>
                     <View style={homeStyles.myJobContainer}>
                         <Image source={logo} style={{ width: 40, height: 40 }} />    
-                        <Text style={{ fontSize: 18, color: "#383937", marginTop: 20 }}>
+                        <Text style={{ fontSize: 18, color: "#383937", marginTop: 20,fontFamily:Regular }}>
                             My Jobs
                         </Text>
                     </View>

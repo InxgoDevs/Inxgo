@@ -96,7 +96,7 @@ const appStyle =StyleSheet.create({
         fontSize:32,
         alignSelf: "center",
         justifyContent: 'center',
-        alignItems: 'center'  
+        alignItems: 'center',fontFamily:Regular  
       },
       logo:
       {
@@ -130,12 +130,14 @@ const appStyle =StyleSheet.create({
         color: "#fff",
         fontWeight: "bold",
         alignSelf: "center",
-        textTransform: "uppercase"
+        textTransform: "uppercase",
+        fontFamily:Regular
       },
       appButtonTextSoical: {
         fontSize: 16,
         color: "#101828",
         fontWeight: "bold",
+        fontFamily:Regular,
         alignSelf: "center",
         textTransform: "uppercase"
       },
@@ -166,6 +168,7 @@ const appStyle =StyleSheet.create({
     },
     rowLabelText: {
       fontSize: 16.0,
+      fontFamily:Regular
     },
     line:{
       flex: 1,
@@ -174,10 +177,12 @@ const appStyle =StyleSheet.create({
     },
     lineText:{
       width: 50,
-      textAlign: 'center'
+      textAlign: 'center',
+      fontFamily:Regular
     },
     signUp:{
       fontSize:14,
+      fontFamily:Regular
     }
 
 

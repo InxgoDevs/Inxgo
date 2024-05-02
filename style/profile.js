@@ -3,6 +3,7 @@ import {
   responsiveHeight,
   responsiveWidth,
 } from "react-native-responsive-dimensions";
+import { Regular } from "../constants/fonts";
 
 const appStyle = StyleSheet.create({
   appButtonContainer: {
@@ -21,6 +22,7 @@ const appStyle = StyleSheet.create({
     borderRadius: 15,
     paddingHorizontal: 10,
     height: responsiveHeight(7.5),
+
     color: "black",
     //  flex: 1, // Take up the remaining space in the container
 
@@ -43,7 +45,7 @@ const appStyle = StyleSheet.create({
     // alignSelf: "center",
     // justifyContent: 'center',
     // alignItems: 'center',
-    // backgroundColor:"red",
+    // backgroundColor:"orange",
     height: responsiveHeight(8),
   },
   welcomeText: {
@@ -51,6 +53,8 @@ const appStyle = StyleSheet.create({
     fontSize: 20,
     // marginBottom:20,
     marginLeft: 20,
+    fontFamily:Regular
+    
   },
   image: {
     alignSelf: "center",

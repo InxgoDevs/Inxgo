@@ -18,90 +18,125 @@ const arrow_back = require("../../assets/arrow_back.png");
 const SupplierProfile = () => {
   return (
     <View style={styles.container}>
-      <View style={profile.welcome}>
-        <Image style={profile.arrow_back} source={arrow_back} />
+      <View style={styles.welcome}>
+      <TouchableOpacity>
+      <Image style={profile.arrow_back} source={arrow_back} />
+      </TouchableOpacity>
+       
         <Text style={profile.welcomeText}>Provider Profile</Text>
       </View>
-      <View style={{ justifyContent: "center", alignItems: "center" }}>
-        <Image source={require("../../assets/Frame.png")} />
-        <Text style={{ fontSize: 24, fontFamily: Regular, fontWeight: "600" }}>
+      <View style={{ justifyContent: "center", alignItems: "center",width:responsiveWidth(100),height:responsiveHeight(17) }}>
+        <Image source={require("../../assets/profilepic.png")} style={{resizeMode:"contain",height:responsiveHeight(17),width:responsiveWidth(80)}} />
+       
+      </View>
+      <View style={{justifyContent:'center',alignItems:'center',height:responsiveHeight(7)}}>
+      <Text style={{ fontSize: 24, fontFamily: Regular, fontWeight: "600" }}>
           Mark Tuan
         </Text>
         <Text style={{ fontSize: 16, fontFamily: Regular }}>Plumber</Text>
       </View>
+      <View style={{height:responsiveHeight(18)}}>
+
+      
       <View
         style={{
           flexDirection: "row",
-          justifyContent: "space-evenly",
+          justifyContent: 'space-around',
           alignItems: "center",
+          //backgroundColor:"gray",
+          height:responsiveHeight(8),
+          width:responsiveWidth(100),
+          marginTop:25
+
         }}
       >
-        <Image source={require("../../assets/Round.png")} />
-        <Image source={require("../../assets/Round.png")} />
-        <Image source={require("../../assets/Round.png")} />
+        <Image source={require("../../assets/star.png")} style={{height:50,width:50}} />
+        <Image source={require("../../assets/bag.png")} style={{height:50,width:50}} />
+        <Image source={require("../../assets/dollar.png")} style={{height:50,width:50}} />
       </View>
       <View
         style={{
           flexDirection: "row",
-          justifyContent: "space-evenly",
+          justifyContent: "space-around",
           alignItems: "center",
+          width:responsiveWidth(100),
+         // backgroundColor:'purple'
+
         }}
       >
-        <Text>4.7</Text>
-        <Text>104</Text>
-        <Text>$40</Text>
+        <Text style={{fontSize:15,fontFamily:Bold,left:2}}>4.7</Text>
+        <Text style={{fontSize:15,fontFamily:Bold,left:3}}>104</Text>
+        <Text style={{fontSize:15,fontFamily:Bold,left:2}}>$40</Text>
       </View>
       <View
         style={{
           flexDirection: "row",
-          justifyContent: "space-evenly",
+          justifyContent: "space-around",
           alignItems: "center",
+          width:responsiveWidth(100),
+        //  backgroundColor:'red'
+
         }}
       >
-        <Text>Ratings</Text>
-        <Text>Tasks</Text>
-        <Text>Hourly</Text>
+        <Text style={{fontSize:11,fontFamily:Regular}}>Ratings</Text>
+        <Text style={{fontSize:11,fontFamily:Regular,right:3}}>Tasks</Text>
+        <Text style={{fontSize:11, fontFamily:Regular}}>Hourly</Text>
       </View>
-      <Text>About Me:</Text>
-      <Text>
+      </View>
+      <Text style={{fontSize:14,fontFamily:Regular,fontWeight:'700',marginLeft:20}}>About Me:</Text>
+      <View style={{width:responsiveWidth(100),height:responsiveHeight(11)}}>
+      <Text style={{fontSize:12,marginLeft:20,paddingHorizontal:3,paddingVertical:2}}>
         Dedicated and highly skilled plumber with 5+ years of experience
         providing exceptional plumbing services. Proficient in diagnosing,
         repairing, and installing various plumbing systems. Committed to
         delivering high-quality workmanship and outstanding customer service.
       </Text>
-      <Text>Key Skills:</Text>
-      <Text>Plumbing Systems Installation and Repair
-Pipefitting and Welding
-Drainage Systems Maintenance
-Water Heater Installation and Maintenance
-Fixture Replacement and Repair</Text>
+      </View>
+      
+      <Text style={{fontSize:14,fontFamily:Regular,fontWeight:'700',marginLeft:20}}>Key Skills:</Text>
+      <View style={{width:responsiveWidth(100),height:responsiveHeight(12)}}>
+       <Text style={{marginLeft:20,fontSize:12,fontFamily:Regular,paddingVertical:2}}>1. Plumbing Systems Installation and Repair{"\n"}
+ 2. Pipefitting and Welding{"\n"}
+3. Drainage Systems Maintenance{"\n"}
+4. Water Heater Installation and Maintenance{"\n"}
+5. Fixture Replacement and Repair</Text>
+
+      </View>
+     
 <View
         style={{
           flexDirection: "row",
-          justifyContent: "space-evenly",
+          justifyContent: "space-around",
           alignItems: "center",
+          width:responsiveWidth(100),
+          height:responsiveHeight(10),
+       //  backgroundColor:"gray"
+          
         }}
       >
-        <Image source={require("../../assets/Round.png")} />
-        <Image source={require("../../assets/Round.png")} />
-        <Image source={require("../../assets/Round.png")} />
+        <Image source={require("../../assets/person.png")} />
+        <Image source={require("../../assets/portfolio.png")} />
+        <Image source={require("../../assets/review.png")} />
       </View>
       <View
         style={{
           flexDirection: "row",
-          justifyContent: "space-evenly",
+          justifyContent:'space-around',
           alignItems: "center",
+         // backgroundColor:'red',
+          height:responsiveHeight(2),
+          width:responsiveWidth(100)
         }}
       >
-        <Text>4.7</Text>
-        <Text>104</Text>
-        <Text>$40</Text>
+        <Text style={{fontSize:11,fontFamily:Regular}}>Profile</Text>
+        <Text style={{fontSize:11,fontFamily:Regular,left:4}}>Portfolio</Text>
+        <Text style={{fontSize:11, fontFamily:Regular}}>Reviews</Text>
       </View>
-      <View style={{height:responsiveHeight(13)} }>
+      <View style={{height:responsiveHeight(10),justifyContent:'center'} }>
         <CustomButton
           title={"Hire Me"}
           color="#FFC44D"
-          width={responsiveWidth(40)}
+          width={responsiveWidth(90)}
           onPress={()=>navigation.navigate("SignUp")}
         />
      </View>
@@ -116,6 +151,17 @@ const styles = StyleSheet.create({
     // justifyContent: 'center',
     // alignItems: 'center',
     backgroundColor: "#FAFAFA",
+  },
+  welcome: {
+    //marginTop:50,
+    fontSize: 20,
+    //marginLeft:20,
+    flexDirection: "row",
+    // alignSelf: "center",
+    // justifyContent: 'center',
+    // alignItems: 'center',
+   //  backgroundColor:"orange",
+    height: responsiveHeight(5),
   },
  
 });

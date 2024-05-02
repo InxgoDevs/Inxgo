@@ -32,6 +32,8 @@ export { default as Accepted} from '../screens/Booking/Accepted';
 export {default as CancelScreen} from "./CancelScreen/Cancel";
 export {default as AddCredit} from '../screens/Wallet/AddCredit';
 export{default as CompleteDetails} from '../screens/Booking/CompleteDetails';
+export{default as SearchProvider} from "../screens/Booking/SearchProvider";
+export {default as ViewAll} from "../screens/home/ViewAll";
 
 
 

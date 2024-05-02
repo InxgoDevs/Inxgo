@@ -68,7 +68,7 @@ const ResetCode = ({ navigation }) => {
         <Text style={signUpStyle.welcomeF}>Forgot Password</Text>
       </View>
       <View style={{ backgroundColor: '#FAFAFA', height: responsiveHeight(30), justifyContent: 'center', alignItems: 'center' }}>
-        <Text style={{ fontSize: 16, alignSelf: 'center', paddingHorizontal: 50 }}>Code has been sent to ja****oe@yourdomain.com</Text>
+        <Text style={{ fontSize: 16, alignSelf: 'center', paddingHorizontal: 50,fontFamily:Regular }}>Code has been sent to ja****oe@yourdomain.com</Text>
       </View>
       <View style={{ flexDirection: "row", backgroundColor: "#FAFAFA", height: responsiveHeight(10), justifyContent: 'space-between' }}>
         <TextInput style={styles.TextPin} keyboardType="numeric" maxLength={1} />
@@ -79,13 +79,13 @@ const ResetCode = ({ navigation }) => {
       <View style={{ backgroundColor: "#FAFAFA", alignItems: 'center', height: responsiveHeight(10) }}>
   {otpExpired ? (
     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
-      <Text style={{ fontSize: 16 }}>OTP Expired</Text>
+      <Text style={{ fontSize: 16,fontFamily:Regular }}>OTP Expired</Text>
       <TouchableOpacity style={{  marginLeft: 10 }}  onPress={handleResend}>
-        <Text style={{fontSize:16,fontWeight:'bold',color:'#FFC44D',borderBottomWidth:1.5,borderBottomColor:'#FFC44D'}}>Resend</Text>
+        <Text style={{fontSize:16,fontWeight:'bold',color:'#FFC44D',borderBottomWidth:1.5,borderBottomColor:'#FFC44D',fontFamily:Regular}}>Resend</Text>
       </TouchableOpacity>
     </View>
   ) : (
-    <Text style={{ fontSize: 16 }}>Resend code in <Text style={{ color: '#FFC44D' }}>{timer} s</Text></Text>
+    <Text style={{ fontSize: 16,fontFamily:Regular }}>Resend code in <Text style={{ color: '#FFC44D' }}>{timer} s</Text></Text>
   )}
 </View>
 

@@ -9,7 +9,8 @@ import location from "../../assets/icons/location.png";
 import hrs from "../../assets/icons/hrs.png";
 import { NavigationContainer } from "@react-navigation/native";
 import { Bold } from "../../constants/fonts";
-import Frame from "../../assets/Frame.png"
+import Frame from "../../assets/Frame.png";
+import { Regular } from "../../constants/fonts";
 
 const Complete = ({ navigation }) => {
    const detailJob = async (path) => {
@@ -33,9 +34,9 @@ const Complete = ({ navigation }) => {
         <Image style={wallet.image} source={Frame} />
         <View style={wallet.LeftContainer}>
           <View style={{ flexDirection: "row" }}>
-            <Text style={{ fontSize: 18 }}>Mark Tuan</Text>
+            <Text style={{ fontSize: 18,fontFamily:Regular }}>Mark Tuan</Text>
           </View>
-          <Text style={{ fontSize: 12 }}>Plumber</Text>
+          <Text style={{ fontSize: 12,fontFamily:Regular }}>Plumber</Text>
         </View>
         <View style={wallet.RightContainer}>
           <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
@@ -75,7 +76,7 @@ const Complete = ({ navigation }) => {
       >
         <View style={{ width: "38%", marginLeft: 5, flexDirection: "row" }}>
           <Image source={location} />
-          <Text style={{ fontSize: 14, fontWeight: "bold", marginLeft: 2 }}>
+          <Text style={{ fontSize: 14, fontWeight: "bold", marginLeft: 2 ,fontFamily:Regular}}>
             Sadiq Centre LHR
           </Text>
         </View>
@@ -96,6 +97,7 @@ const Complete = ({ navigation }) => {
               textAlign: "center",
               fontWeight: "bold",
               marginLeft: 2,
+              fontFamily:Regular
             }}
           >
             4 hrs
@@ -118,6 +120,7 @@ const Complete = ({ navigation }) => {
               textAlign: "center",
               fontWeight: "bold",
               marginLeft: 2,
+              fontFamily:Regular
             }}
           >
             $40/ hr

@@ -34,9 +34,9 @@ const Jobstart = ({ navigation }) => {
         <Image style={wallet.image} source={image_upload} />
         <View style={wallet.LeftContainer}>
           <View style={{ flexDirection: "row" }}>
-            <Text style={{ fontSize: 18 }}>Mark Tuan</Text>
+            <Text style={{ fontSize: 18,fontFamily:Regular }}>Mark Tuan</Text>
           </View>
-          <Text style={{ fontSize: 12 }}>Plumber</Text>
+          <Text style={{ fontSize: 12,fontFamily:Regular }}>Plumber</Text>
         </View>
         <View style={wallet.RightContainer}>
           <View style={{ flexDirection: "row", alignSelf: "flex-end" }}>
@@ -51,7 +51,7 @@ const Jobstart = ({ navigation }) => {
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontSize: 16 }}>Active</Text>
+              <Text style={{ fontSize: 16,fontFamily:Regular }}>Active</Text>
             </View>
           </View>
           {/* <TouchableOpacity onPress={() => detailJob("Detail")}>
@@ -76,7 +76,7 @@ const Jobstart = ({ navigation }) => {
       >
         <View style={{ width: "38%", marginLeft: 5, flexDirection: "row" }}>
           <Image source={location} />
-          <Text style={{ fontSize: 12, fontWeight: "600", marginLeft:5 }}>
+          <Text style={{ fontSize: 12, fontWeight: "600", marginLeft:5,fontFamily:Regular}}>
             Sadiq Centre LHR
           </Text>
         </View>
@@ -97,6 +97,7 @@ const Jobstart = ({ navigation }) => {
               textAlign: "center",
               fontWeight: "600",
               marginLeft: 5,
+              fontFamily:Regular
             }}
           >
             4 hrs
@@ -119,6 +120,7 @@ const Jobstart = ({ navigation }) => {
               textAlign: "center",
               fontWeight: "600",
               marginLeft: 5,
+              fontFamily:Regular
             }}
           >
             $40/ hr
@@ -126,7 +128,7 @@ const Jobstart = ({ navigation }) => {
         </View>
       </View>
       <View style={{marginTop:40,width:responsiveWidth(80),marginLeft:20}}>
-      <Text style={{fontSize:10}}>We have assigned you a plumbing task for an urgent repair at Sadiq Centre, Lahore. Please make arrangements to visit the location as soon as possible and address the issue accordingly. Your expertise and prompt response are greatly appreciated.</Text>
+      <Text style={{fontSize:10,fontFamily:Regular}}>We have assigned you a plumbing task for an urgent repair at Sadiq Centre, Lahore. Please make arrangements to visit the location as soon as possible and address the issue accordingly. Your expertise and prompt response are greatly appreciated.</Text>
       </View>
       <View style={{justifyContent:'center',alignItems:'center'}}>
         <Image source={require('../../assets/Ring.png')}></Image>

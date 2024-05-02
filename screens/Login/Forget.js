@@ -8,7 +8,7 @@ import signUpStyle from "../../style/SignUp";
 import { SvgUri, SvgXml } from 'react-native-svg';
 import { NavigationContainer } from '@react-navigation/native';
 
-const start3 = require('../../assets/svg/rafiki.png')
+const start3 = require('../../assets/passwordpic.png')
 const message = require('../../assets/icons/message.png')
 const email = require('../../assets/icons/email.png')
 const arrow_back=require('../../assets/arrow_back.png')
@@ -61,6 +61,7 @@ const ResetCode = ({ navigation }) => {
                 bottom: 9,
                 marginLeft: 30,
                 fontWeight: 'bold',
+                fontFamily:Regular
               }}
             >
               via SMS:
@@ -73,6 +74,7 @@ const ResetCode = ({ navigation }) => {
                 bottom: 9,
                 marginLeft: 30,
                 fontWeight: 'bold',
+                fontFamily:Regular
               }}
             >
               +92 334 ******7
@@ -93,6 +95,7 @@ const ResetCode = ({ navigation }) => {
                 bottom: 9,
                 marginLeft: 80,
                 fontWeight: 'bold',
+                fontFamily:Regular
               }}
             >
             via Email:
@@ -105,6 +108,7 @@ const ResetCode = ({ navigation }) => {
                 bottom: 9,
                 marginLeft: 80,
                 fontWeight: 'bold',
+                fontFamily:Regular
               }}
             >
               ja****oe@yourdomain.com

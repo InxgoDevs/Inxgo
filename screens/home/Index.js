@@ -16,9 +16,10 @@ import MyGlobleSetting from "../../Services/MyGlobleSetting";
 import { NavigationContainer } from "@react-navigation/native";
 import SvgUri from "react-native-svg-uri";
 import LocationComponent from "../../components/MyLocation";
-
+import { Regular } from "../../constants/fonts";
+const search = require("../../assets/searching.png");
 //const image_url = MyGlobleSetting.state.imageUrl;
-const bell = require("../../assets/icons/bell.png");
+const bell = require("../../assets/go.png");
 const setting = require("../../assets/icons/setting.png");
 const plumber = require("../../assets/icons/plumber.png");
 const labour = require("../../assets/icons/labour.png");
@@ -101,7 +102,7 @@ const Index = ({ navigation }) => {
                 style={appStyle.input}
                 placeholder="Search here"
               />
-              <Image style={appStyle.searchIcon} source={setting} />
+              <Image style={appStyle.searchIcon} source={search} />
             </View>
           </View>
           <View style={appStyle.cardContainer}>
@@ -157,6 +158,7 @@ const Index = ({ navigation }) => {
                   color: "#000",
                   bottom: 9,
                   fontWeight: "Bold",
+                  fontFamily:Regular
                 }}
               >
                 Become our Partner and get your dream work here
@@ -177,12 +179,13 @@ const Index = ({ navigation }) => {
                   color: "#000",
                   bottom: 9,
                   fontWeight: "Bold",
+                  fontFamily:Regular
                 }}
               >
                 Contact Support
               </Text>
               <Text
-                style={{ width: "80%", fontSize: 12, color: "#000", bottom: 9 }}
+                style={{ width: "80%", fontSize: 12, color: "#000", bottom: 9,fontFamily:Regular }}
               >
                 couldn’t find what you need! Let’s us hire for you..
               </Text>

@@ -202,6 +202,7 @@ const appStyle = StyleSheet.create({
     alignItems: "center",
     fontWeight: "600",
     marginBottom: 20,
+    fontFamily:Regular
   },
   logo: {
     marginTop: 50,
@@ -299,6 +300,7 @@ const appStyle = StyleSheet.create({
     fontSize: 16,
     paddingHorizontal: 10,
     marginLeft:15,
+    fontFamily:Regular
   },
   line: {
     height: 1,

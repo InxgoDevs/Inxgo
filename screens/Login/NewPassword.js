@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 import signUpStyle from "../../style/SignUp";
-
+import { Regular } from "../../constants/fonts";
 const arrow_back = require("../../assets/arrow_back.png");
 const blind = require("../../assets/Blind.png");
 const openeye = require("../../assets/openeye.png");
@@ -44,7 +44,7 @@ const NewPassword = ({ navigation }) => {
         <Image source={newpassword} style={styles.logo} />
       </View>
       <View style={{ height: responsiveHeight(5) }}>
-        <Text style={{ fontSize: 16, fontWeight: "500", marginLeft: 15 }}>
+        <Text style={{ fontSize: 16, fontWeight: "500", marginLeft: 15,fontFamily:Regular }}>
           Create New Password
         </Text>
       </View>
@@ -131,6 +131,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: "500",
     marginLeft: 20,
+    fontFamily:Regular
   },
   imageContainer: {
     height: responsiveHeight(40),
@@ -149,6 +150,7 @@ const styles = StyleSheet.create({
   subTitle: {
     fontSize: 13,
     marginBottom: 10,
+    fontFamily:Regular,
     top: 5,
   },
   input: {

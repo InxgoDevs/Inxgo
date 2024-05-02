@@ -317,6 +317,7 @@ const styles = StyleSheet.create({
   welcomel: {
     marginTop: verticalScale(40),
     fontSize: 40,
+    fontFamily:Regular,
 
     fontFamily: Bold,
     //alignSelf: "center",

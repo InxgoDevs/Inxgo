@@ -29,6 +29,7 @@ const appStyle = StyleSheet.create({
     fontWeight: "700",
     //left:10,
     //marginBottom:20,
+    fontFamily:Regular
   },
   appButtonSoical: {
     width: "90%",
@@ -41,6 +42,7 @@ const appStyle = StyleSheet.create({
     marginTop: 10,
     height: 57,
     justifyContent: "center",
+    fontFamily:Regular
   },
   lineText: {
     alignSelf: "center",

@@ -3,7 +3,7 @@ import React from "react";
 import { View,Image,Text,StyleSheet,TouchableOpacity} from 'react-native';
 import profile from "../../style/profile";
 const arrow_back = require("../../assets/arrow_back.png");
-
+import { Regular } from "../../constants/fonts";
 
 
 
@@ -70,6 +70,7 @@ const styles=StyleSheet.create({
         fontSize:15,
         color:'black',
         paddingStart:15,
+        fontFamily:Regular
 
 
     },
@@ -77,6 +78,7 @@ const styles=StyleSheet.create({
     Text2:{
     color:'black',
     fontWeight:"bold",
+    fontFamily:Regular
 
    
 

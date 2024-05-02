@@ -4,6 +4,8 @@ import { Dimensions,StyleSheet, Text, TextInput, View, Image,ScrollView,Touchabl
 import appStyle from "../../style/footer";
 import { SvgUri, SvgXml } from 'react-native-svg';
 import wallet from "../../style/wallet";
+import { Regular } from '../../constants/fonts';
+
 const circle=require('../../assets/icons/circle.png')
 const location=require('../../assets/icons/location.png')
 const hrs=require('../../assets/icons/hrs.png')
@@ -33,11 +35,11 @@ class Pending extends Component {
                       <View style={{
                         flexDirection: 'row',
                       }}>
-                        <Text style={{fontSize:18}}>
+                        <Text style={{fontSize:18,fontFamily:Regular}}>
                           Mark Tuan 
                         </Text>
                       </View>
-                      <Text style={{fontSize:12}}>Plumber</Text>
+                      <Text style={{fontSize:12,fontFamily:Regular}}>Plumber</Text>
                     </View>
                     <View style={wallet.RightContainer}> 
                       <View style={{
@@ -45,7 +47,7 @@ class Pending extends Component {
                         alignSelf: 'flex-end'
                       }}>
                         <View  style={{right:10,width:80,height:30,backgroundColor:'#FFC44D',alignSelf: "center",justifyContent: 'center',alignItems: 'center'}}>
-                          <Text style={{fontSize:14,fontWeight:'bold'}}>
+                          <Text style={{fontSize:14,fontWeight:'bold',fontFamily:Regular}}>
                             Accepted
                           </Text>
                         </View>
@@ -60,27 +62,27 @@ class Pending extends Component {
                   <View style={{ marginTop:10,marginBottom:10,width:'90%',flexDirection: 'row',alignSelf: "center",justifyContent: 'center',alignItems: 'center'}}>
                       <View style={{width:'38%',marginLeft:5,flexDirection: 'row'}}>
                         <Image source={location} />
-                        <Text style={{fontSize:14,fontWeight:'bold', marginLeft:2}}> Sadiq Centre LHR
+                        <Text style={{fontSize:14,fontWeight:'bold', marginLeft:2,fontFamily:Regular}}> Sadiq Centre LHR
                         </Text>  
                       </View>
                       <View style={{width:'30%',left:10,flexDirection: 'row',alignSelf: "center",justifyContent: 'center',alignItems: 'center'}}>
                       <Image style={{width:15,height:15}} source={hrs} />
-                        <Text style={{fontSize:14,textAlign: "center",fontWeight:'bold', marginLeft:2}}> 4 hrs
+                        <Text style={{fontSize:14,textAlign: "center",fontWeight:'bold', marginLeft:2,fontFamily:Regular}}> 4 hrs
                         </Text> 
                       </View>
                       <View style={{width:'30%',alignSelf: "center",justifyContent: 'center',alignItems: 'center',right:5,flexDirection: 'row'}}>
                         <Image style={{width:15,height:15}} source={circle} />
-                        <Text style={{fontSize:14,textAlign: "center",fontWeight:'bold', marginLeft:2}}>$40/ hr
+                        <Text style={{fontSize:14,textAlign: "center",fontWeight:'bold', marginLeft:2,fontFamily:Regular}}>$40/ hr
                         </Text> 
                       </View>
                   </View>
                    <View style={{ marginBottom:10,width:'90%',flexDirection: 'row',alignSelf: "center",justifyContent: 'center',alignItems: 'center'}}>
                       <View style={{width:'50%',marginLeft:5,flexDirection: 'row'}}>
-                        <Text style={{fontSize:12, marginLeft:2}}> Date & Time
+                        <Text style={{fontSize:12, marginLeft:2,fontFamily:Regular}}> Date & Time
                         </Text>  
                       </View>
                       <View style={{width:'50%',alignSelf: "center",justifyContent: 'center',alignItems: 'center',right:5,flexDirection: 'row'}}>
-                        <Text style={{fontSize:12,textAlign: "center",fontWeight:'bold', marginLeft:2}}>
+                        <Text style={{fontSize:12,textAlign: "center",fontWeight:'bold', marginLeft:2,fontFamily:Regular}}>
                           June 11, 2023 | 11:00 AM
                         </Text> 
                       </View>

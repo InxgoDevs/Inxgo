@@ -10,6 +10,7 @@ import location from "../../assets/icons/location.png";
 import hrs from "../../assets/icons/hrs.png";
 import Frame from '../../assets/Frame.png'
 import CustomModal from "../../components/CustomModal";
+import { Regular } from "../../constants/fonts";
 const Tracker = ({ navigation }) => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [time, setTime] = useState(0);
@@ -78,7 +79,7 @@ const Tracker = ({ navigation }) => {
     <View style={styles.container}>
        <CustomModal
         title="Do you Really Want to End this Task?"
-        buttontitle="Yes"
+        buttontitle="Home"
         buttontitle2="No"
         modalVisible={modalVisible}
         setModalVisible={setModalVisible}
@@ -92,15 +93,15 @@ const Tracker = ({ navigation }) => {
         <View style={wallet.LeftContainer}>
         <View style={{ flexDirection:'row-reverse',width:responsiveWidth(70)}}>
         <TouchableOpacity onPress={()=>navigation.navigate("CancelScreen")}>
-        <Text style={{ fontSize: 18,color:"red",color:"#FFC44D"}}>Cancel</Text>
+        <Text style={{ fontSize: 18,color:"#FFC44D",fontFamily:Regular}}>Cancel</Text>
 
         </TouchableOpacity>
         
         </View>
           <View style={{ flexDirection: "row" }}>
-            <Text style={{ fontSize: 18 }}>Mark Tuan</Text>
+            <Text style={{ fontSize: 18,fontFamily:Regular }}>Mark Tuan</Text>
           </View>
-          <Text style={{ fontSize: 12 }}>Plumber</Text>
+          <Text style={{ fontSize: 12, fontFamily:Regular }}>Plumber</Text>
         </View>
 
         <View style={wallet.RightContainer}>
@@ -116,7 +117,7 @@ const Tracker = ({ navigation }) => {
                 alignItems: "center",
               }}
             >
-              <Text style={{ fontSize: 10 }}>Active</Text>
+              <Text style={{ fontSize: 10,fontFamily:Regular }}>Active</Text>
             </View>
           </View>
         </View>
@@ -136,7 +137,7 @@ const Tracker = ({ navigation }) => {
       >
         <View style={{ width: "38%", marginLeft: 5, flexDirection: "row" }}>
           <Image source={location} />
-          <Text style={{ fontSize: 12, fontWeight: "400", marginLeft: 5 }}>
+          <Text style={{ fontSize: 12, fontWeight: "400", marginLeft: 5,fontFamily:Regular }}>
             Sadiq Centre LHR
           </Text>
         </View>
@@ -157,6 +158,7 @@ const Tracker = ({ navigation }) => {
               textAlign: "center",
               fontWeight: "400",
               marginLeft: 5,
+              fontFamily:Regular
             }}
           >
             4 hrs
@@ -179,6 +181,7 @@ const Tracker = ({ navigation }) => {
               textAlign: "center",
               fontWeight: "400",
               marginLeft: 5,
+              fontFamily:Regular
             }}
           >
             $40/ hr
@@ -208,6 +211,7 @@ const Tracker = ({ navigation }) => {
               
               fontSize: 10,
               marginBottom: 10,
+              fontFamily:Regular
             }}
           >
             We have assigned you a plumbing task for an urgent repair at Sadiq
@@ -235,7 +239,7 @@ const Tracker = ({ navigation }) => {
           onPress={handleStartButtonClick}
         />
         <CustomButton
-          title={"End"}
+          title={"Finish"}
           color="#FFC44D"
           onPress={handleEndButton}
         />
@@ -263,6 +267,7 @@ const styles = StyleSheet.create({
   },
   timerText: {
     fontSize: 18,
+    fontFamily:Regular,
    // position: "absolute",
     // Position the text absolutely within the timerContainer
     //top: "75%", // Center the text vertically

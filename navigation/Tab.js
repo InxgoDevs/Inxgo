@@ -51,6 +51,7 @@ import CompleteDetails from "../screens/Booking/CompleteDetails";
 import TrackerMain from "../screens/Booking/TrackerMain";
 import Faq from "../screens/Menu/Faq";
 import ViewAll from "../screens/home/ViewAll";
+import SearchProvider from "../screens/Booking/SearchProvider";
 const Tab = createBottomTabNavigator();
 
 const Tabs = (props) => {
@@ -78,8 +79,10 @@ const Tabs = (props) => {
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="SignUp" component={SignUp} />
       <Tab.Screen name="Home" component={Home} />
-
+      
       <Tab.Screen name="StartLogin" component={StartLogin} />
+      <Tab.Screen name="SearchProvider" component={SearchProvider} />
+
       <Tab.Screen name="Messages" component={Messages} />
       <Tab.Screen name="Forget" component={Forget} />
       <Tab.Screen name="Wallet" component={Wallet} />
