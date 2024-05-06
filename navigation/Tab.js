@@ -51,6 +51,8 @@ import CompleteDetails from "../screens/Booking/CompleteDetails";
 import TrackerMain from "../screens/Booking/TrackerMain";
 import Faq from "../screens/Menu/Faq";
 import ViewAll from "../screens/home/ViewAll";
+import List from "../screens/Booking/Map";
+import Map from "../screens/Booking/List";
 import SearchProvider from "../screens/Booking/SearchProvider";
 const Tab = createBottomTabNavigator();
 
@@ -73,7 +75,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Login" : "Home"}
+      initialRouteName={!users ? "Login" : "SearchProvider"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
@@ -126,6 +128,10 @@ const Tabs = (props) => {
       <Tab.Screen name="Faq" component={Faq} />
       <Tab.Screen name="ViewAll" component={ViewAll} />
       <Tab.Screen name="SupplierProfile" component={SupplierProfile} />
+      <Tab.Screen name="List" component={List} />
+      <Tab.Screen name="Map" component={Map} />
+
+
     </Tab.Navigator>
   );
 };

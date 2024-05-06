@@ -34,6 +34,7 @@ export {default as AddCredit} from '../screens/Wallet/AddCredit';
 export{default as CompleteDetails} from '../screens/Booking/CompleteDetails';
 export{default as SearchProvider} from "../screens/Booking/SearchProvider";
 export {default as ViewAll} from "../screens/home/ViewAll";
-
+export{default as Map} from "../screens/Booking/Map";
+export{default as List} from "../screens/Booking/List"
 
 

@@ -1,15 +1,47 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { useState,Component } from 'react';
 import { View, Text, StyleSheet,TouchableOpacity,Image } from 'react-native';
+import { TabView, SceneMap, TabBar } from "react-native-tab-view";
+
 import {
     responsiveHeight,
     responsiveWidth,
   } from "react-native-responsive-dimensions";
   const arrow_back = require("../../assets/arrow_back.png");
   import signUpStyle from "../../style/SignUp";
+  import List from './List';
+  import Map from './Map';
 
 // create a component
-const SearchProvider = () => {
+const SearchProvider = ({navigation}) => {
+  const [index, setIndex] = useState(1);
+  const [routes] = useState([
+    { key: "second", title: "Map" },
+    { key: "third", title: "List" },
+  ]);
+
+  const renderTabBar = (props) => (
+    <TabBar
+      {...props}
+      activeColor={{ Color: "#FFC44D" }}
+      inactiveColor={{ backgroundColor: "#FFC44D" }}
+      indicatorStyle={{ backgroundColor: "#FFC44D" }}
+      style={{ backgroundColor: "#FAFAFA" }}
+    />
+  );
+
+  const MapRoute = () => (
+    <View style={{ flex: 1 }}>
+      <Map navigation={navigation} />
+    </View>
+  );
+
+  const ListRoute = () => (
+    <View style={{ flex: 1 }}>
+      <List navigation={navigation} />
+    </View>
+  );
+
     return (
         <View style={styles.container}>
               <View
@@ -26,6 +58,15 @@ const SearchProvider = () => {
         </TouchableOpacity>
         <Text style={signUpStyle.welcomeF}>Searching for Provider</Text>
       </View>
+      <TabView
+        navigationState={{ index, routes }}
+        onIndexChange={setIndex}
+        renderTabBar={renderTabBar}
+        renderScene={SceneMap({
+          second: MapRoute,
+          third: ListRoute,
+        })}
+      />
         </View>
     );
 };
