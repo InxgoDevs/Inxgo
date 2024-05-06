@@ -75,13 +75,13 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Login" : "SearchProvider"}
+      initialRouteName={!users ? "Login" : "SplashScreen"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />
       <Tab.Screen name="SignUp" component={SignUp} />
       <Tab.Screen name="Home" component={Home} />
-      
+
       <Tab.Screen name="StartLogin" component={StartLogin} />
       <Tab.Screen name="SearchProvider" component={SearchProvider} />
 
@@ -130,8 +130,6 @@ const Tabs = (props) => {
       <Tab.Screen name="SupplierProfile" component={SupplierProfile} />
       <Tab.Screen name="List" component={List} />
       <Tab.Screen name="Map" component={Map} />
-
-
     </Tab.Navigator>
   );
 };

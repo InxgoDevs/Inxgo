@@ -1,11 +1,17 @@
 import React, { useState, useEffect } from "react";
-import { View, Image, Text, Button, Linking } from "react-native";
-import * as Location from "expo-location";
+import {
+  View,
+  Image,
+  Text,
+  PermissionsAndroid,
+  Button,
+  Linking,
+} from "react-native";
+import Geolocation from "@react-native-community/geolocation";
 import { CommonImages } from "../constants/Images";
 import { Bold } from "../constants/fonts";
 import { responsiveWidth } from "react-native-responsive-dimensions";
 
-// Consider storing your API key in an environment variable or secure storage
 const YOUR_API_KEY = "AIzaSyBumeTNvlZPonN8-rnzCqt1MHyLjSNHMgA";
 
 const MyLocation = () => {
@@ -16,31 +22,50 @@ const MyLocation = () => {
   useEffect(() => {
     const getLocation = async () => {
       try {
-        const { status } = await Location.requestForegroundPermissionsAsync();
-        if (status !== "granted") {
-          setErrorMessage("Location permission denied");
-          return;
-        }
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
+          {
+            title: "Location Permission",
+            message: "This app needs access to your location.",
+            buttonNeutral: "Ask Me Later",
+            buttonNegative: "Cancel",
+            buttonPositive: "OK",
+          }
+        );
 
-        const location = await Location.getCurrentPositionAsync({});
-        const { latitude, longitude } = location.coords;
-        setLocation({ latitude, longitude });
-        getAddressFromCoordinates({ latitude, longitude })
-          .then((address) => {
-            setAddress(address);
-          })
-          .catch((error) => {
-            console.error("Error fetching address:", error);
-            setErrorMessage("Failed to fetch address");
-          });
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          Geolocation.getCurrentPosition(
+            async (position) => {
+              const { latitude, longitude } = position.coords;
+              setLocation({ latitude, longitude });
+              // Call getAddressFromCoordinates with the correct parameters
+              getAddressFromCoordinates({ latitude, longitude })
+                .then((address) => {
+                  setAddress(address);
+                })
+                .catch((error) => {
+                  console.error("Error fetching address:", error);
+                });
+            },
+            (error) => {
+              setErrorMessage(error.message);
+            },
+            { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+          );
+        } else {
+          setErrorMessage("Location permission denied");
+        }
       } catch (err) {
         console.warn(err);
-        setErrorMessage("Failed to get location permission");
       }
     };
 
     getLocation();
-  }, []); // Empty dependency array since no external dependencies are used
+
+    return () => {
+      Geolocation.clearWatch();
+    };
+  }, []);
 
   const openAppSettings = () => {
     Linking.openSettings();
@@ -51,13 +76,10 @@ const MyLocation = () => {
       fetch(
         `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${YOUR_API_KEY}`
       )
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error("Network response was not ok");
-          }
-          return response.json();
-        })
+        .then((response) => response.json())
         .then((responseJson) => {
+          console.log("Response", responseJson);
+
           if (responseJson.status === "OK") {
             resolve(responseJson?.results?.[0]?.formatted_address);
           } else {
@@ -65,7 +87,6 @@ const MyLocation = () => {
           }
         })
         .catch((error) => {
-          console.error("Error fetching address:", error);
           reject(error);
         });
     });
@@ -91,6 +112,7 @@ const MyLocation = () => {
           style={{
             flexDirection: "row",
             width: responsiveWidth(70),
+            // backgroundColor: "red",
           }}
         >
           <Image

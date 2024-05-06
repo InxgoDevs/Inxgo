@@ -80,7 +80,7 @@ const Index = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1, paddingTop: 50, backgroundColor: "#fff" }}>
+    <View style={{ flex: 1, paddingTop: 20, backgroundColor: "#fff" }}>
       <KeyboardAvoidingView behavior="padding" style={{ flex: 1 }}>
         <ScrollView keyboardDismissMode={"on-drag"}>
           <View style={appStyle.cardContainer}>
@@ -110,9 +110,7 @@ const Index = ({ navigation }) => {
               <Text style={appStyle.rowLabelText}>Categories</Text>
             </View>
             <View style={appStyle.rightContainerSmall}>
-              <TouchableOpacity
-                onPress={() => navigation.navigate("ViewAll")}
-              >
+              <TouchableOpacity onPress={() => navigation.navigate("ViewAll")}>
                 <Text style={appStyle.rowLabelTextRight}>View all</Text>
               </TouchableOpacity>
             </View>
@@ -158,7 +156,7 @@ const Index = ({ navigation }) => {
                   color: "#000",
                   bottom: 9,
                   fontWeight: "Bold",
-                  fontFamily:Regular
+                  fontFamily: Regular,
                 }}
               >
                 Become our Partner and get your dream work here
@@ -179,13 +177,19 @@ const Index = ({ navigation }) => {
                   color: "#000",
                   bottom: 9,
                   fontWeight: "Bold",
-                  fontFamily:Regular
+                  fontFamily: Regular,
                 }}
               >
                 Contact Support
               </Text>
               <Text
-                style={{ width: "80%", fontSize: 12, color: "#000", bottom: 9,fontFamily:Regular }}
+                style={{
+                  width: "80%",
+                  fontSize: 12,
+                  color: "#000",
+                  bottom: 9,
+                  fontFamily: Regular,
+                }}
               >
                 couldn’t find what you need! Let’s us hire for you..
               </Text>

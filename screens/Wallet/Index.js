@@ -10,7 +10,6 @@ import profile from "../../style/profile";
 import Payment from "./Payment";
 const image_upload = require("../../assets/image_upload.png");
 const arrow_back = require("../../assets/arrow_back.png");
-const Loading = require("../../assets/Loading_icon.gif");
 const money = require("../../assets/icons/money.png");
 const creditcard = require("../../assets/icons/creditcard.png");
 
@@ -33,8 +32,7 @@ const Index = ({ navigation }) => {
   };
 
   return (
-    <View style={{ flex: 1 
-   }}>
+    <View style={{ flex: 1 }}>
       <ScrollView keyboardDismissMode="on-drag" style={appStyle.body}>
         <TouchableOpacity onPress={() => navigation.navigate("Home")}>
           <View style={profile.welcome}>
@@ -42,11 +40,10 @@ const Index = ({ navigation }) => {
             <Text style={profile.welcomeText}>My Wallet</Text>
           </View>
         </TouchableOpacity>
-        <View style={{justifyContent:'center',alignItems:"center"}}>
-      <TouchableOpacity onPress={()=>navigation.navigate("Payment")}>
-        <Text>Payment</Text>
-      </TouchableOpacity>    
-      
+        <View style={{ justifyContent: "center", alignItems: "center" }}>
+          <TouchableOpacity onPress={() => navigation.navigate("Payment")}>
+            <Text>Payment</Text>
+          </TouchableOpacity>
         </View>
       </ScrollView>
       <Footer flag={"Wallet"} navigation={navigation} />
