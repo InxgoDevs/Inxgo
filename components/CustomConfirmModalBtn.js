@@ -2,9 +2,9 @@ import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import React from "react";
 import { responsiveWidth } from "react-native-responsive-dimensions";
 
-const CustomModelBtn = ({ buttontitle, onPress, color, width, height }) => {
+const CustomConfirmModalBtn = ({ buttontitle, onPress, color, width, height }) => {
   return (
-    <View style={{ alignSelf: "center" }}>
+    <View style={{ alignSelf: "center",top:60 }}>
       <TouchableOpacity
         style={[
           styles.button,
@@ -18,7 +18,7 @@ const CustomModelBtn = ({ buttontitle, onPress, color, width, height }) => {
   );
 };
 
-export default CustomModelBtn;
+export default CustomConfirmModalBtn;
 
 const styles = StyleSheet.create({
   button: {

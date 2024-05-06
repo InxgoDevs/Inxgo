@@ -384,12 +384,13 @@ const CompleteDetails = ({ navigation }) => {
             </View>
             <TouchableOpacity
               style={{
-                marginTop: 20,
+                bottom:40,
                 height: 50,
-                width: 200,
+                width: 100,
                 backgroundColor: "orange",
                 justifyContent: "center",
                 alignItems: "center",
+                left:130,
                 borderRadius: 10,
                 alignSelf: "center",
               }}

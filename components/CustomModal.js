@@ -10,7 +10,8 @@ import {
 } from "react-native";
 import CustomButton from "./CustomButton";
 import { responsiveFontSize } from "react-native-responsive-dimensions";
-import CustomModelBtn from "./CustomModelBtn";
+//import CustomModelBtn from "./CustomModelBtn";
+import CustomConfirmModalBtn from "./CustomConfirmModalBtn";
 
 const CustomModal = ({
   title,
@@ -43,7 +44,7 @@ const CustomModal = ({
           <View style={[styles.modalView, { width: windowWidth * 0.8 }]}>
             <Text style={styles.modalText}>{title}</Text>
             <View style={styles.buttonsContainer}>
-              <CustomModelBtn
+              <CustomConfirmModalBtn
                 buttontitle={buttontitle}
                 color="#FFC44D"
                 width={windowWidth * 0.3}
@@ -51,7 +52,7 @@ const CustomModal = ({
                 onPress={onPressYes}
               />
               <View style={{ width: 10 }}></View>
-              <CustomModelBtn
+              <CustomConfirmModalBtn
                 buttontitle={buttontitle2}
                 onPress={onPressNO}
                 color="#FFF5E1"

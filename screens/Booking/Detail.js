@@ -357,8 +357,7 @@ const Detail = ({ navigation }) => {
             source={map}
           /> */}
           <TouchableOpacity
-           onPress={()=>navigation.navigate("Jobstart")}
-
+          onPress={handleTrackClientButton}
             style={[
               styles.Btncontainers,
               {
