@@ -79,7 +79,7 @@ const Index = ({ navigation }) => {
   return (
     <View style={{ flex: 1, backgroundColor: "#FAFAFA" }}>
       <Toast />
-      <TouchableOpacity onPress={() => navigation.navigate("Home")}>
+      <TouchableOpacity onPress={() => navigation.navigate("Booking")}>
         <View style={profile.welcome}>
           <Image style={profile.arrow_back} source={arrow_back} />
           <Text style={profile.welcomeText}>My Jobs</Text>

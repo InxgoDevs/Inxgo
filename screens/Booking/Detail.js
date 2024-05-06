@@ -324,8 +324,8 @@ const Detail = ({ navigation }) => {
                     bottom: 93,
                     right: 1,
                     fontWeight: "600",
-                    color: "blue",
                     fontSize: 12,
+                    color: "#FFC44D",
                   }}
                 >
                   Less
@@ -357,7 +357,7 @@ const Detail = ({ navigation }) => {
             source={map}
           /> */}
           <TouchableOpacity
-          onPress={handleTrackClientButton}
+            onPress={handleTrackClientButton}
             style={[
               styles.Btncontainers,
               {
