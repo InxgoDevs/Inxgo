@@ -6,6 +6,7 @@ const lock = require("../../assets/Lock.png"); // Add lock icon
 import { scale, verticalScale, moderateScale } from "react-native-size-matters";
 import { Bold } from "../../constants/fonts";
 import { Formik } from "formik";
+
 import {
   StyleSheet,
   Text,
@@ -38,6 +39,7 @@ const openEye = require("../../assets/openeye.png");
 const email = require("../../assets/Email.png");
 
 const Index = ({ navigation }) => {
+
   const emailInput = useRef(null);
   const passwordInput = useRef(null);
   const confirmPasswordInput = useRef(null);
@@ -56,6 +58,17 @@ const Index = ({ navigation }) => {
   const handleState = (text, key) => {
     setState({ ...state, [key]: text });
   };
+  const showToast = () => {
+    Toast.show({
+      type: 'success',
+      text1: 'Login Successfully',
+     // text2: 'This is some something 👋'
+    });
+  }
+  const handleResend = () => {
+    showToast();
+    //startTimer(); // Restart the timer when the "Resend" button is clicked
+ };
 
   const handleSubmit = async (values, formikActions) => {
     let data = new FormData();
@@ -155,9 +168,11 @@ const Index = ({ navigation }) => {
                     style={styles.input}
                     ref={passwordInput}
                   />
+                  
                   <View style={styles.lockIconContainer}>
                     <Image source={lock} style={styles.lockIcon} />
                   </View>
+                  
                   <TouchableOpacity
                     style={styles.eyeIconContainer}
                     onPress={togglePasswordVisibility}
@@ -166,13 +181,19 @@ const Index = ({ navigation }) => {
                       source={state.passwordVisible ? openEye : blind}
                       style={styles.eyeIcon}
                     />
+                    
                   </TouchableOpacity>
+                  <TouchableOpacity onPress={()=>navigation.navigate('Forget')} style={{bottom:10}}>
+                  <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
+
+                  </TouchableOpacity>
+
                   {props.touched.password && props.errors.password ? (
                     <Text style={styles.error2}>{props.errors.password}</Text>
                   ) : null}
 
                   <Button
-                    onPress={props.handleSubmit}
+                    onPress={handleResend}
                     mode="contained"
                     loading={props.isSubmitting}
                     disabled={props.isSubmitting}
@@ -271,7 +292,8 @@ const styles = StyleSheet.create({
     fontFamily: Regular,
     borderColor: "#FECD45",
     borderWidth: 2,
-    backgroundColor: "#fafafa",
+    backgroundColor: "#FFF5E1",
+    
     marginBottom: 10,
     borderRadius: 10,
   },
@@ -359,5 +381,14 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     flexDirection: "row",
+  },
+  forgotPasswordText: {
+    position: 'absolute',
+    right: 10, // Adjust this value to position the text correctly
+    top: '50%', // Center the text vertically within the password input field
+    transform: [{ translateY: -10 }], // Adjust to vertically center the text
+    color: '#FFC44D', // Change the color to match your theme
+    fontSize: 12, // Adjust the font size as needed
+    fontFamily:Regular
   },
 });

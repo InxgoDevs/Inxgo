@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity, Image, TextInput } from 'reac
 import { responsiveHeight, responsiveWidth } from "react-native-responsive-dimensions";
 import appStyle from "../../style/login_start";
 import signUpStyle from "../../style/SignUp";
-
+import { Regular } from '../../constants/fonts';
 import Toast from 'react-native-toast-message';
 
 

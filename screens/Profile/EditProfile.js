@@ -54,8 +54,8 @@ const EditProfile = ({ navigation }) => {
         </View>
         <View style={styles.viewstyle}>
           <Image source={require("../../assets/Bell.png")} />
-          <TouchableOpacity onPress={() => navigation.navigate("Notification")}>
-            <Text style={styles.txt}>Alerts</Text>
+          <TouchableOpacity onPress={() => navigation.navigate("ProfileNotifications")}>
+            <Text style={styles.txt}>Notification</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.viewstyle}>

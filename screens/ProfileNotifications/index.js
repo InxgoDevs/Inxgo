@@ -45,12 +45,14 @@ const ProfileNotifications = ({navigation}) => {
 
  return (
     <View style={styles.container}>
-    <TouchableOpacity onPress={() => navigation.navigate("Booking")}>
+    
         <View style={profile.welcome}>
+        <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
           <Image style={profile.arrow_back} source={arrow_back} />
+          </TouchableOpacity>
           <Text style={profile.welcomeText}>Notification</Text>
         </View>
-      </TouchableOpacity>
+     
       <FlatList
         data={Data}
         renderItem={renderItem}

@@ -7,6 +7,7 @@ import appStyle from "../../style/login_start";
 import signUpStyle from "../../style/SignUp";
 import { SvgUri, SvgXml } from 'react-native-svg';
 import { NavigationContainer } from '@react-navigation/native';
+import { Regular } from '../../constants/fonts';
 
 const start3 = require('../../assets/passwordpic.png')
 const message = require('../../assets/icons/message.png')

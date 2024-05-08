@@ -36,3 +36,4 @@ export { default as SearchProvider } from "../screens/Booking/SearchProvider";
 export { default as ViewAll } from "../screens/home/ViewAll";
 export { default as Map } from "../screens/Booking/Map";
 export { default as List } from "../screens/Booking/List";
+export {default as ProfileNotifications} from  "../screens/ProfileNotifications"
