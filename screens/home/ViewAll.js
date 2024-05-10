@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity, TextInput, FlatList, S
 import { Regular } from "../../constants/fonts";
 import appStyle from "../../style/home";
 import axios from 'axios';
-
+import SvgUri from 'react-native-svg-uri';
 const setting = require("../../assets/icons/setting.png");
 const search = require("../../assets/searching.png");
 
@@ -16,167 +16,167 @@ import Footer from '../Footer/Index';
 const ViewAll = ({navigation}) => {
     const ViewAllHistory = [
         {
-            imageSource:require('../../assets/cybersecurity.png'),
-            imageSource:require('../../assets/Networking.png'),
+          //  image:require('../../assets/Networking.png'),
             textContent :"Cyber Security"
         },
         {
-            imageSource:require('../../assets/Networking.png'),
+          //  imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         },
         {
-            imageSource:require('../../assets/Networking.png'),
+          //  imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
-            textContent:"React Developer"
-        }, {
-            imageSource:require('../../assets/Networking.png'),
-            textContent :"Networking"
-        },
-        {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+          //  imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+          //  imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+          //  imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+          //  imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+          //  imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+          //  imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+          //  imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+            //imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+            //imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+          //  imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+           // imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+          //  imageSource:require('../../assets/react developer.png'),
             textContent:"React Developer"
         }, {
-            imageSource:require('../../assets/Networking.png'),
+           // imageSource:require('../../assets/Networking.png'),
             textContent :"Networking"
         },
         {
-            imageSource:require('../../assets/react developer.png'),
+          //  imageSource:require('../../assets/react developer.png'),
+            textContent:"React Developer"
+        }, {
+           // imageSource:require('../../assets/Networking.png'),
+            textContent :"Networking"
+        },
+        {
+           //image_path:('https://inxgo.com/public/api/skills'),
             textContent:"React Developer"
         },
     ];
+    
     const [data, setData] = useState([]);
 
     const [searchInput, setSearchInput] = useState(null);
@@ -188,7 +188,7 @@ const ViewAll = ({navigation}) => {
             try {
                 const response = await axios.get('https://inxgo.com/public/api/skills');
                 const processedData = response.data.map(item => ({
-                    imageSource: { uri: item.image },
+                    image_path: { uri: item.image_path },
                     textContent: item.title
                 }));
                 setData(processedData);
@@ -270,7 +270,7 @@ const ViewAll = ({navigation}) => {
                 <Text style={{ fontSize: 15, fontWeight: "700", fontFamily: Regular }}>
                     Categories        
                 </Text>
-                <TouchableOpacity onPress={()=>navigation.navigate('SeeAll')}>
+                <TouchableOpacity onPress={()=>navigation.navigate('LocalSVGTest')}>
                     <Text style={{ fontSize: 12, color: "black", fontFamily: Regular }}>
                         View All
                     </Text>
