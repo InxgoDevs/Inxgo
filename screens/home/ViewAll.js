@@ -188,8 +188,7 @@ const ViewAll = ({navigation}) => {
             try {
                 const response = await axios.get('https://inxgo.com/public/api/skills');
                 const processedData = response.data.map(item => ({
-                    image_path: { uri: item.image_path },
-                    textContent: item.title
+                    image_path: item.image_path,                    textContent: item.title
                 }));
                 setData(processedData);
                 setFilteredData(processedData);

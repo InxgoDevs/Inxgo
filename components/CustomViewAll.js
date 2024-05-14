@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { responsiveHeight, responsiveWidth } from 'react-native-responsive-dimensions';
 import { Regular } from '../constants/fonts';
 import { useNavigation } from '@react-navigation/native';
- import SvgUri from 'react-native-svg-uri';
+import SvgUri from 'react-native-svg-uri';
 //import { SvgUri } from 'react-native-svg';
 
 const CustomViewAll = ({ items }) => {
@@ -17,9 +17,9 @@ const CustomViewAll = ({ items }) => {
                     
                         {/*== <Image style={{ resizeMode: 'contain', width: responsiveWidth(15), height: responsiveHeight(6) }} source={item.imageSource} /> */}
                         <SvgUri
-    width="100%" // Adjust as needed
-    height="100%" // Adjust as needed
-    uri={item.image_path} // Corrected: Access the 'uri' property of the object
+   width={responsiveWidth(15)}
+                            height={responsiveHeight(6)}
+    source={{ uri: item.image_path }}
 />
 
 

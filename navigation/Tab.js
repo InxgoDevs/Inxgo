@@ -54,7 +54,7 @@ import ViewAll from "../screens/home/ViewAll";
 import List from "../screens/Booking/Map";
 import Map from "../screens/Booking/List";
 import SearchProvider from "../screens/Booking/SearchProvider";
-import LocalSVGTest from "../screens/Booking/LocalSVGTest ";
+
 const Tab = createBottomTabNavigator();
 
 const Tabs = (props) => {
@@ -131,7 +131,7 @@ const Tabs = (props) => {
       <Tab.Screen name="SupplierProfile" component={SupplierProfile} />
       <Tab.Screen name="List" component={List} />
       <Tab.Screen name="Map" component={Map} />
-      <Tab.Screen name="LocalSVGTest " component={LocalSVGTest } />
+      
 
     </Tab.Navigator>
   );
