@@ -76,7 +76,7 @@ const Tabs = (props) => {
 
   return (
     <Tab.Navigator
-      initialRouteName={!users ? "Login" : "Home"}
+      initialRouteName={!users ? "Login" : "SplashScreen"}
       screenOptions={options}
     >
       <Tab.Screen name="Profile" component={Profile} />

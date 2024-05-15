@@ -20,7 +20,7 @@ import Footer from "../Footer/Index";
 import wallet from "../../style/wallet";
 
 import { NavigationContainer } from "@react-navigation/native";
-import { Regular } from "../../constants/fonts";
+import { Bold, Regular } from "../../constants/fonts";
 import {
   responsiveHeight,
   responsiveWidth,
@@ -35,14 +35,13 @@ const Index = ({ navigation }) => {
   }, []);
 
   return (
-    <View
-     
-      style={{ height: "100%", backgroundColor: "#fafafa",flex:1 }}
-    >
+    <View style={{ height: "100%", backgroundColor: "#fafafa", flex: 1 }}>
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <View>
           <View style={profile.welcome}>
-            <TouchableOpacity onPress={() => navigation.navigate("EditProfile")}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate("EditProfile")}
+            >
               <Image style={profile.arrow_back} source={arrow_back} />
             </TouchableOpacity>
 
@@ -67,11 +66,58 @@ const Index = ({ navigation }) => {
                 paddingHorizontal: 5,
               }}
             >
-              Welcome to INXGO, your ultimate job portal app designed to
-              revolutionize the way you search, apply, and connect with career
-              opportunities. At INXGO, we believe that finding the right job
-              should be seamless, efficient, and tailored to your unique skills
-              and aspirations.{"\n"}
+              Welcome to INXGO! We're here to revolutionize the way you access
+              services. Join us as your trusted destination that seamlessly
+              bridges the gap between service providers and clients. With our
+              user-friendly app, accessing services in over 50 different areas
+              is simple and convenient. It is an ultimate platform, where you
+              can find everything you need. Our mission is: to simplify the
+              process of finding and delivering services, ensuring convenience
+              for everyone involved.
+              {"\n"}
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily: Bold,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              What We Offer? .{"\n"}
+            </Text>
+          </View>
+          <View>
+            <Text style={styles.bulletPoint}>
+              {"\u2022"} Explore over 50 different skills on our platform,
+              ensuring you find the perfect provider for your needs.
+            </Text>
+            <Text style={styles.bulletPoint}>
+              {"\u2022"} Our app is designed for both service providers and
+              clients. It's simple to use, so you can quickly find what you
+              need.
+            </Text>
+            <Text style={styles.bulletPoint}>
+              {"\u2022"} We're committed to upholding the highest integrity,
+              transparency, and customer satisfaction standards in everything we
+              do.
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily: Bold,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              Why Choose Us?
+              {"\n"}
             </Text>
           </View>
           <View>
@@ -84,12 +130,28 @@ const Index = ({ navigation }) => {
                 paddingHorizontal: 5,
               }}
             >
-              Our mission is to empower job seekers like you by providing a
-              comprehensive platform that brings together top employers and
-              talented professionals from various industries. Whether you're a
-              fresh graduate stepping into the professional world or an
-              experienced individual seeking new challenges, INXGO is here to
-              support you on your career journey.{"\n"}
+              At INXGO, we're more than just a service platform—a community
+              dedicated to excellence and innovation. We prioritize your needs
+              above all else, ensuring that every interaction with our platform
+              is personalized to meet your requirements. We aim to make your
+              experience with us as easy as possible, from finding the right
+              service provider to completing your transaction. With INXGO, you
+              can expect nothing but the best. We're committed to delivering
+              quality service that exceeds your expectations every time.
+            </Text>
+          </View>
+          <View>
+            <Text
+              style={{
+                fontSize: 16,
+                fontFamily: Bold,
+                width: responsiveWidth(90),
+                marginLeft: 20,
+                paddingHorizontal: 5,
+              }}
+            >
+              Join Us Today!
+              {"\n"}
             </Text>
           </View>
           <View>
@@ -102,49 +164,17 @@ const Index = ({ navigation }) => {
                 paddingHorizontal: 5,
               }}
             >
-              With INXGO, you can create a powerful profile that showcases your
-              expertise, education, and experience. Stand out from the crowd by
-              uploading a professional photo and highlighting your key skills.
-              Our advanced algorithm matches your profile with relevant job
-              opportunities, ensuring you discover the best-suited positions for
-              your career advancement.{"\n"}
+              Ready to experience a new way of accessing and delivering
+              services? Join us on our journey to redefine service provision:
             </Text>
           </View>
           <View>
-            <Text
-              style={{
-                fontSize: 13,
-                fontFamily: Regular,
-                width: responsiveWidth(90),
-                marginLeft: 20,
-                paddingHorizontal: 5,
-              }}
-            >
-              But INXGO is more than just a job search platform. It's a
-              community where you can build valuable connections, network with
-              industry experts, and stay updated on the latest trends and
-              insights. Join industry-specific groups, share your knowledge, and
-              learn from others to enhance your professional growth{"\n"}
-            </Text>
-          </View>
-          <View>
-            <Text
-              style={{
-                fontSize: 13,
-                fontFamily: Regular,
-                width: responsiveWidth(90),
-                marginLeft: 20,
-                paddingHorizontal: 5,
-              }}
-            >
-              Join the INXGO community today and embark on a transformative
-              journey towards a rewarding career. Let us help you unlock your
-              full potential and connect you with opportunities that align with
-              your ambitions. Together, we can redefine the future of job search
-              and create a world where talent and opportunity converge
-              seamlessly. Welcome to INXGO!
-            </Text>
-          </View>
+  <Text style={styles.title}>For Service Providers:</Text>
+  <Text style={styles.description}>
+    <Text style={styles.bold}>For Service Providers:</Text> Showcase your skills and connect with clients needing your expertise. With over 50 different areas to explore, there are plenty of opportunities to thrive on our platform.
+  </Text>
+</View>
+
         </View>
       </ScrollView>
 
@@ -154,3 +184,29 @@ const Index = ({ navigation }) => {
 };
 
 export default Index;
+const styles = StyleSheet.create({
+  bulletPoint: {
+    fontSize: 16,
+    marginBottom: 5,
+    fontSize: 13,
+    fontFamily: Regular,
+    width: responsiveWidth(90),
+    marginLeft: 20,
+    paddingHorizontal: 10,
+  },
+  title: {
+    fontSize: 16,
+    fontFamily: 'Bold', // Assuming 'Bold' is the name of your bold font
+    marginBottom: 5,
+  },
+  description: {
+    fontSize: 13,
+    fontFamily: 'Regular', // Assuming 'Regular' is the name of your regular font
+    width: responsiveWidth(90),
+    marginLeft: 20,
+    paddingHorizontal: 10,
+  },
+  bold: {
+    fontWeight: 'bold',
+  },
+});
