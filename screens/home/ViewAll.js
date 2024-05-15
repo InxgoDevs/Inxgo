@@ -5,6 +5,8 @@ import { Regular } from "../../constants/fonts";
 import appStyle from "../../style/home";
 import axios from 'axios';
 import SvgUri from 'react-native-svg-uri';
+//import { SvgUri } from 'react-native-svg';
+
 const setting = require("../../assets/icons/setting.png");
 const search = require("../../assets/searching.png");
 
@@ -188,13 +190,13 @@ const ViewAll = ({navigation}) => {
             try {
                 const response = await axios.get('https://inxgo.com/public/api/skills');
                 const processedData = response.data.map(item => ({
-                    image_path: item.image_path,                    textContent: item.title
+                    image_path: { uri: item.image_path },
+                    textContent: item.title
                 }));
                 setData(processedData);
                 setFilteredData(processedData);
             } catch (error) {
-                console.error(error);
-            }
+                console.error("Error fetching data:", error);            }
         };
 
         fetchData();
