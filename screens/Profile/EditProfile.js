@@ -9,7 +9,8 @@ import {
 import { Bold, Regular } from "../../constants/fonts";
 import CustomButton from "../../components/CustomButton";
 import { moderateScale } from "react-native-size-matters";
-
+import ExpertiseLevel from "../../components/ExpertiseLevel";
+import Switcher from "../../components/Switcher";
 // create a component
 const EditProfile = ({ navigation }) => {
   return (
@@ -99,7 +100,8 @@ const EditProfile = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
-      <View style={{ height: responsiveHeight(7) }}></View>
+      <Switcher/>
+      
       <View style={{ height: responsiveHeight(13) }}>
         <CustomButton
           title={"Logout"}
